@@ -1,0 +1,128 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+pip-wheel-metadata/
+share/python-wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+MANIFEST
+
+# Virtual Environment
+.venv/
+venv/
+ENV/
+env/
+.virtualenv/
+
+# PyCharm
+.idea/
+
+# VS Code
+.vscode/
+
+# Jupyter Notebook
+.ipynb_checkpoints
+
+# Environment variables
+.env
+.env.local
+.env.*.local
+
+# Model artifacts (large files - 90MB+ should use Git LFS)
+# Model file in backend/app/
+backend/app/*.pth
+backend/app/*.pt
+backend/app/*.onnx
+# Logs
+*.log
+logs/
+*.log.*
+backend/logs/
+frontend/logs/
+
+# Database
+*.db
+*.sqlite
+*.sqlite3
+mongodb_data/
+
+# Docker
+docker-compose.override.yml
+.dockerignore
+
+# Testing
+.pytest_cache/
+.coverage
+htmlcov/
+.tox/
+.hypothesis/
+test-results/
+
+# macOS
+.DS_Store
+
+# Windows
+Thumbs.db
+echthumbs.db
+Desktop.ini
+
+# Temporary files
+*.tmp
+*.temp
+*.swp
+*.swo
+*~
+
+# Uploaded/processed images
+backend/uploads/
+backend/temp/
+frontend/uploads/
+test_samples/*.jpg
+test_samples/*.jpeg
+test_samples/*.png
+!test_samples/cast_*.jpeg
+
+# Generated architecture diagrams
+*.png
+!docs/*.png
+
+# FastAPI cache
+.fastapi_cache/
+
+# Streamlit cache
+frontend/.streamlit/secrets.toml
+.streamlit/secrets.toml
+
+# Data directories
+data/
+temp/
+tmp/
+
+# mypy
+.mypy_cache/
+.dmypy.json
+dmypy.json
+
+# Pyre type checker
+.pyre/
+
+# pytype static type analyzer
+.pytype/
+
+.github
