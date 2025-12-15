@@ -316,22 +316,4 @@ Interactive API documentation available at:
 - **Swagger UI**: http://localhost:8000/docs
 - **ReDoc**: http://localhost:8000/redoc
 
-## 🤝 Contributing
 
-1. Fork the repository
-2. Create feature branch (`git checkout -b feature/amazing-feature`)
-3. Commit changes (`git commit -m 'Add amazing feature'`)
-4. Push to branch (`git push origin feature/amazing-feature`)
-5. Open Pull Request
-
-## 📝 License
-
-MIT License
-
-## 👥 Author
-
-EdgeLens Development Team
-
----
-
-**Built with ❤️ using FastAPI, PyTorch, and Streamlit**
