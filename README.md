@@ -1,98 +1,93 @@
 # EdgeLens - Industrial Defect Detection System
 
-A ML microservice for industrial defect detection using PyTorch ResNet50, featuring a FastAPI backend, Streamlit frontend, and MongoDB logging.
+Training repo: [DefectDetectionEdgeLens](https://github.com/PuneetVerma04/DefectDetectionEdgeLens) (model training/notebooks — this repo serves the resulting model)
 
-## 📁 Project Structure
+## What problem this solves
 
-```
-EdgeLens/
-│
-├── backend/                      # FastAPI Backend
-│   ├── app/
-│   │   ├── main.py              # Application entry point with lifespan events
-│   │   ├── defect_detection_resnet_casting_data.pth  # Model weights
-│   │   ├── api/                 # API route handlers
-│   │   │   ├── predict.py       # Prediction endpoint
-│   │   │   ├── history.py       # History endpoint
-│   │   │   └── retrain.py       # Retraining endpoint
-│   │   ├── core/                # Core business logic
-│   │   │   ├── model.py         # Model loading & inference
-│   │   │   ├── config.py        # Settings management
-│   │   │   └── schemas.py       # Pydantic models
-│   │   ├── utils/               # Utility functions
-│   │   │   ├── preprocess.py    # Image preprocessing pipeline
-│   │   │   └── postprocess.py   # Output postprocessing
-│   │   └── database/            # Database layer
-│   │       └── db.py            # Async MongoDB operations
-│   ├── Dockerfile               # Multi-stage backend container
-│   └── requirements.txt         # Backend dependencies
-│
-├── frontend/                     # Streamlit Frontend
-│   ├── streamlit_app.py         # Interactive web UI
-│   ├── Dockerfile               # Frontend container
-│   └── requirements.txt         # Frontend dependencies
-│
-├── scripts/                      # Utility scripts
-│   └── validate_model.py        # Model validation script
-│
-├── test_samples/                 # Sample test images
-│   ├── cast_def_0_127.jpeg      # Defective sample
-│   ├── cast_def_0_240.jpeg      # Defective sample
-│   └── cast_ok_0_119.jpeg       # OK sample
-│
-├── docker-compose.yml           # Multi-container orchestration
-├── .env                         # Environment configuration
-└── README.md                    # This file
-```
+Casting-defect inspection: given a photo of a cast part, classify it as OK or Defective. This repo
+is the **serving** side — a FastAPI microservice that loads a trained ResNet50 checkpoint and
+exposes it over HTTP, plus a Streamlit UI to exercise it and a MongoDB log of past predictions.
 
-## 🚀 Quick Start
+## What it is technically
 
-### Option 1: Docker Compose (Recommended)
+- **Backend** (`backend/`) — FastAPI service. Loads a PyTorch ResNet50 checkpoint once at startup,
+  exposes `/predict`, `/history`, and a retraining-simulation endpoint (see Limitations). Inference
+  results are logged to MongoDB asynchronously via `BackgroundTasks`, non-blocking.
+- **Frontend** (`frontend/`) — a single-file Streamlit app: upload an image, see the prediction,
+  confidence, and inference time, plus a history dashboard.
+- **Model**: ResNet50 (torchvision) with the final FC layer replaced for 2-class output (OK /
+  Defective). 224×224 RGB input, ImageNet normalization, CPU/GPU auto-detection.
+
+## Results / metrics
+
+No accuracy figures live in this repo — training, dataset, and evaluation are in the separate
+[DefectDetectionEdgeLens](https://github.com/PuneetVerma04/DefectDetectionEdgeLens) repo. See that
+repo's README for the current state of the reported numbers (including known validation-leakage
+caveats there). TODO: link the specific run/commit that produced the weights currently used here,
+once that's tracked.
+
+## Limitations (read before relying on this)
+
+- **Model retraining is a simulation, not a real training pipeline.** `POST /api/edgelens/retrain`
+  (see Model retraining below) just sleeps for 10 seconds and returns `"status": "processing"` — it
+  does not load data, does not train, and writes no checkpoint. There is no real retraining code in
+  this repo.
+- **No input sanitization beyond size and content-type checks.** The "Security" section below used
+  to claim broader sanitization; only file size and content-type are validated.
+- **`CORS_ORIGINS` bypasses the app's config layer.** Every other setting in `.env` is read through
+  `pydantic-settings` (`backend/app/core/config.py`); `CORS_ORIGINS` is instead read directly via
+  `os.getenv(...)` in `main.py` and is not a field on `Settings`. Functionally it still works, but
+  it won't show up if you inspect `Settings` in code, and won't get validated the way other options
+  do.
+
+## Model weights
+
+**The trained weights (`defect_detection_resnet_casting_data.pth`, ~94 MB) are not in this repo.**
+They're gitignored (`backend/app/*.pth`) and must be obtained separately before the backend can
+start — without them, `load_model()` raises `FileNotFoundError` at startup.
+
+TODO: publish a download URL (e.g. a GitHub Release asset or object storage link) for the trained
+weights. Until then, train your own via the notebooks in
+[DefectDetectionEdgeLens](https://github.com/PuneetVerma04/DefectDetectionEdgeLens) and place the
+resulting `.pth` file at `backend/app/defect_detection_resnet_casting_data.pth`.
+
+## Quick start
+
+### Docker Compose (recommended)
 
 ```bash
-# Start all services (MongoDB, Backend, Frontend)
+cp .env.example .env
 docker-compose up --build
-
-# Access the application
 # Frontend: http://localhost:8501
-# Backend API: http://localhost:8000
-# API Docs: http://localhost:8000/docs
+# Backend API: http://localhost:8000  (docs at /docs)
 ```
 
-### Option 2: Local Development
-
-#### Backend Setup
+### Local development
 
 ```bash
+# Backend
 cd backend
 pip install -r requirements.txt
-
-# Set environment variables (optional)
-export MONGODB_URL="mongodb://localhost:27017"
-export ENVIRONMENT="development"
-
-# Start the backend server
+cp ../.env.example ../.env   # edit as needed
 uvicorn app.main:app --host 0.0.0.0 --port 8000 --reload
-```
 
-#### Frontend Setup
-
-```bash
+# Frontend (separate terminal)
 cd frontend
 pip install -r requirements.txt
-
-# Start the Streamlit app
 streamlit run streamlit_app.py
 ```
 
-## 🎯 Features
+Requires the model weights in place first — see [Model weights](#model-weights) above.
+
+## Features
 
 ### Backend (FastAPI)
 
 - ✅ **Health Check**: `GET /api/edgelens/`
 - 🔍 **Defect Detection**: `POST /api/edgelens/predict`
 - 📜 **Prediction History**: `GET /api/edgelens/history`
-- 🔄 **Model Retraining**: `POST /api/edgelens/trigger-retraining`
+- 🔄 **Model Retraining (simulation stub)**: `POST /api/edgelens/retrain` — does not actually
+  retrain; see [Limitations](#limitations-read-before-relying-on-this)
 
 ### Frontend (Streamlit)
 
@@ -102,218 +97,106 @@ streamlit run streamlit_app.py
 - ⚙️ Live backend health monitoring
 - 📈 Confidence scores and inference timing
 
-## 🏗️ Architecture
-
-### Layered Architecture Pattern
-
-```
-Frontend (Streamlit) ←→ Backend API (FastAPI)
-                           ↓
-                    ┌──────────────────┐
-                    │   API Layer      │
-                    │  (routes/api/)   │
-                    └──────────────────┘
-                           ↓
-                    ┌──────────────────┐
-                    │  Business Logic  │
-                    │   (core/utils)   │
-                    └──────────────────┘
-                           ↓
-                    ┌──────────────────┐
-                    │  Data Layer      │
-                    │   (database/)    │
-                    └──────────────────┘
-                           ↓
-                       MongoDB
-```
-
-### Key Components
-
-- **API Layer**: HTTP request handling and response formatting
-- **Core Layer**: Model loading, configuration, and schemas
-- **Utils Layer**: Image preprocessing and output postprocessing
-- **Database Layer**: Async MongoDB operations for logging
-
-## 📊 Model Details
-
-- **Architecture**: ResNet50 (modified final FC layer)
-- **Classes**: 2 (Defective, OK)
-- **Input Size**: 224x224 RGB images
-- **Framework**: PyTorch (torchvision)
-- **Weights**: Pre-trained on casting defect dataset
-- **Inference**: CPU/GPU support with automatic device detection
-- **Preprocessing**: Resize → Normalize (ImageNet stats) → Tensor
-
-## 🔧 Configuration
-
-Environment variables (set in `.env` file):
-
-```bash
-# MongoDB
-MONGODB_URL=mongodb://mongodb:27017  # Use 'localhost' for local dev, 'mongodb' for Docker
-MONGODB_DB_NAME=edgelens_db
-MONGODB_COLLECTION_NAME=inference_logs
-
-# Application
-ENVIRONMENT=development
-LOG_LEVEL=INFO
-MAX_FILE_SIZE_MB=5
-
-# CORS (comma-separated origins)
-CORS_ORIGINS=http://localhost:8501,http://localhost:3000
-
-# API
-API_HOST=0.0.0.0
-API_PORT=8000
-API_WORKERS=1
-
-# Model
-MODEL_PATH=./app/defect_detection_resnet_casting_data.pth
-```
-
-**Note**: When running with Docker Compose, the MongoDB URL should use the service name `mongodb`. For local development, use `localhost`.
-
-## 🧪 Testing
-
-### Test the Backend API
+## Testing
 
 ```bash
 # Health check
 curl http://localhost:8000/api/edgelens/
 
 # Predict defects using sample images
-curl -X POST "http://localhost:8000/api/edgelens/predict" \
-     -F "file=@test_samples/cast_ok_0_119.jpeg"
-
-curl -X POST "http://localhost:8000/api/edgelens/predict" \
-     -F "file=@test_samples/cast_def_0_127.jpeg"
+curl -X POST "http://localhost:8000/api/edgelens/predict" -F "file=@test_samples/cast_ok_0_119.jpeg"
+curl -X POST "http://localhost:8000/api/edgelens/predict" -F "file=@test_samples/cast_def_0_127.jpeg"
 
 # Get prediction history (last 10)
 curl http://localhost:8000/api/edgelens/history
 
-# Trigger retraining simulation
-curl -X POST "http://localhost:8000/api/edgelens/trigger-retraining"
+# Trigger retraining simulation (see Limitations — this does not really retrain)
+curl -X POST "http://localhost:8000/api/edgelens/retrain"
 ```
 
-### Test the Frontend
-
-1. Open http://localhost:8501 in your browser
-2. Upload a test image from `test_samples/` directory
-3. Click "Analyze for Defects"
-4. View real-time results with confidence scores
-5. Check prediction history dashboard
-
-### Validate Model Locally
-
 ```bash
+# Validate the model loads and runs on the sample images (run from repo root)
 python scripts/validate_model.py
 ```
 
-## 📦 Dependencies
+## Architecture
 
-### Backend
-
-- FastAPI: Web framework
-- PyTorch: ML inference
-- Motor: Async MongoDB driver
-- Uvicorn: ASGI server
-
-### Frontend
-
-- Streamlit: Web UI framework
-- Requests: HTTP client
-- Pandas: Data manipulation
-- Pillow: Image processing
-
-## 🔐 Security
-
-- File size limits (5MB)
-- Content type validation
-- Error handling and sanitization
-- Environment-based configuration
-
-## 📈 Performance
-
-- Async database logging (non-blocking)
-- Request/response timing middleware
-- Model loaded once at startup
-- GPU acceleration support
-
-## 🛠️ Development
-
-### Adding New Endpoints
-
-1. Create route handler in `backend/app/api/`
-2. Register router in `backend/app/main.py` with appropriate prefix/tags
-3. Add Pydantic schemas to `backend/app/core/schemas.py`
-4. Update tests and documentation
-
-### Code Organization Principles
-
-- **API Layer** (`api/`): Handle HTTP concerns only - validation, response formatting
-- **Core Layer** (`core/`): Model loading, configuration, schemas
-- **Utils Layer** (`utils/`): Shared preprocessing/postprocessing functions
-- **Database Layer** (`database/`): Data persistence and async logging
-- **Never mix concerns**: Routes shouldn't contain ML code or direct DB calls
-
-### Local Development Setup
-
-```bash
-# Create virtual environment
-python -m venv .venv
-source .venv/bin/activate  # On Windows: .venv\Scripts\activate
-
-# Install dependencies
-pip install -r backend/requirements.txt
-pip install -r frontend/requirements.txt
-
-# Run backend
-cd backend
-uvicorn app.main:app --reload
-
-# Run frontend (in separate terminal)
-cd frontend
-streamlit run streamlit_app.py
+```
+Frontend (Streamlit) ←→ Backend API (FastAPI)
+                           ↓
+                    ┌──────────────────┐
+                    │   API Layer      │  (api/) — HTTP only
+                    └──────────────────┘
+                           ↓
+                    ┌──────────────────┐
+                    │  Business Logic  │  (core/, utils/)
+                    └──────────────────┘
+                           ↓
+                    ┌──────────────────┐
+                    │  Data Layer      │  (database/)
+                    └──────────────────┘
+                           ↓
+                       MongoDB
 ```
 
-## 🐳 Docker Notes
+- **API Layer**: HTTP request handling and response formatting
+- **Core Layer**: Model loading, configuration, and schemas
+- **Utils Layer**: Image preprocessing and output postprocessing
+- **Database Layer**: Async MongoDB operations for logging
 
-### Multi-Stage Build
+## Configuration
 
-The backend Dockerfile uses multi-stage builds:
+Copy `.env.example` to `.env` and adjust. See that file for the full list of variables (MongoDB
+connection, file size limit, CORS origins, API host/port, model path).
 
-1. **Builder stage**: Install gcc, compile dependencies
-2. **Runtime stage**: Copy compiled wheels, minimal footprint
+## Project structure
 
-### Container Orchestration
-
-- **Backend**: Port 8000 (FastAPI + Uvicorn)
-- **Frontend**: Port 8501 (Streamlit)
-- **MongoDB**: Port 27017 (Internal, not exposed)
-
-## 🚀 Deployment
-
-### Docker Compose Production
-
-```bash
-# Build and start all services
-docker-compose up -d --build
-
-# View logs
-docker-compose logs -f
-
-# Stop services
-docker-compose down
-
-# Remove volumes (clears database)
-docker-compose down -v
+```
+EdgeLens/
+├── backend/
+│   ├── app/
+│   │   ├── main.py
+│   │   ├── defect_detection_resnet_casting_data.pth  # NOT in repo — see Model weights
+│   │   ├── api/            # predict.py, history.py, retrain.py
+│   │   ├── core/           # model.py, config.py, schemas.py
+│   │   ├── utils/          # preprocess.py, postprocess.py
+│   │   └── database/       # db.py
+│   ├── Dockerfile
+│   └── requirements.txt
+├── frontend/                # Streamlit app
+│   ├── streamlit_app.py
+│   ├── Dockerfile
+│   └── requirements.txt
+├── scripts/
+│   └── validate_model.py
+├── test_samples/
+├── docker-compose.yml
+├── .env.example
+└── README.md
 ```
 
-## 📝 API Documentation
+## Dependencies
 
-Interactive API documentation available at:
+**Backend**: FastAPI, PyTorch, Motor (async MongoDB driver), Uvicorn.
+**Frontend**: Streamlit, Requests, Pandas, Pillow.
+
+## Docker notes
+
+- Backend Dockerfile uses a multi-stage build (builder installs/compiles, runtime stays minimal).
+- Ports: Backend 8000, Frontend 8501, MongoDB 27017 (internal only).
+
+```bash
+docker-compose up -d --build   # build and start
+docker-compose logs -f         # tail logs
+docker-compose down            # stop
+docker-compose down -v         # stop and wipe the MongoDB volume
+```
+
+## API documentation
 
 - **Swagger UI**: http://localhost:8000/docs
 - **ReDoc**: http://localhost:8000/redoc
 
+## License
 
+MIT — see [LICENSE](LICENSE).
