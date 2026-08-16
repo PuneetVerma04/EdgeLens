@@ -5,19 +5,20 @@ from app.utils.preprocess import preprocess_image
 from app.utils.postprocess import postprocess_output
 from app.database.db import log_inference
 from app.core.schemas import PredictionResponse, HealthCheckResponse
+from app.core.config import get_settings
 
 router = APIRouter()
 
 @router.post("/predict", response_model=PredictionResponse)
 async def predict(request: Request, background_tasks: BackgroundTasks, file: UploadFile = File(...)):
-    
-    MAX_FILE_SIZE = 5 * 1024 * 1024  # 5 MB
-    
+
+    max_file_size = get_settings().max_file_size_mb * 1024 * 1024
+
     # Check file size manually since UploadFile does not have spool_max_size
     file_size = len(await file.read())
     await file.seek(0)  # Reset file pointer after reading
-    if file_size > MAX_FILE_SIZE:
-        raise HTTPException(413, "File too large. Max size is 5 MB.")
+    if file_size > max_file_size:
+        raise HTTPException(413, f"File too large. Max size is {get_settings().max_file_size_mb} MB.")
     
     model = request.app.state.model
     if not file.content_type or file.content_type.split("/")[0] != "image":

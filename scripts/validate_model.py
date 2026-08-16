@@ -3,7 +3,7 @@ from torchvision import models, transforms
 from PIL import Image
 import os
 
-MODEL_PATH = "artifacts/defect_detection_resnet_casting_data.pth"
+MODEL_PATH = "backend/app/defect_detection_resnet_casting_data.pth"  # run from repo root
 
 # -------------------------
 # 1. Load the model
@@ -12,7 +12,7 @@ def load_model():
     model = models.resnet50(weights=None)
     model.fc = torch.nn.Linear(model.fc.in_features, 2)  # 2 classes: OK / Defective
 
-    checkpoint = torch.load(MODEL_PATH, map_location="cuda")
+    checkpoint = torch.load(MODEL_PATH, map_location="cuda" if torch.cuda.is_available() else "cpu")
     model.load_state_dict(checkpoint)
     model.eval()
     return model
