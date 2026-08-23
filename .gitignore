@@ -126,3 +126,31 @@ dmypy.json
 .pytype/
 
 .github
+# ---------------------------------------------------------------------------
+# Training runs (training/train_yolo.py, training/eval_yolo.py)
+#
+# Keep the small metadata that backs the metrics published in README.md --
+# configs, training curves, and eval results -- so every number in the README
+# is checkable from the repo. Drop the bulk: checkpoints, annotated renders,
+# and Ultralytics' plot output. Weights ship as GitHub Release assets instead.
+# ---------------------------------------------------------------------------
+runs/*
+!runs/neu_det/
+runs/neu_det/*
+!runs/neu_det/*/
+runs/neu_det/*/*
+!runs/neu_det/*/args.yaml
+!runs/neu_det/*/results.csv
+!runs/neu_det/*/edgelens_train_config.json
+!runs/neu_det/*/eval_test/
+runs/neu_det/*/eval_test/*
+!runs/neu_det/*/eval_test/metrics.json
+!runs/neu_det/*/eval_test/per_class_ap.csv
+!runs/neu_det/*/eval_test/confusion_matrix.csv
+!runs/neu_det/*/eval_test/confusion_matrix_normalized.csv
+!runs/neu_det/*/eval_test/summary.md
+!runs/neu_det/*/eval_test/error_analysis.json
+
+# Pretrained checkpoints auto-downloaded by ultralytics into the repo root
+/*.pt
+/*.onnx
