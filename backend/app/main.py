@@ -2,10 +2,10 @@ from fastapi import FastAPI, Request
 from fastapi.middleware.cors import CORSMiddleware
 from contextlib import asynccontextmanager
 import time
-import os
 from app.api.predict import router as predict_router
 from app.api.history import router as history_router
 from app.api.retrain import router as retrain_router
+from app.core.config import get_settings
 from app.core.model import load_model
 from app.database.db import connect_db, close_db
 
@@ -30,8 +30,10 @@ async def lifespan(app: FastAPI):
 
 app = FastAPI(title="EdgeLens Inference Service", lifespan=lifespan)
 
-# Configure CORS - Allow Streamlit Cloud and other frontend origins
-allowed_origins = os.getenv("CORS_ORIGINS", "http://localhost:8501,http://localhost:3000").split(",")
+# Configure CORS - Allow Streamlit Cloud and other frontend origins.
+# Read through pydantic-settings like every other setting, so CORS_ORIGINS is a real field
+# on Settings and is validated and inspectable alongside the rest of the configuration.
+allowed_origins = get_settings().cors_origins_list
 
 app.add_middleware(
     CORSMiddleware,

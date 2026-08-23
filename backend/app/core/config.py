@@ -15,7 +15,13 @@ class Settings(BaseSettings):
     environment: str = "development"
     log_level: str = "INFO"
     max_file_size_mb: int = 5
-    
+
+    # CORS Configuration
+    # Held as a raw comma-separated string rather than list[str] on purpose: pydantic-settings
+    # parses complex-typed fields as JSON, which would reject the comma-separated form that
+    # .env.example documents and that deployments already use. Split via cors_origins_list.
+    cors_origins: str = "http://localhost:8501,http://localhost:3000"
+
     # API Configuration
     api_host: str = "0.0.0.0"
     api_port: int = 8000
@@ -24,6 +30,11 @@ class Settings(BaseSettings):
     # Model Configuration
     model_path: str = "./app/defect_detection_resnet_casting_data.pth"
     
+    @property
+    def cors_origins_list(self) -> list[str]:
+        """CORS_ORIGINS as a list, ignoring blank entries and stray whitespace."""
+        return [origin.strip() for origin in self.cors_origins.split(",") if origin.strip()]
+
     class Config:
         env_file = str(Path(__file__).parent.parent.parent.parent / ".env")
         case_sensitive = False
