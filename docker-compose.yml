@@ -9,8 +9,12 @@ services:
     ports:
       - "8000:8000"
     environment:
-      MONGODB_URL: ${MONGODB_URL}
+      # Defaults to the local mongodb service below, so the stack is self-contained even
+      # without a .env file. Override in .env to point at an external cluster.
+      MONGODB_URL: ${MONGODB_URL:-mongodb://mongodb:27017}
       ENVIRONMENT: development
+    depends_on:
+      - mongodb
     networks:
       - edgelens-network
     healthcheck:
@@ -43,6 +47,27 @@ services:
       retries: 3
       start_period: 10s
 
+  mongodb:
+    image: mongo:7
+    container_name: edgelens-mongodb
+    restart: unless-stopped
+    # Deliberately NOT port-exposed to the host. Only the backend talks to it, and
+    # publishing 27017 would put an unauthenticated database on the host's interface.
+    # To inspect it: docker-compose exec mongodb mongosh edgelens_db
+    volumes:
+      - mongo_data:/data/db
+    networks:
+      - edgelens-network
+    healthcheck:
+      test: ["CMD", "mongosh", "--quiet", "--eval", "db.adminCommand('ping')"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 20s
+
 networks:
   edgelens-network:
     driver: bridge
+
+volumes:
+  mongo_data:
