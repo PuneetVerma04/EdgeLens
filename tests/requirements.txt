@@ -1,0 +1,4 @@
+# Test-only dependencies. Install alongside backend/requirements.txt:
+#   pip install -r backend/requirements.txt -r tests/requirements.txt
+pytest>=8.0.0
+httpx>=0.27.0          # required by fastapi.testclient.TestClient
