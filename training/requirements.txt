@@ -1,0 +1,43 @@
+# EdgeLens training/eval dependencies (NEU-DET, 6-class YOLO detection).
+#
+# Ultralytics is pinned exactly. Its defaults are not stable across releases and several
+# are adaptive, so an unpinned version silently changes the experiment. training/train_yolo.py
+# records the installed version in every run config; if you bump the pin, previous runs are
+# no longer strictly comparable to new ones.
+#
+# 8.4.126 is the version that supports both models compared here:
+#   - yolov8n  (ultralytics/cfg/models/v8/yolov8.yaml,  scale n)
+#   - yolo26n  (ultralytics/cfg/models/26/yolo26.yaml,  scale n)
+# and lists yolo26n.pt among its downloadable pretrained weights.
+ultralytics==8.4.126
+
+# Direct imports in these scripts. Ultralytics pulls all three in anyway; they are named
+# here so the scripts do not depend on another package's transitive graph.
+numpy>=1.23.0,<3
+pillow>=10.1.0          # ImageFont.load_default(size=...) used by the annotated renders
+pyyaml>=5.3.1
+matplotlib>=3.5.0       # set_xticklabels/imshow for confusion_matrix.png
+
+# ---------------------------------------------------------------------------------------
+# TORCH: install BEFORE this file, and install torchvision AT THE SAME TIME.
+#
+# Torch is not pinned here because the right build depends on your CUDA version. The trap:
+# ultralytics requires torchvision>=0.9.0, and torchvision's Windows wheels ON PyPI are
+# CPU-ONLY and pin an exact torch version. If torchvision is missing when you run this file,
+# pip installs it from PyPI and DOWNGRADES a working torch==X+cuXXX to torch==Y+cpu --
+# silently, with no error, and training then runs on the CPU at roughly 1/20th the speed.
+#
+# So install both together from the PyTorch CUDA index, matching your driver (`nvidia-smi`):
+#   pip install --index-url https://download.pytorch.org/whl/cu130 torch torchvision
+#   pip install -r training/requirements.txt
+#
+# Then verify before starting a long run:
+#   python -c "import torch; print(torch.__version__, torch.cuda.is_available())"
+# Expect a "+cuXXX" suffix and True. train_yolo.py refuses to start a CPU run when a GPU is
+# physically present, so this cannot silently cost you an afternoon -- but check anyway.
+# ---------------------------------------------------------------------------------------
+#
+# DELIBERATELY ABSENT: albumentations. When it is importable, Ultralytics silently adds an
+# extra augmentation pipeline, so two machines run different training from identical
+# commands. train_yolo.py detects it and records its version; keep it uninstalled unless you
+# install it for every run you intend to compare.
