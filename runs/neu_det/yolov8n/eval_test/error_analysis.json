@@ -1,0 +1,6818 @@
+{
+  "meta": {
+    "weights": "D:\\Projects\\Python Projects\\EdgeLens\\runs\\neu_det\\yolov8n\\weights\\best.pt",
+    "data": "D:\\Projects\\Python Projects\\EdgeLens\\data\\neu_det\\data.yaml",
+    "split": "test",
+    "images": 270,
+    "imgsz": 640,
+    "batch": 16,
+    "topk": 20,
+    "thresholds": {
+      "val_conf": 0.001,
+      "nms_iou": 0.7,
+      "max_det": 300,
+      "error_conf": 0.25,
+      "match_iou": 0.5
+    },
+    "ultralytics": "8.4.126",
+    "evaluated_utc": "2026-08-23T13:26:58+00:00"
+  },
+  "analysis": {
+    "operating_point": {
+      "error_conf": 0.25,
+      "match_iou": 0.5,
+      "nms_iou": 0.7,
+      "max_det": 300
+    },
+    "counts": {
+      "true_positives": 462,
+      "fp_background": 92,
+      "fn_poor_localisation": 84,
+      "fn_missed_entirely": 80,
+      "ground_truth_boxes": 627,
+      "predictions": 696,
+      "fp_poor_localisation": 101,
+      "fp_duplicate": 40,
+      "fp_wrong_class": 1,
+      "fn_wrong_class": 1
+    },
+    "false_positive_total": 234,
+    "false_negative_total": 165,
+    "false_positives_by_class": {
+      "crazing": 37,
+      "inclusion": 59,
+      "patches": 39,
+      "pitted_surface": 13,
+      "rolled-in_scale": 57,
+      "scratches": 29
+    },
+    "false_negatives_by_class": {
+      "crazing": 73,
+      "inclusion": 27,
+      "patches": 10,
+      "pitted_surface": 16,
+      "rolled-in_scale": 33,
+      "scratches": 6
+    },
+    "false_positives": [
+      {
+        "image": "inclusion_190.jpg",
+        "class_id": 1,
+        "class_name": "inclusion",
+        "confidence": 0.9138332605361938,
+        "box_xyxy": [
+          17.69,
+          4.13,
+          95.67,
+          199.39
+        ],
+        "kind": "poor_localisation",
+        "best_iou_any_gt": 0.4111,
+        "best_iou_same_class": 0.4111,
+        "nearest_gt_class": "inclusion",
+        "render": "fp_01__inclusion_190__pred-inclusion__conf0.914__poor_localisation.jpg"
+      },
+      {
+        "image": "patches_21.jpg",
+        "class_id": 2,
+        "class_name": "patches",
+        "confidence": 0.9058781266212463,
+        "box_xyxy": [
+          40.26,
+          121.66,
+          112.46,
+          179.89
+        ],
+        "kind": "poor_localisation",
+        "best_iou_any_gt": 0.2862,
+        "best_iou_same_class": 0.2862,
+        "nearest_gt_class": "patches",
+        "render": "fp_02__patches_21__pred-patches__conf0.906__poor_localisation.jpg"
+      },
+      {
+        "image": "pitted_surface_114.jpg",
+        "class_id": 3,
+        "class_name": "pitted_surface",
+        "confidence": 0.9012481570243835,
+        "box_xyxy": [
+          73.48,
+          0.0,
+          200.0,
+          200.0
+        ],
+        "kind": "poor_localisation",
+        "best_iou_any_gt": 0.3176,
+        "best_iou_same_class": 0.3176,
+        "nearest_gt_class": "pitted_surface",
+        "render": "fp_03__pitted_surface_114__pred-pitted_surface__conf0.901__poor_localisation.jpg"
+      },
+      {
+        "image": "patches_197.jpg",
+        "class_id": 2,
+        "class_name": "patches",
+        "confidence": 0.8843926191329956,
+        "box_xyxy": [
+          0.13,
+          66.24,
+          55.83,
+          130.43
+        ],
+        "kind": "poor_localisation",
+        "best_iou_any_gt": 0.4928,
+        "best_iou_same_class": 0.4928,
+        "nearest_gt_class": "patches",
+        "render": "fp_04__patches_197__pred-patches__conf0.884__poor_localisation.jpg"
+      },
+      {
+        "image": "pitted_surface_220.jpg",
+        "class_id": 3,
+        "class_name": "pitted_surface",
+        "confidence": 0.8834152221679688,
+        "box_xyxy": [
+          5.44,
+          0.99,
+          199.71,
+          195.59
+        ],
+        "kind": "poor_localisation",
+        "best_iou_any_gt": 0.4534,
+        "best_iou_same_class": 0.4534,
+        "nearest_gt_class": "pitted_surface",
+        "render": "fp_05__pitted_surface_220__pred-pitted_surface__conf0.883__poor_localisation.jpg"
+      },
+      {
+        "image": "pitted_surface_176.jpg",
+        "class_id": 3,
+        "class_name": "pitted_surface",
+        "confidence": 0.862630307674408,
+        "box_xyxy": [
+          1.19,
+          0.94,
+          199.98,
+          199.79
+        ],
+        "kind": "poor_localisation",
+        "best_iou_any_gt": 0.4344,
+        "best_iou_same_class": 0.4344,
+        "nearest_gt_class": "pitted_surface",
+        "render": "fp_06__pitted_surface_176__pred-pitted_surface__conf0.863__poor_localisation.jpg"
+      },
+      {
+        "image": "patches_158.jpg",
+        "class_id": 2,
+        "class_name": "patches",
+        "confidence": 0.8621516823768616,
+        "box_xyxy": [
+          151.3,
+          0.0,
+          199.74,
+          42.89
+        ],
+        "kind": "background",
+        "best_iou_any_gt": 0.0921,
+        "best_iou_same_class": 0.0921,
+        "nearest_gt_class": "patches",
+        "render": "fp_07__patches_158__pred-patches__conf0.862__background.jpg"
+      },
+      {
+        "image": "pitted_surface_261.jpg",
+        "class_id": 2,
+        "class_name": "patches",
+        "confidence": 0.848308265209198,
+        "box_xyxy": [
+          1.81,
+          0.0,
+          42.75,
+          42.99
+        ],
+        "kind": "poor_localisation",
+        "best_iou_any_gt": 0.4779,
+        "best_iou_same_class": 0.4779,
+        "nearest_gt_class": "patches",
+        "render": "fp_08__pitted_surface_261__pred-patches__conf0.848__poor_localisation.jpg"
+      },
+      {
+        "image": "patches_197.jpg",
+        "class_id": 2,
+        "class_name": "patches",
+        "confidence": 0.8279402852058411,
+        "box_xyxy": [
+          11.98,
+          123.6,
+          57.67,
+          197.91
+        ],
+        "kind": "poor_localisation",
+        "best_iou_any_gt": 0.4045,
+        "best_iou_same_class": 0.4045,
+        "nearest_gt_class": "patches",
+        "render": "fp_09__patches_197__pred-patches__conf0.828__poor_localisation.jpg"
+      },
+      {
+        "image": "patches_21.jpg",
+        "class_id": 2,
+        "class_name": "patches",
+        "confidence": 0.7987401485443115,
+        "box_xyxy": [
+          33.7,
+          0.0,
+          82.73,
+          121.78
+        ],
+        "kind": "poor_localisation",
+        "best_iou_any_gt": 0.4281,
+        "best_iou_same_class": 0.4281,
+        "nearest_gt_class": "patches",
+        "render": "fp_10__patches_21__pred-patches__conf0.799__poor_localisation.jpg"
+      },
+      {
+        "image": "inclusion_168.jpg",
+        "class_id": 1,
+        "class_name": "inclusion",
+        "confidence": 0.7827951312065125,
+        "box_xyxy": [
+          24.53,
+          5.29,
+          48.57,
+          49.65
+        ],
+        "kind": "poor_localisation",
+        "best_iou_any_gt": 0.3633,
+        "best_iou_same_class": 0.3633,
+        "nearest_gt_class": "inclusion",
+        "render": "fp_11__inclusion_168__pred-inclusion__conf0.783__poor_localisation.jpg"
+      },
+      {
+        "image": "inclusion_31.jpg",
+        "class_id": 1,
+        "class_name": "inclusion",
+        "confidence": 0.7671923041343689,
+        "box_xyxy": [
+          130.25,
+          0.12,
+          182.35,
+          187.75
+        ],
+        "kind": "poor_localisation",
+        "best_iou_any_gt": 0.4494,
+        "best_iou_same_class": 0.4494,
+        "nearest_gt_class": "inclusion",
+        "render": "fp_12__inclusion_31__pred-inclusion__conf0.767__poor_localisation.jpg"
+      },
+      {
+        "image": "patches_174.jpg",
+        "class_id": 2,
+        "class_name": "patches",
+        "confidence": 0.7647343277931213,
+        "box_xyxy": [
+          5.02,
+          0.0,
+          77.32,
+          108.86
+        ],
+        "kind": "poor_localisation",
+        "best_iou_any_gt": 0.4705,
+        "best_iou_same_class": 0.4705,
+        "nearest_gt_class": "patches",
+        "render": "fp_13__patches_174__pred-patches__conf0.765__poor_localisation.jpg"
+      },
+      {
+        "image": "rolled-in_scale_160.jpg",
+        "class_id": 4,
+        "class_name": "rolled-in_scale",
+        "confidence": 0.7442858815193176,
+        "box_xyxy": [
+          41.89,
+          0.0,
+          83.74,
+          32.47
+        ],
+        "kind": "poor_localisation",
+        "best_iou_any_gt": 0.4224,
+        "best_iou_same_class": 0.4224,
+        "nearest_gt_class": "rolled-in_scale",
+        "render": "fp_14__rolled-in_scale_160__pred-rolled-in_scale__conf0.744__poor_localisation.jpg"
+      },
+      {
+        "image": "patches_247.jpg",
+        "class_id": 2,
+        "class_name": "patches",
+        "confidence": 0.7179063558578491,
+        "box_xyxy": [
+          10.2,
+          128.36,
+          48.2,
+          200.0
+        ],
+        "kind": "poor_localisation",
+        "best_iou_any_gt": 0.4354,
+        "best_iou_same_class": 0.4354,
+        "nearest_gt_class": "patches",
+        "render": "fp_15__patches_247__pred-patches__conf0.718__poor_localisation.jpg"
+      },
+      {
+        "image": "rolled-in_scale_284.jpg",
+        "class_id": 4,
+        "class_name": "rolled-in_scale",
+        "confidence": 0.7081478238105774,
+        "box_xyxy": [
+          0.75,
+          0.0,
+          122.83,
+          67.12
+        ],
+        "kind": "background",
+        "best_iou_any_gt": 0.0,
+        "best_iou_same_class": 0.0,
+        "nearest_gt_class": "rolled-in_scale",
+        "render": "fp_16__rolled-in_scale_284__pred-rolled-in_scale__conf0.708__background.jpg"
+      },
+      {
+        "image": "pitted_surface_276.jpg",
+        "class_id": 2,
+        "class_name": "patches",
+        "confidence": 0.7040472626686096,
+        "box_xyxy": [
+          119.58,
+          0.0,
+          199.91,
+          79.91
+        ],
+        "kind": "duplicate",
+        "best_iou_any_gt": 0.7085,
+        "best_iou_same_class": 0.7085,
+        "nearest_gt_class": "patches",
+        "render": "fp_17__pitted_surface_276__pred-patches__conf0.704__duplicate.jpg"
+      },
+      {
+        "image": "inclusion_210.jpg",
+        "class_id": 1,
+        "class_name": "inclusion",
+        "confidence": 0.7000782489776611,
+        "box_xyxy": [
+          128.42,
+          145.63,
+          146.57,
+          188.19
+        ],
+        "kind": "background",
+        "best_iou_any_gt": 0.0174,
+        "best_iou_same_class": 0.0174,
+        "nearest_gt_class": "inclusion",
+        "render": "fp_18__inclusion_210__pred-inclusion__conf0.700__background.jpg"
+      },
+      {
+        "image": "patches_174.jpg",
+        "class_id": 2,
+        "class_name": "patches",
+        "confidence": 0.6861125230789185,
+        "box_xyxy": [
+          96.88,
+          50.77,
+          131.31,
+          81.22
+        ],
+        "kind": "background",
+        "best_iou_any_gt": 0.0,
+        "best_iou_same_class": 0.0,
+        "nearest_gt_class": "patches",
+        "render": "fp_19__patches_174__pred-patches__conf0.686__background.jpg"
+      },
+      {
+        "image": "scratches_291.jpg",
+        "class_id": 5,
+        "class_name": "scratches",
+        "confidence": 0.682042121887207,
+        "box_xyxy": [
+          3.58,
+          158.15,
+          195.21,
+          191.95
+        ],
+        "kind": "background",
+        "best_iou_any_gt": 0.0,
+        "best_iou_same_class": 0.0,
+        "nearest_gt_class": "scratches",
+        "render": "fp_20__scratches_291__pred-scratches__conf0.682__background.jpg"
+      },
+      {
+        "image": "pitted_surface_201.jpg",
+        "class_id": 1,
+        "class_name": "inclusion",
+        "confidence": 0.6776025891304016,
+        "box_xyxy": [
+          0.15,
+          0.1,
+          40.64,
+          199.73
+        ],
+        "kind": "background",
+        "best_iou_any_gt": 0.0,
+        "best_iou_same_class": 0.0,
+        "nearest_gt_class": "pitted_surface"
+      },
+      {
+        "image": "patches_12.jpg",
+        "class_id": 2,
+        "class_name": "patches",
+        "confidence": 0.6643585562705994,
+        "box_xyxy": [
+          117.23,
+          146.56,
+          162.75,
+          199.94
+        ],
+        "kind": "poor_localisation",
+        "best_iou_any_gt": 0.1064,
+        "best_iou_same_class": 0.1064,
+        "nearest_gt_class": "patches"
+      },
+      {
+        "image": "patches_50.jpg",
+        "class_id": 2,
+        "class_name": "patches",
+        "confidence": 0.6551862955093384,
+        "box_xyxy": [
+          1.17,
+          0.04,
+          55.69,
+          9.11
+        ],
+        "kind": "background",
+        "best_iou_any_gt": 0.0,
+        "best_iou_same_class": 0.0,
+        "nearest_gt_class": "patches"
+      },
+      {
+        "image": "rolled-in_scale_140.jpg",
+        "class_id": 4,
+        "class_name": "rolled-in_scale",
+        "confidence": 0.6518748998641968,
+        "box_xyxy": [
+          60.31,
+          143.79,
+          146.71,
+          199.95
+        ],
+        "kind": "poor_localisation",
+        "best_iou_any_gt": 0.4719,
+        "best_iou_same_class": 0.4719,
+        "nearest_gt_class": "rolled-in_scale"
+      },
+      {
+        "image": "inclusion_171.jpg",
+        "class_id": 1,
+        "class_name": "inclusion",
+        "confidence": 0.6515207290649414,
+        "box_xyxy": [
+          82.86,
+          134.47,
+          101.88,
+          183.05
+        ],
+        "kind": "duplicate",
+        "best_iou_any_gt": 0.6276,
+        "best_iou_same_class": 0.6276,
+        "nearest_gt_class": "inclusion"
+      },
+      {
+        "image": "scratches_155.jpg",
+        "class_id": 5,
+        "class_name": "scratches",
+        "confidence": 0.6337302923202515,
+        "box_xyxy": [
+          185.58,
+          2.97,
+          200.0,
+          199.69
+        ],
+        "kind": "background",
+        "best_iou_any_gt": 0.0,
+        "best_iou_same_class": 0.0,
+        "nearest_gt_class": "scratches"
+      },
+      {
+        "image": "inclusion_179.jpg",
+        "class_id": 1,
+        "class_name": "inclusion",
+        "confidence": 0.6269440054893494,
+        "box_xyxy": [
+          98.68,
+          176.98,
+          118.8,
+          200.0
+        ],
+        "kind": "background",
+        "best_iou_any_gt": 0.0,
+        "best_iou_same_class": 0.0,
+        "nearest_gt_class": "inclusion"
+      },
+      {
+        "image": "inclusion_86.jpg",
+        "class_id": 1,
+        "class_name": "inclusion",
+        "confidence": 0.6230490207672119,
+        "box_xyxy": [
+          108.87,
+          29.73,
+          132.95,
+          112.23
+        ],
+        "kind": "duplicate",
+        "best_iou_any_gt": 0.5811,
+        "best_iou_same_class": 0.5811,
+        "nearest_gt_class": "inclusion"
+      },
+      {
+        "image": "pitted_surface_220.jpg",
+        "class_id": 2,
+        "class_name": "patches",
+        "confidence": 0.6229339241981506,
+        "box_xyxy": [
+          55.7,
+          178.11,
+          119.98,
+          200.0
+        ],
+        "kind": "background",
+        "best_iou_any_gt": 0.0794,
+        "best_iou_same_class": 0.0,
+        "nearest_gt_class": "pitted_surface"
+      },
+      {
+        "image": "patches_230.jpg",
+        "class_id": 2,
+        "class_name": "patches",
+        "confidence": 0.5928073525428772,
+        "box_xyxy": [
+          0.0,
+          12.8,
+          23.48,
+          200.0
+        ],
+        "kind": "poor_localisation",
+        "best_iou_any_gt": 0.3641,
+        "best_iou_same_class": 0.3641,
+        "nearest_gt_class": "patches"
+      },
+      {
+        "image": "inclusion_32.jpg",
+        "class_id": 1,
+        "class_name": "inclusion",
+        "confidence": 0.5921540260314941,
+        "box_xyxy": [
+          89.82,
+          64.15,
+          110.0,
+          136.06
+        ],
+        "kind": "poor_localisation",
+        "best_iou_any_gt": 0.3392,
+        "best_iou_same_class": 0.3392,
+        "nearest_gt_class": "inclusion"
+      },
+      {
+        "image": "pitted_surface_272.jpg",
+        "class_id": 3,
+        "class_name": "pitted_surface",
+        "confidence": 0.5902410745620728,
+        "box_xyxy": [
+          0.0,
+          2.52,
+          192.78,
+          200.0
+        ],
+        "kind": "duplicate",
+        "best_iou_any_gt": 0.6057,
+        "best_iou_same_class": 0.6057,
+        "nearest_gt_class": "pitted_surface"
+      },
+      {
+        "image": "patches_191.jpg",
+        "class_id": 2,
+        "class_name": "patches",
+        "confidence": 0.586754322052002,
+        "box_xyxy": [
+          142.39,
+          133.71,
+          200.0,
+          200.0
+        ],
+        "kind": "poor_localisation",
+        "best_iou_any_gt": 0.1381,
+        "best_iou_same_class": 0.1381,
+        "nearest_gt_class": "patches"
+      },
+      {
+        "image": "inclusion_243.jpg",
+        "class_id": 1,
+        "class_name": "inclusion",
+        "confidence": 0.5770508646965027,
+        "box_xyxy": [
+          27.9,
+          17.51,
+          43.73,
+          62.67
+        ],
+        "kind": "background",
+        "best_iou_any_gt": 0.0,
+        "best_iou_same_class": 0.0,
+        "nearest_gt_class": "inclusion"
+      },
+      {
+        "image": "pitted_surface_248.jpg",
+        "class_id": 3,
+        "class_name": "pitted_surface",
+        "confidence": 0.5741811990737915,
+        "box_xyxy": [
+          6.52,
+          0.58,
+          199.82,
+          198.59
+        ],
+        "kind": "duplicate",
+        "best_iou_any_gt": 0.7787,
+        "best_iou_same_class": 0.7787,
+        "nearest_gt_class": "pitted_surface"
+      },
+      {
+        "image": "patches_148.jpg",
+        "class_id": 2,
+        "class_name": "patches",
+        "confidence": 0.5721387267112732,
+        "box_xyxy": [
+          180.11,
+          163.69,
+          199.88,
+          199.87
+        ],
+        "kind": "background",
+        "best_iou_any_gt": 0.0,
+        "best_iou_same_class": 0.0,
+        "nearest_gt_class": "patches"
+      },
+      {
+        "image": "crazing_247.jpg",
+        "class_id": 0,
+        "class_name": "crazing",
+        "confidence": 0.5701184272766113,
+        "box_xyxy": [
+          0.32,
+          107.56,
+          91.2,
+          172.76
+        ],
+        "kind": "poor_localisation",
+        "best_iou_any_gt": 0.4541,
+        "best_iou_same_class": 0.4541,
+        "nearest_gt_class": "crazing"
+      },
+      {
+        "image": "rolled-in_scale_290.jpg",
+        "class_id": 4,
+        "class_name": "rolled-in_scale",
+        "confidence": 0.5673003196716309,
+        "box_xyxy": [
+          41.92,
+          155.7,
+          121.95,
+          200.0
+        ],
+        "kind": "poor_localisation",
+        "best_iou_any_gt": 0.3891,
+        "best_iou_same_class": 0.3891,
+        "nearest_gt_class": "rolled-in_scale"
+      },
+      {
+        "image": "rolled-in_scale_243.jpg",
+        "class_id": 4,
+        "class_name": "rolled-in_scale",
+        "confidence": 0.565607488155365,
+        "box_xyxy": [
+          33.33,
+          89.23,
+          140.94,
+          159.83
+        ],
+        "kind": "poor_localisation",
+        "best_iou_any_gt": 0.3488,
+        "best_iou_same_class": 0.3488,
+        "nearest_gt_class": "rolled-in_scale"
+      },
+      {
+        "image": "inclusion_32.jpg",
+        "class_id": 1,
+        "class_name": "inclusion",
+        "confidence": 0.5649678111076355,
+        "box_xyxy": [
+          84.65,
+          0.0,
+          113.41,
+          67.44
+        ],
+        "kind": "poor_localisation",
+        "best_iou_any_gt": 0.3727,
+        "best_iou_same_class": 0.3727,
+        "nearest_gt_class": "inclusion"
+      },
+      {
+        "image": "rolled-in_scale_194.jpg",
+        "class_id": 4,
+        "class_name": "rolled-in_scale",
+        "confidence": 0.5645920634269714,
+        "box_xyxy": [
+          1.56,
+          17.04,
+          76.93,
+          89.62
+        ],
+        "kind": "poor_localisation",
+        "best_iou_any_gt": 0.4307,
+        "best_iou_same_class": 0.4307,
+        "nearest_gt_class": "rolled-in_scale"
+      },
+      {
+        "image": "inclusion_25.jpg",
+        "class_id": 1,
+        "class_name": "inclusion",
+        "confidence": 0.541410505771637,
+        "box_xyxy": [
+          149.54,
+          160.12,
+          171.69,
+          199.99
+        ],
+        "kind": "background",
+        "best_iou_any_gt": 0.0,
+        "best_iou_same_class": 0.0,
+        "nearest_gt_class": "inclusion"
+      },
+      {
+        "image": "scratches_47.jpg",
+        "class_id": 5,
+        "class_name": "scratches",
+        "confidence": 0.5411971807479858,
+        "box_xyxy": [
+          35.89,
+          47.74,
+          55.22,
+          199.93
+        ],
+        "kind": "duplicate",
+        "best_iou_any_gt": 0.5767,
+        "best_iou_same_class": 0.5767,
+        "nearest_gt_class": "scratches"
+      },
+      {
+        "image": "crazing_271.jpg",
+        "class_id": 0,
+        "class_name": "crazing",
+        "confidence": 0.5388113856315613,
+        "box_xyxy": [
+          5.14,
+          40.91,
+          197.74,
+          119.98
+        ],
+        "kind": "poor_localisation",
+        "best_iou_any_gt": 0.443,
+        "best_iou_same_class": 0.443,
+        "nearest_gt_class": "crazing"
+      },
+      {
+        "image": "scratches_239.jpg",
+        "class_id": 5,
+        "class_name": "scratches",
+        "confidence": 0.5375516414642334,
+        "box_xyxy": [
+          54.42,
+          38.27,
+          150.34,
+          53.74
+        ],
+        "kind": "background",
+        "best_iou_any_gt": 0.0,
+        "best_iou_same_class": 0.0,
+        "nearest_gt_class": "scratches"
+      },
+      {
+        "image": "scratches_96.jpg",
+        "class_id": 1,
+        "class_name": "inclusion",
+        "confidence": 0.5372511744499207,
+        "box_xyxy": [
+          21.01,
+          3.53,
+          52.33,
+          163.0
+        ],
+        "kind": "background",
+        "best_iou_any_gt": 0.0,
+        "best_iou_same_class": 0.0,
+        "nearest_gt_class": "scratches"
+      },
+      {
+        "image": "rolled-in_scale_203.jpg",
+        "class_id": 4,
+        "class_name": "rolled-in_scale",
+        "confidence": 0.5329070091247559,
+        "box_xyxy": [
+          81.59,
+          10.65,
+          138.74,
+          65.2
+        ],
+        "kind": "background",
+        "best_iou_any_gt": 0.0,
+        "best_iou_same_class": 0.0,
+        "nearest_gt_class": "rolled-in_scale"
+      },
+      {
+        "image": "patches_21.jpg",
+        "class_id": 2,
+        "class_name": "patches",
+        "confidence": 0.5314739346504211,
+        "box_xyxy": [
+          132.14,
+          0.08,
+          198.66,
+          20.68
+        ],
+        "kind": "background",
+        "best_iou_any_gt": 0.0797,
+        "best_iou_same_class": 0.0797,
+        "nearest_gt_class": "patches"
+      },
+      {
+        "image": "patches_83.jpg",
+        "class_id": 2,
+        "class_name": "patches",
+        "confidence": 0.5309928059577942,
+        "box_xyxy": [
+          88.19,
+          6.16,
+          114.49,
+          55.43
+        ],
+        "kind": "background",
+        "best_iou_any_gt": 0.0014,
+        "best_iou_same_class": 0.0014,
+        "nearest_gt_class": "patches"
+      },
+      {
+        "image": "scratches_186.jpg",
+        "class_id": 5,
+        "class_name": "scratches",
+        "confidence": 0.5262067914009094,
+        "box_xyxy": [
+          145.76,
+          95.91,
+          190.01,
+          199.78
+        ],
+        "kind": "poor_localisation",
+        "best_iou_any_gt": 0.3638,
+        "best_iou_same_class": 0.3638,
+        "nearest_gt_class": "scratches"
+      },
+      {
+        "image": "patches_247.jpg",
+        "class_id": 2,
+        "class_name": "patches",
+        "confidence": 0.5221012830734253,
+        "box_xyxy": [
+          89.44,
+          69.68,
+          174.79,
+          192.7
+        ],
+        "kind": "duplicate",
+        "best_iou_any_gt": 0.5939,
+        "best_iou_same_class": 0.5939,
+        "nearest_gt_class": "patches"
+      },
+      {
+        "image": "inclusion_17.jpg",
+        "class_id": 1,
+        "class_name": "inclusion",
+        "confidence": 0.5175173282623291,
+        "box_xyxy": [
+          12.16,
+          47.8,
+          46.38,
+          200.0
+        ],
+        "kind": "duplicate",
+        "best_iou_any_gt": 0.5345,
+        "best_iou_same_class": 0.5345,
+        "nearest_gt_class": "inclusion"
+      },
+      {
+        "image": "scratches_204.jpg",
+        "class_id": 1,
+        "class_name": "inclusion",
+        "confidence": 0.5073181986808777,
+        "box_xyxy": [
+          127.39,
+          113.76,
+          139.99,
+          143.1
+        ],
+        "kind": "background",
+        "best_iou_any_gt": 0.0,
+        "best_iou_same_class": 0.0,
+        "nearest_gt_class": "scratches"
+      },
+      {
+        "image": "scratches_185.jpg",
+        "class_id": 5,
+        "class_name": "scratches",
+        "confidence": 0.5061840415000916,
+        "box_xyxy": [
+          139.69,
+          0.0,
+          153.41,
+          84.13
+        ],
+        "kind": "background",
+        "best_iou_any_gt": 0.0,
+        "best_iou_same_class": 0.0,
+        "nearest_gt_class": "scratches"
+      },
+      {
+        "image": "rolled-in_scale_140.jpg",
+        "class_id": 4,
+        "class_name": "rolled-in_scale",
+        "confidence": 0.5046004056930542,
+        "box_xyxy": [
+          44.13,
+          72.93,
+          120.68,
+          132.56
+        ],
+        "kind": "poor_localisation",
+        "best_iou_any_gt": 0.2498,
+        "best_iou_same_class": 0.2498,
+        "nearest_gt_class": "rolled-in_scale"
+      },
+      {
+        "image": "scratches_239.jpg",
+        "class_id": 5,
+        "class_name": "scratches",
+        "confidence": 0.5041037797927856,
+        "box_xyxy": [
+          0.0,
+          91.48,
+          191.17,
+          114.02
+        ],
+        "kind": "duplicate",
+        "best_iou_any_gt": 0.742,
+        "best_iou_same_class": 0.742,
+        "nearest_gt_class": "scratches"
+      },
+      {
+        "image": "inclusion_295.jpg",
+        "class_id": 1,
+        "class_name": "inclusion",
+        "confidence": 0.5035037398338318,
+        "box_xyxy": [
+          131.17,
+          168.92,
+          142.68,
+          191.51
+        ],
+        "kind": "background",
+        "best_iou_any_gt": 0.0392,
+        "best_iou_same_class": 0.0392,
+        "nearest_gt_class": "inclusion"
+      },
+      {
+        "image": "inclusion_119.jpg",
+        "class_id": 1,
+        "class_name": "inclusion",
+        "confidence": 0.49993443489074707,
+        "box_xyxy": [
+          99.64,
+          130.96,
+          129.43,
+          200.0
+        ],
+        "kind": "poor_localisation",
+        "best_iou_any_gt": 0.2646,
+        "best_iou_same_class": 0.2646,
+        "nearest_gt_class": "inclusion"
+      },
+      {
+        "image": "scratches_271.jpg",
+        "class_id": 5,
+        "class_name": "scratches",
+        "confidence": 0.495259553194046,
+        "box_xyxy": [
+          1.86,
+          187.53,
+          199.15,
+          200.0
+        ],
+        "kind": "background",
+        "best_iou_any_gt": 0.0,
+        "best_iou_same_class": 0.0,
+        "nearest_gt_class": "scratches"
+      },
+      {
+        "image": "scratches_204.jpg",
+        "class_id": 1,
+        "class_name": "inclusion",
+        "confidence": 0.49477458000183105,
+        "box_xyxy": [
+          136.81,
+          0.0,
+          190.62,
+          71.56
+        ],
+        "kind": "background",
+        "best_iou_any_gt": 0.0,
+        "best_iou_same_class": 0.0,
+        "nearest_gt_class": "scratches"
+      },
+      {
+        "image": "scratches_96.jpg",
+        "class_id": 1,
+        "class_name": "inclusion",
+        "confidence": 0.49227890372276306,
+        "box_xyxy": [
+          20.99,
+          132.12,
+          50.09,
+          198.77
+        ],
+        "kind": "background",
+        "best_iou_any_gt": 0.0,
+        "best_iou_same_class": 0.0,
+        "nearest_gt_class": "scratches"
+      },
+      {
+        "image": "inclusion_72.jpg",
+        "class_id": 1,
+        "class_name": "inclusion",
+        "confidence": 0.4868566393852234,
+        "box_xyxy": [
+          0.18,
+          75.84,
+          10.11,
+          137.4
+        ],
+        "kind": "background",
+        "best_iou_any_gt": 0.0,
+        "best_iou_same_class": 0.0,
+        "nearest_gt_class": "inclusion"
+      },
+      {
+        "image": "inclusion_119.jpg",
+        "class_id": 1,
+        "class_name": "inclusion",
+        "confidence": 0.4853900671005249,
+        "box_xyxy": [
+          111.71,
+          0.0,
+          141.0,
+          77.25
+        ],
+        "kind": "poor_localisation",
+        "best_iou_any_gt": 0.2345,
+        "best_iou_same_class": 0.2345,
+        "nearest_gt_class": "inclusion"
+      },
+      {
+        "image": "scratches_70.jpg",
+        "class_id": 1,
+        "class_name": "inclusion",
+        "confidence": 0.4763287305831909,
+        "box_xyxy": [
+          81.98,
+          60.61,
+          102.12,
+          106.01
+        ],
+        "kind": "background",
+        "best_iou_any_gt": 0.0,
+        "best_iou_same_class": 0.0,
+        "nearest_gt_class": "scratches"
+      },
+      {
+        "image": "scratches_73.jpg",
+        "class_id": 5,
+        "class_name": "scratches",
+        "confidence": 0.4742783010005951,
+        "box_xyxy": [
+          164.83,
+          0.0,
+          177.11,
+          152.24
+        ],
+        "kind": "duplicate",
+        "best_iou_any_gt": 0.8018,
+        "best_iou_same_class": 0.8018,
+        "nearest_gt_class": "scratches"
+      },
+      {
+        "image": "inclusion_92.jpg",
+        "class_id": 1,
+        "class_name": "inclusion",
+        "confidence": 0.47197043895721436,
+        "box_xyxy": [
+          157.44,
+          153.58,
+          171.06,
+          180.42
+        ],
+        "kind": "background",
+        "best_iou_any_gt": 0.0,
+        "best_iou_same_class": 0.0,
+        "nearest_gt_class": "inclusion"
+      },
+      {
+        "image": "patches_186.jpg",
+        "class_id": 2,
+        "class_name": "patches",
+        "confidence": 0.4709673225879669,
+        "box_xyxy": [
+          42.28,
+          0.06,
+          83.81,
+          30.58
+        ],
+        "kind": "poor_localisation",
+        "best_iou_any_gt": 0.1447,
+        "best_iou_same_class": 0.1447,
+        "nearest_gt_class": "patches"
+      },
+      {
+        "image": "scratches_96.jpg",
+        "class_id": 1,
+        "class_name": "inclusion",
+        "confidence": 0.4694133400917053,
+        "box_xyxy": [
+          91.4,
+          134.87,
+          105.22,
+          164.1
+        ],
+        "kind": "background",
+        "best_iou_any_gt": 0.0,
+        "best_iou_same_class": 0.0,
+        "nearest_gt_class": "scratches"
+      },
+      {
+        "image": "rolled-in_scale_128.jpg",
+        "class_id": 4,
+        "class_name": "rolled-in_scale",
+        "confidence": 0.46900108456611633,
+        "box_xyxy": [
+          102.09,
+          68.11,
+          160.92,
+          126.34
+        ],
+        "kind": "poor_localisation",
+        "best_iou_any_gt": 0.3299,
+        "best_iou_same_class": 0.3299,
+        "nearest_gt_class": "rolled-in_scale"
+      },
+      {
+        "image": "patches_228.jpg",
+        "class_id": 1,
+        "class_name": "inclusion",
+        "confidence": 0.46794241666793823,
+        "box_xyxy": [
+          164.69,
+          140.65,
+          199.26,
+          184.22
+        ],
+        "kind": "background",
+        "best_iou_any_gt": 0.0,
+        "best_iou_same_class": 0.0,
+        "nearest_gt_class": "patches"
+      },
+      {
+        "image": "patches_256.jpg",
+        "class_id": 2,
+        "class_name": "patches",
+        "confidence": 0.46742650866508484,
+        "box_xyxy": [
+          116.75,
+          26.69,
+          170.11,
+          127.42
+        ],
+        "kind": "duplicate",
+        "best_iou_any_gt": 0.6673,
+        "best_iou_same_class": 0.6673,
+        "nearest_gt_class": "patches"
+      },
+      {
+        "image": "patches_148.jpg",
+        "class_id": 2,
+        "class_name": "patches",
+        "confidence": 0.4666447639465332,
+        "box_xyxy": [
+          0.0,
+          160.17,
+          15.14,
+          193.68
+        ],
+        "kind": "background",
+        "best_iou_any_gt": 0.0,
+        "best_iou_same_class": 0.0,
+        "nearest_gt_class": "patches"
+      },
+      {
+        "image": "scratches_192.jpg",
+        "class_id": 5,
+        "class_name": "scratches",
+        "confidence": 0.46586522459983826,
+        "box_xyxy": [
+          184.48,
+          46.72,
+          200.0,
+          200.0
+        ],
+        "kind": "background",
+        "best_iou_any_gt": 0.0,
+        "best_iou_same_class": 0.0,
+        "nearest_gt_class": "scratches"
+      },
+      {
+        "image": "pitted_surface_208.jpg",
+        "class_id": 2,
+        "class_name": "patches",
+        "confidence": 0.4638870060443878,
+        "box_xyxy": [
+          177.06,
+          0.12,
+          199.9,
+          12.53
+        ],
+        "kind": "background",
+        "best_iou_any_gt": 0.0,
+        "best_iou_same_class": 0.0,
+        "nearest_gt_class": "pitted_surface"
+      },
+      {
+        "image": "scratches_210.jpg",
+        "class_id": 5,
+        "class_name": "scratches",
+        "confidence": 0.4628928005695343,
+        "box_xyxy": [
+          0.98,
+          89.62,
+          13.83,
+          181.99
+        ],
+        "kind": "background",
+        "best_iou_any_gt": 0.0,
+        "best_iou_same_class": 0.0,
+        "nearest_gt_class": "scratches"
+      },
+      {
+        "image": "crazing_70.jpg",
+        "class_id": 0,
+        "class_name": "crazing",
+        "confidence": 0.46279433369636536,
+        "box_xyxy": [
+          0.31,
+          98.33,
+          113.92,
+          166.73
+        ],
+        "kind": "poor_localisation",
+        "best_iou_any_gt": 0.481,
+        "best_iou_same_class": 0.481,
+        "nearest_gt_class": "crazing"
+      },
+      {
+        "image": "scratches_284.jpg",
+        "class_id": 5,
+        "class_name": "scratches",
+        "confidence": 0.46212735772132874,
+        "box_xyxy": [
+          1.16,
+          0.0,
+          199.02,
+          10.44
+        ],
+        "kind": "background",
+        "best_iou_any_gt": 0.0,
+        "best_iou_same_class": 0.0,
+        "nearest_gt_class": "scratches"
+      },
+      {
+        "image": "rolled-in_scale_204.jpg",
+        "class_id": 4,
+        "class_name": "rolled-in_scale",
+        "confidence": 0.4562709927558899,
+        "box_xyxy": [
+          13.76,
+          9.6,
+          78.47,
+          86.43
+        ],
+        "kind": "background",
+        "best_iou_any_gt": 0.0,
+        "best_iou_same_class": 0.0,
+        "nearest_gt_class": "rolled-in_scale"
+      },
+      {
+        "image": "rolled-in_scale_255.jpg",
+        "class_id": 4,
+        "class_name": "rolled-in_scale",
+        "confidence": 0.4466162919998169,
+        "box_xyxy": [
+          159.65,
+          0.02,
+          199.69,
+          77.18
+        ],
+        "kind": "poor_localisation",
+        "best_iou_any_gt": 0.2734,
+        "best_iou_same_class": 0.2734,
+        "nearest_gt_class": "rolled-in_scale"
+      },
+      {
+        "image": "crazing_298.jpg",
+        "class_id": 0,
+        "class_name": "crazing",
+        "confidence": 0.4451845586299896,
+        "box_xyxy": [
+          0.31,
+          63.38,
+          90.86,
+          111.51
+        ],
+        "kind": "poor_localisation",
+        "best_iou_any_gt": 0.2679,
+        "best_iou_same_class": 0.2679,
+        "nearest_gt_class": "crazing"
+      },
+      {
+        "image": "patches_228.jpg",
+        "class_id": 2,
+        "class_name": "patches",
+        "confidence": 0.4414340853691101,
+        "box_xyxy": [
+          183.79,
+          0.14,
+          200.0,
+          101.08
+        ],
+        "kind": "background",
+        "best_iou_any_gt": 0.0,
+        "best_iou_same_class": 0.0,
+        "nearest_gt_class": "patches"
+      },
+      {
+        "image": "patches_225.jpg",
+        "class_id": 2,
+        "class_name": "patches",
+        "confidence": 0.440439909696579,
+        "box_xyxy": [
+          0.11,
+          0.0,
+          14.33,
+          21.83
+        ],
+        "kind": "background",
+        "best_iou_any_gt": 0.0,
+        "best_iou_same_class": 0.0,
+        "nearest_gt_class": "patches"
+      },
+      {
+        "image": "rolled-in_scale_85.jpg",
+        "class_id": 4,
+        "class_name": "rolled-in_scale",
+        "confidence": 0.4381004869937897,
+        "box_xyxy": [
+          133.79,
+          85.23,
+          179.36,
+          130.27
+        ],
+        "kind": "poor_localisation",
+        "best_iou_any_gt": 0.2472,
+        "best_iou_same_class": 0.2472,
+        "nearest_gt_class": "rolled-in_scale"
+      },
+      {
+        "image": "scratches_15.jpg",
+        "class_id": 5,
+        "class_name": "scratches",
+        "confidence": 0.4362145960330963,
+        "box_xyxy": [
+          56.14,
+          0.1,
+          72.49,
+          55.92
+        ],
+        "kind": "background",
+        "best_iou_any_gt": 0.0747,
+        "best_iou_same_class": 0.0747,
+        "nearest_gt_class": "scratches"
+      },
+      {
+        "image": "inclusion_207.jpg",
+        "class_id": 1,
+        "class_name": "inclusion",
+        "confidence": 0.43604058027267456,
+        "box_xyxy": [
+          129.65,
+          141.86,
+          147.57,
+          178.02
+        ],
+        "kind": "poor_localisation",
+        "best_iou_any_gt": 0.4023,
+        "best_iou_same_class": 0.4023,
+        "nearest_gt_class": "inclusion"
+      },
+      {
+        "image": "rolled-in_scale_115.jpg",
+        "class_id": 4,
+        "class_name": "rolled-in_scale",
+        "confidence": 0.4333626627922058,
+        "box_xyxy": [
+          70.2,
+          165.66,
+          120.57,
+          199.84
+        ],
+        "kind": "poor_localisation",
+        "best_iou_any_gt": 0.4677,
+        "best_iou_same_class": 0.4677,
+        "nearest_gt_class": "rolled-in_scale"
+      },
+      {
+        "image": "rolled-in_scale_140.jpg",
+        "class_id": 4,
+        "class_name": "rolled-in_scale",
+        "confidence": 0.42965301871299744,
+        "box_xyxy": [
+          62.03,
+          159.9,
+          146.26,
+          199.79
+        ],
+        "kind": "poor_localisation",
+        "best_iou_any_gt": 0.3309,
+        "best_iou_same_class": 0.3309,
+        "nearest_gt_class": "rolled-in_scale"
+      },
+      {
+        "image": "patches_230.jpg",
+        "class_id": 2,
+        "class_name": "patches",
+        "confidence": 0.42837443947792053,
+        "box_xyxy": [
+          185.4,
+          120.76,
+          200.0,
+          199.82
+        ],
+        "kind": "background",
+        "best_iou_any_gt": 0.0,
+        "best_iou_same_class": 0.0,
+        "nearest_gt_class": "patches"
+      },
+      {
+        "image": "patches_230.jpg",
+        "class_id": 1,
+        "class_name": "inclusion",
+        "confidence": 0.4278348684310913,
+        "box_xyxy": [
+          147.87,
+          61.26,
+          177.77,
+          110.51
+        ],
+        "kind": "duplicate",
+        "best_iou_any_gt": 0.7649,
+        "best_iou_same_class": 0.7649,
+        "nearest_gt_class": "inclusion"
+      },
+      {
+        "image": "scratches_233.jpg",
+        "class_id": 1,
+        "class_name": "inclusion",
+        "confidence": 0.42719972133636475,
+        "box_xyxy": [
+          1.2,
+          0.0,
+          134.13,
+          18.3
+        ],
+        "kind": "background",
+        "best_iou_any_gt": 0.0,
+        "best_iou_same_class": 0.0,
+        "nearest_gt_class": "scratches"
+      },
+      {
+        "image": "rolled-in_scale_181.jpg",
+        "class_id": 4,
+        "class_name": "rolled-in_scale",
+        "confidence": 0.42545461654663086,
+        "box_xyxy": [
+          39.27,
+          0.41,
+          150.46,
+          100.2
+        ],
+        "kind": "poor_localisation",
+        "best_iou_any_gt": 0.1816,
+        "best_iou_same_class": 0.1816,
+        "nearest_gt_class": "rolled-in_scale"
+      },
+      {
+        "image": "crazing_247.jpg",
+        "class_id": 0,
+        "class_name": "crazing",
+        "confidence": 0.42333102226257324,
+        "box_xyxy": [
+          56.5,
+          43.62,
+          199.59,
+          152.07
+        ],
+        "kind": "poor_localisation",
+        "best_iou_any_gt": 0.3878,
+        "best_iou_same_class": 0.3878,
+        "nearest_gt_class": "crazing"
+      },
+      {
+        "image": "crazing_34.jpg",
+        "class_id": 2,
+        "class_name": "patches",
+        "confidence": 0.4212280213832855,
+        "box_xyxy": [
+          178.43,
+          1.22,
+          199.92,
+          92.05
+        ],
+        "kind": "background",
+        "best_iou_any_gt": 0.0,
+        "best_iou_same_class": 0.0,
+        "nearest_gt_class": "crazing"
+      },
+      {
+        "image": "rolled-in_scale_47.jpg",
+        "class_id": 4,
+        "class_name": "rolled-in_scale",
+        "confidence": 0.41793161630630493,
+        "box_xyxy": [
+          54.39,
+          14.57,
+          104.84,
+          199.34
+        ],
+        "kind": "poor_localisation",
+        "best_iou_any_gt": 0.4113,
+        "best_iou_same_class": 0.4113,
+        "nearest_gt_class": "rolled-in_scale"
+      },
+      {
+        "image": "pitted_surface_216.jpg",
+        "class_id": 1,
+        "class_name": "inclusion",
+        "confidence": 0.40746763348579407,
+        "box_xyxy": [
+          0.25,
+          3.67,
+          24.81,
+          200.0
+        ],
+        "kind": "background",
+        "best_iou_any_gt": 0.0,
+        "best_iou_same_class": 0.0,
+        "nearest_gt_class": "pitted_surface"
+      },
+      {
+        "image": "patches_174.jpg",
+        "class_id": 1,
+        "class_name": "inclusion",
+        "confidence": 0.40643811225891113,
+        "box_xyxy": [
+          0.0,
+          146.28,
+          19.15,
+          180.28
+        ],
+        "kind": "poor_localisation",
+        "best_iou_any_gt": 0.4817,
+        "best_iou_same_class": 0.4817,
+        "nearest_gt_class": "inclusion"
+      },
+      {
+        "image": "pitted_surface_284.jpg",
+        "class_id": 3,
+        "class_name": "pitted_surface",
+        "confidence": 0.40445220470428467,
+        "box_xyxy": [
+          151.32,
+          0.07,
+          194.86,
+          23.79
+        ],
+        "kind": "background",
+        "best_iou_any_gt": 0.0343,
+        "best_iou_same_class": 0.0343,
+        "nearest_gt_class": "pitted_surface"
+      },
+      {
+        "image": "rolled-in_scale_257.jpg",
+        "class_id": 4,
+        "class_name": "rolled-in_scale",
+        "confidence": 0.3977223038673401,
+        "box_xyxy": [
+          0.06,
+          77.58,
+          68.73,
+          200.0
+        ],
+        "kind": "duplicate",
+        "best_iou_any_gt": 0.7372,
+        "best_iou_same_class": 0.7372,
+        "nearest_gt_class": "rolled-in_scale"
+      },
+      {
+        "image": "inclusion_293.jpg",
+        "class_id": 1,
+        "class_name": "inclusion",
+        "confidence": 0.3976743221282959,
+        "box_xyxy": [
+          5.58,
+          176.26,
+          20.55,
+          200.0
+        ],
+        "kind": "background",
+        "best_iou_any_gt": 0.0,
+        "best_iou_same_class": 0.0,
+        "nearest_gt_class": "inclusion"
+      },
+      {
+        "image": "scratches_131.jpg",
+        "class_id": 5,
+        "class_name": "scratches",
+        "confidence": 0.39476722478866577,
+        "box_xyxy": [
+          137.32,
+          85.96,
+          155.53,
+          200.0
+        ],
+        "kind": "duplicate",
+        "best_iou_any_gt": 0.5131,
+        "best_iou_same_class": 0.5131,
+        "nearest_gt_class": "scratches"
+      },
+      {
+        "image": "inclusion_298.jpg",
+        "class_id": 1,
+        "class_name": "inclusion",
+        "confidence": 0.3944500982761383,
+        "box_xyxy": [
+          155.46,
+          24.65,
+          180.88,
+          112.45
+        ],
+        "kind": "poor_localisation",
+        "best_iou_any_gt": 0.4829,
+        "best_iou_same_class": 0.4829,
+        "nearest_gt_class": "inclusion"
+      },
+      {
+        "image": "scratches_297.jpg",
+        "class_id": 5,
+        "class_name": "scratches",
+        "confidence": 0.3924623429775238,
+        "box_xyxy": [
+          7.52,
+          2.59,
+          112.08,
+          20.54
+        ],
+        "kind": "background",
+        "best_iou_any_gt": 0.0,
+        "best_iou_same_class": 0.0,
+        "nearest_gt_class": "scratches"
+      },
+      {
+        "image": "rolled-in_scale_92.jpg",
+        "class_id": 4,
+        "class_name": "rolled-in_scale",
+        "confidence": 0.39098984003067017,
+        "box_xyxy": [
+          103.15,
+          174.62,
+          163.49,
+          200.0
+        ],
+        "kind": "background",
+        "best_iou_any_gt": 0.0302,
+        "best_iou_same_class": 0.0302,
+        "nearest_gt_class": "rolled-in_scale"
+      },
+      {
+        "image": "inclusion_243.jpg",
+        "class_id": 1,
+        "class_name": "inclusion",
+        "confidence": 0.39029404520988464,
+        "box_xyxy": [
+          133.99,
+          154.02,
+          152.55,
+          198.51
+        ],
+        "kind": "background",
+        "best_iou_any_gt": 0.0,
+        "best_iou_same_class": 0.0,
+        "nearest_gt_class": "inclusion"
+      },
+      {
+        "image": "pitted_surface_196.jpg",
+        "class_id": 3,
+        "class_name": "pitted_surface",
+        "confidence": 0.3890604078769684,
+        "box_xyxy": [
+          24.44,
+          1.52,
+          200.0,
+          193.15
+        ],
+        "kind": "duplicate",
+        "best_iou_any_gt": 0.5736,
+        "best_iou_same_class": 0.5736,
+        "nearest_gt_class": "pitted_surface"
+      },
+      {
+        "image": "pitted_surface_9.jpg",
+        "class_id": 3,
+        "class_name": "pitted_surface",
+        "confidence": 0.38498586416244507,
+        "box_xyxy": [
+          0.0,
+          100.35,
+          200.0,
+          200.0
+        ],
+        "kind": "duplicate",
+        "best_iou_any_gt": 0.6944,
+        "best_iou_same_class": 0.6944,
+        "nearest_gt_class": "pitted_surface"
+      },
+      {
+        "image": "rolled-in_scale_276.jpg",
+        "class_id": 4,
+        "class_name": "rolled-in_scale",
+        "confidence": 0.38300299644470215,
+        "box_xyxy": [
+          158.09,
+          3.83,
+          199.94,
+          46.18
+        ],
+        "kind": "background",
+        "best_iou_any_gt": 0.0,
+        "best_iou_same_class": 0.0,
+        "nearest_gt_class": "rolled-in_scale"
+      },
+      {
+        "image": "crazing_34.jpg",
+        "class_id": 2,
+        "class_name": "patches",
+        "confidence": 0.3816221058368683,
+        "box_xyxy": [
+          178.06,
+          0.7,
+          199.87,
+          52.0
+        ],
+        "kind": "background",
+        "best_iou_any_gt": 0.0,
+        "best_iou_same_class": 0.0,
+        "nearest_gt_class": "crazing"
+      },
+      {
+        "image": "scratches_88.jpg",
+        "class_id": 5,
+        "class_name": "scratches",
+        "confidence": 0.38064178824424744,
+        "box_xyxy": [
+          171.8,
+          27.06,
+          182.2,
+          199.16
+        ],
+        "kind": "duplicate",
+        "best_iou_any_gt": 0.7379,
+        "best_iou_same_class": 0.7379,
+        "nearest_gt_class": "scratches"
+      },
+      {
+        "image": "rolled-in_scale_102.jpg",
+        "class_id": 4,
+        "class_name": "rolled-in_scale",
+        "confidence": 0.3784828782081604,
+        "box_xyxy": [
+          89.55,
+          0.0,
+          152.78,
+          48.9
+        ],
+        "kind": "poor_localisation",
+        "best_iou_any_gt": 0.2769,
+        "best_iou_same_class": 0.2769,
+        "nearest_gt_class": "rolled-in_scale"
+      },
+      {
+        "image": "rolled-in_scale_255.jpg",
+        "class_id": 4,
+        "class_name": "rolled-in_scale",
+        "confidence": 0.3773807883262634,
+        "box_xyxy": [
+          0.0,
+          19.14,
+          110.18,
+          146.96
+        ],
+        "kind": "poor_localisation",
+        "best_iou_any_gt": 0.4082,
+        "best_iou_same_class": 0.4082,
+        "nearest_gt_class": "rolled-in_scale"
+      },
+      {
+        "image": "rolled-in_scale_102.jpg",
+        "class_id": 4,
+        "class_name": "rolled-in_scale",
+        "confidence": 0.37206390500068665,
+        "box_xyxy": [
+          67.78,
+          69.22,
+          99.61,
+          98.83
+        ],
+        "kind": "poor_localisation",
+        "best_iou_any_gt": 0.4155,
+        "best_iou_same_class": 0.4155,
+        "nearest_gt_class": "rolled-in_scale"
+      },
+      {
+        "image": "rolled-in_scale_64.jpg",
+        "class_id": 4,
+        "class_name": "rolled-in_scale",
+        "confidence": 0.37165531516075134,
+        "box_xyxy": [
+          87.84,
+          89.03,
+          146.07,
+          139.47
+        ],
+        "kind": "duplicate",
+        "best_iou_any_gt": 0.5901,
+        "best_iou_same_class": 0.5901,
+        "nearest_gt_class": "rolled-in_scale"
+      },
+      {
+        "image": "rolled-in_scale_255.jpg",
+        "class_id": 4,
+        "class_name": "rolled-in_scale",
+        "confidence": 0.37082639336586,
+        "box_xyxy": [
+          12.25,
+          163.77,
+          84.92,
+          200.0
+        ],
+        "kind": "poor_localisation",
+        "best_iou_any_gt": 0.1671,
+        "best_iou_same_class": 0.1671,
+        "nearest_gt_class": "rolled-in_scale"
+      },
+      {
+        "image": "scratches_271.jpg",
+        "class_id": 5,
+        "class_name": "scratches",
+        "confidence": 0.3706195056438446,
+        "box_xyxy": [
+          0.73,
+          84.23,
+          200.0,
+          97.96
+        ],
+        "kind": "poor_localisation",
+        "best_iou_any_gt": 0.3604,
+        "best_iou_same_class": 0.3604,
+        "nearest_gt_class": "scratches"
+      },
+      {
+        "image": "rolled-in_scale_276.jpg",
+        "class_id": 4,
+        "class_name": "rolled-in_scale",
+        "confidence": 0.3632327616214752,
+        "box_xyxy": [
+          61.35,
+          92.36,
+          129.89,
+          178.39
+        ],
+        "kind": "background",
+        "best_iou_any_gt": 0.0,
+        "best_iou_same_class": 0.0,
+        "nearest_gt_class": "rolled-in_scale"
+      },
+      {
+        "image": "rolled-in_scale_116.jpg",
+        "class_id": 4,
+        "class_name": "rolled-in_scale",
+        "confidence": 0.36308059096336365,
+        "box_xyxy": [
+          89.36,
+          48.38,
+          119.06,
+          124.85
+        ],
+        "kind": "poor_localisation",
+        "best_iou_any_gt": 0.3648,
+        "best_iou_same_class": 0.3648,
+        "nearest_gt_class": "rolled-in_scale"
+      },
+      {
+        "image": "crazing_179.jpg",
+        "class_id": 0,
+        "class_name": "crazing",
+        "confidence": 0.3625752329826355,
+        "box_xyxy": [
+          3.62,
+          89.87,
+          151.82,
+          148.27
+        ],
+        "kind": "poor_localisation",
+        "best_iou_any_gt": 0.4274,
+        "best_iou_same_class": 0.4274,
+        "nearest_gt_class": "crazing"
+      },
+      {
+        "image": "crazing_219.jpg",
+        "class_id": 0,
+        "class_name": "crazing",
+        "confidence": 0.3623215854167938,
+        "box_xyxy": [
+          0.77,
+          123.19,
+          87.78,
+          198.88
+        ],
+        "kind": "background",
+        "best_iou_any_gt": 0.0,
+        "best_iou_same_class": 0.0,
+        "nearest_gt_class": "crazing"
+      },
+      {
+        "image": "rolled-in_scale_140.jpg",
+        "class_id": 4,
+        "class_name": "rolled-in_scale",
+        "confidence": 0.36205703020095825,
+        "box_xyxy": [
+          44.43,
+          72.08,
+          151.5,
+          132.12
+        ],
+        "kind": "poor_localisation",
+        "best_iou_any_gt": 0.3093,
+        "best_iou_same_class": 0.3093,
+        "nearest_gt_class": "rolled-in_scale"
+      },
+      {
+        "image": "patches_230.jpg",
+        "class_id": 1,
+        "class_name": "inclusion",
+        "confidence": 0.3610987365245819,
+        "box_xyxy": [
+          42.9,
+          173.83,
+          62.75,
+          197.35
+        ],
+        "kind": "background",
+        "best_iou_any_gt": 0.0083,
+        "best_iou_same_class": 0.0,
+        "nearest_gt_class": "patches"
+      },
+      {
+        "image": "rolled-in_scale_137.jpg",
+        "class_id": 4,
+        "class_name": "rolled-in_scale",
+        "confidence": 0.3563099503517151,
+        "box_xyxy": [
+          46.23,
+          52.58,
+          89.68,
+          105.51
+        ],
+        "kind": "duplicate",
+        "best_iou_any_gt": 0.5022,
+        "best_iou_same_class": 0.5022,
+        "nearest_gt_class": "rolled-in_scale"
+      },
+      {
+        "image": "crazing_129.jpg",
+        "class_id": 0,
+        "class_name": "crazing",
+        "confidence": 0.35331761837005615,
+        "box_xyxy": [
+          0.28,
+          105.43,
+          68.47,
+          182.66
+        ],
+        "kind": "poor_localisation",
+        "best_iou_any_gt": 0.1403,
+        "best_iou_same_class": 0.1403,
+        "nearest_gt_class": "crazing"
+      },
+      {
+        "image": "rolled-in_scale_289.jpg",
+        "class_id": 4,
+        "class_name": "rolled-in_scale",
+        "confidence": 0.3532821834087372,
+        "box_xyxy": [
+          65.57,
+          19.38,
+          187.17,
+          175.41
+        ],
+        "kind": "duplicate",
+        "best_iou_any_gt": 0.675,
+        "best_iou_same_class": 0.675,
+        "nearest_gt_class": "rolled-in_scale"
+      },
+      {
+        "image": "patches_128.jpg",
+        "class_id": 2,
+        "class_name": "patches",
+        "confidence": 0.35212692618370056,
+        "box_xyxy": [
+          0.14,
+          0.0,
+          48.18,
+          12.55
+        ],
+        "kind": "poor_localisation",
+        "best_iou_any_gt": 0.4481,
+        "best_iou_same_class": 0.4481,
+        "nearest_gt_class": "patches"
+      },
+      {
+        "image": "inclusion_207.jpg",
+        "class_id": 1,
+        "class_name": "inclusion",
+        "confidence": 0.35173240303993225,
+        "box_xyxy": [
+          126.2,
+          142.93,
+          154.44,
+          200.0
+        ],
+        "kind": "poor_localisation",
+        "best_iou_any_gt": 0.4976,
+        "best_iou_same_class": 0.4976,
+        "nearest_gt_class": "inclusion"
+      },
+      {
+        "image": "rolled-in_scale_189.jpg",
+        "class_id": 4,
+        "class_name": "rolled-in_scale",
+        "confidence": 0.3517096936702728,
+        "box_xyxy": [
+          124.3,
+          140.35,
+          198.56,
+          196.86
+        ],
+        "kind": "poor_localisation",
+        "best_iou_any_gt": 0.2761,
+        "best_iou_same_class": 0.2761,
+        "nearest_gt_class": "rolled-in_scale"
+      },
+      {
+        "image": "patches_254.jpg",
+        "class_id": 2,
+        "class_name": "patches",
+        "confidence": 0.3516519069671631,
+        "box_xyxy": [
+          184.03,
+          0.0,
+          200.0,
+          12.74
+        ],
+        "kind": "background",
+        "best_iou_any_gt": 0.0,
+        "best_iou_same_class": 0.0,
+        "nearest_gt_class": "patches"
+      },
+      {
+        "image": "pitted_surface_281.jpg",
+        "class_id": 3,
+        "class_name": "pitted_surface",
+        "confidence": 0.3492971956729889,
+        "box_xyxy": [
+          11.39,
+          0.03,
+          56.31,
+          199.84
+        ],
+        "kind": "wrong_class",
+        "best_iou_any_gt": 0.5361,
+        "best_iou_same_class": 0.0225,
+        "nearest_gt_class": "inclusion"
+      },
+      {
+        "image": "inclusion_25.jpg",
+        "class_id": 1,
+        "class_name": "inclusion",
+        "confidence": 0.34837061166763306,
+        "box_xyxy": [
+          2.24,
+          148.04,
+          27.27,
+          199.97
+        ],
+        "kind": "background",
+        "best_iou_any_gt": 0.0,
+        "best_iou_same_class": 0.0,
+        "nearest_gt_class": "inclusion"
+      },
+      {
+        "image": "inclusion_119.jpg",
+        "class_id": 1,
+        "class_name": "inclusion",
+        "confidence": 0.3462437391281128,
+        "box_xyxy": [
+          58.55,
+          49.83,
+          79.78,
+          106.21
+        ],
+        "kind": "background",
+        "best_iou_any_gt": 0.0,
+        "best_iou_same_class": 0.0,
+        "nearest_gt_class": "inclusion"
+      },
+      {
+        "image": "crazing_219.jpg",
+        "class_id": 0,
+        "class_name": "crazing",
+        "confidence": 0.3456294536590576,
+        "box_xyxy": [
+          0.93,
+          121.78,
+          87.78,
+          173.94
+        ],
+        "kind": "background",
+        "best_iou_any_gt": 0.0041,
+        "best_iou_same_class": 0.0041,
+        "nearest_gt_class": "crazing"
+      },
+      {
+        "image": "inclusion_150.jpg",
+        "class_id": 1,
+        "class_name": "inclusion",
+        "confidence": 0.34529000520706177,
+        "box_xyxy": [
+          93.16,
+          0.08,
+          119.81,
+          71.78
+        ],
+        "kind": "background",
+        "best_iou_any_gt": 0.0,
+        "best_iou_same_class": 0.0,
+        "nearest_gt_class": "inclusion"
+      },
+      {
+        "image": "scratches_271.jpg",
+        "class_id": 5,
+        "class_name": "scratches",
+        "confidence": 0.3436589539051056,
+        "box_xyxy": [
+          84.34,
+          99.72,
+          199.73,
+          128.15
+        ],
+        "kind": "poor_localisation",
+        "best_iou_any_gt": 0.4763,
+        "best_iou_same_class": 0.4763,
+        "nearest_gt_class": "scratches"
+      },
+      {
+        "image": "rolled-in_scale_179.jpg",
+        "class_id": 4,
+        "class_name": "rolled-in_scale",
+        "confidence": 0.34208041429519653,
+        "box_xyxy": [
+          1.12,
+          0.22,
+          95.85,
+          92.46
+        ],
+        "kind": "duplicate",
+        "best_iou_any_gt": 0.5463,
+        "best_iou_same_class": 0.5463,
+        "nearest_gt_class": "rolled-in_scale"
+      },
+      {
+        "image": "crazing_27.jpg",
+        "class_id": 0,
+        "class_name": "crazing",
+        "confidence": 0.3388998806476593,
+        "box_xyxy": [
+          34.74,
+          77.61,
+          197.45,
+          131.34
+        ],
+        "kind": "poor_localisation",
+        "best_iou_any_gt": 0.2548,
+        "best_iou_same_class": 0.2548,
+        "nearest_gt_class": "crazing"
+      },
+      {
+        "image": "rolled-in_scale_290.jpg",
+        "class_id": 4,
+        "class_name": "rolled-in_scale",
+        "confidence": 0.3371935188770294,
+        "box_xyxy": [
+          0.17,
+          99.36,
+          63.85,
+          149.74
+        ],
+        "kind": "poor_localisation",
+        "best_iou_any_gt": 0.1508,
+        "best_iou_same_class": 0.1508,
+        "nearest_gt_class": "rolled-in_scale"
+      },
+      {
+        "image": "pitted_surface_216.jpg",
+        "class_id": 1,
+        "class_name": "inclusion",
+        "confidence": 0.33601629734039307,
+        "box_xyxy": [
+          2.93,
+          96.39,
+          23.98,
+          199.96
+        ],
+        "kind": "background",
+        "best_iou_any_gt": 0.0,
+        "best_iou_same_class": 0.0,
+        "nearest_gt_class": "pitted_surface"
+      },
+      {
+        "image": "rolled-in_scale_280.jpg",
+        "class_id": 4,
+        "class_name": "rolled-in_scale",
+        "confidence": 0.3354347348213196,
+        "box_xyxy": [
+          59.16,
+          111.08,
+          160.36,
+          200.0
+        ],
+        "kind": "duplicate",
+        "best_iou_any_gt": 0.887,
+        "best_iou_same_class": 0.887,
+        "nearest_gt_class": "rolled-in_scale"
+      },
+      {
+        "image": "rolled-in_scale_75.jpg",
+        "class_id": 4,
+        "class_name": "rolled-in_scale",
+        "confidence": 0.33367058634757996,
+        "box_xyxy": [
+          116.16,
+          90.57,
+          173.58,
+          154.95
+        ],
+        "kind": "poor_localisation",
+        "best_iou_any_gt": 0.3806,
+        "best_iou_same_class": 0.3806,
+        "nearest_gt_class": "rolled-in_scale"
+      },
+      {
+        "image": "pitted_surface_208.jpg",
+        "class_id": 2,
+        "class_name": "patches",
+        "confidence": 0.33339840173721313,
+        "box_xyxy": [
+          166.65,
+          0.14,
+          200.0,
+          12.65
+        ],
+        "kind": "background",
+        "best_iou_any_gt": 0.0,
+        "best_iou_same_class": 0.0,
+        "nearest_gt_class": "pitted_surface"
+      },
+      {
+        "image": "inclusion_264.jpg",
+        "class_id": 1,
+        "class_name": "inclusion",
+        "confidence": 0.333176851272583,
+        "box_xyxy": [
+          47.79,
+          97.86,
+          64.17,
+          168.22
+        ],
+        "kind": "poor_localisation",
+        "best_iou_any_gt": 0.1585,
+        "best_iou_same_class": 0.1585,
+        "nearest_gt_class": "inclusion"
+      },
+      {
+        "image": "inclusion_255.jpg",
+        "class_id": 1,
+        "class_name": "inclusion",
+        "confidence": 0.3320766091346741,
+        "box_xyxy": [
+          88.19,
+          0.12,
+          122.41,
+          100.15
+        ],
+        "kind": "duplicate",
+        "best_iou_any_gt": 0.8039,
+        "best_iou_same_class": 0.8039,
+        "nearest_gt_class": "inclusion"
+      },
+      {
+        "image": "rolled-in_scale_80.jpg",
+        "class_id": 4,
+        "class_name": "rolled-in_scale",
+        "confidence": 0.3308244049549103,
+        "box_xyxy": [
+          113.05,
+          38.53,
+          197.91,
+          171.1
+        ],
+        "kind": "duplicate",
+        "best_iou_any_gt": 0.6503,
+        "best_iou_same_class": 0.6503,
+        "nearest_gt_class": "rolled-in_scale"
+      },
+      {
+        "image": "scratches_250.jpg",
+        "class_id": 5,
+        "class_name": "scratches",
+        "confidence": 0.330715149641037,
+        "box_xyxy": [
+          1.35,
+          84.81,
+          198.4,
+          106.31
+        ],
+        "kind": "duplicate",
+        "best_iou_any_gt": 0.8551,
+        "best_iou_same_class": 0.8551,
+        "nearest_gt_class": "scratches"
+      },
+      {
+        "image": "inclusion_31.jpg",
+        "class_id": 1,
+        "class_name": "inclusion",
+        "confidence": 0.32896652817726135,
+        "box_xyxy": [
+          94.85,
+          0.16,
+          113.27,
+          27.65
+        ],
+        "kind": "background",
+        "best_iou_any_gt": 0.0,
+        "best_iou_same_class": 0.0,
+        "nearest_gt_class": "inclusion"
+      },
+      {
+        "image": "rolled-in_scale_189.jpg",
+        "class_id": 4,
+        "class_name": "rolled-in_scale",
+        "confidence": 0.32803231477737427,
+        "box_xyxy": [
+          50.33,
+          5.69,
+          103.96,
+          85.7
+        ],
+        "kind": "poor_localisation",
+        "best_iou_any_gt": 0.3285,
+        "best_iou_same_class": 0.3285,
+        "nearest_gt_class": "rolled-in_scale"
+      },
+      {
+        "image": "crazing_63.jpg",
+        "class_id": 0,
+        "class_name": "crazing",
+        "confidence": 0.3279978334903717,
+        "box_xyxy": [
+          31.49,
+          113.62,
+          125.82,
+          190.87
+        ],
+        "kind": "poor_localisation",
+        "best_iou_any_gt": 0.4722,
+        "best_iou_same_class": 0.4722,
+        "nearest_gt_class": "crazing"
+      },
+      {
+        "image": "crazing_59.jpg",
+        "class_id": 0,
+        "class_name": "crazing",
+        "confidence": 0.32796546816825867,
+        "box_xyxy": [
+          15.24,
+          109.39,
+          196.89,
+          186.9
+        ],
+        "kind": "poor_localisation",
+        "best_iou_any_gt": 0.1806,
+        "best_iou_same_class": 0.1806,
+        "nearest_gt_class": "crazing"
+      },
+      {
+        "image": "pitted_surface_216.jpg",
+        "class_id": 1,
+        "class_name": "inclusion",
+        "confidence": 0.3278277814388275,
+        "box_xyxy": [
+          0.0,
+          94.55,
+          9.72,
+          200.0
+        ],
+        "kind": "background",
+        "best_iou_any_gt": 0.0,
+        "best_iou_same_class": 0.0,
+        "nearest_gt_class": "pitted_surface"
+      },
+      {
+        "image": "scratches_210.jpg",
+        "class_id": 5,
+        "class_name": "scratches",
+        "confidence": 0.3272700607776642,
+        "box_xyxy": [
+          129.35,
+          0.0,
+          162.64,
+          181.22
+        ],
+        "kind": "duplicate",
+        "best_iou_any_gt": 0.8527,
+        "best_iou_same_class": 0.8527,
+        "nearest_gt_class": "scratches"
+      },
+      {
+        "image": "scratches_141.jpg",
+        "class_id": 1,
+        "class_name": "inclusion",
+        "confidence": 0.3272154927253723,
+        "box_xyxy": [
+          29.72,
+          0.09,
+          54.47,
+          49.53
+        ],
+        "kind": "duplicate",
+        "best_iou_any_gt": 0.5676,
+        "best_iou_same_class": 0.5676,
+        "nearest_gt_class": "inclusion"
+      },
+      {
+        "image": "scratches_204.jpg",
+        "class_id": 5,
+        "class_name": "scratches",
+        "confidence": 0.3243390619754791,
+        "box_xyxy": [
+          0.0,
+          68.97,
+          8.59,
+          200.0
+        ],
+        "kind": "background",
+        "best_iou_any_gt": 0.0,
+        "best_iou_same_class": 0.0,
+        "nearest_gt_class": "scratches"
+      },
+      {
+        "image": "crazing_135.jpg",
+        "class_id": 0,
+        "class_name": "crazing",
+        "confidence": 0.323957234621048,
+        "box_xyxy": [
+          48.65,
+          115.33,
+          127.48,
+          181.81
+        ],
+        "kind": "duplicate",
+        "best_iou_any_gt": 0.5181,
+        "best_iou_same_class": 0.5181,
+        "nearest_gt_class": "crazing"
+      },
+      {
+        "image": "crazing_139.jpg",
+        "class_id": 0,
+        "class_name": "crazing",
+        "confidence": 0.3239072263240814,
+        "box_xyxy": [
+          134.7,
+          4.25,
+          199.66,
+          62.69
+        ],
+        "kind": "background",
+        "best_iou_any_gt": 0.0,
+        "best_iou_same_class": 0.0,
+        "nearest_gt_class": "crazing"
+      },
+      {
+        "image": "inclusion_97.jpg",
+        "class_id": 1,
+        "class_name": "inclusion",
+        "confidence": 0.32346710562705994,
+        "box_xyxy": [
+          163.83,
+          0.04,
+          179.5,
+          10.21
+        ],
+        "kind": "background",
+        "best_iou_any_gt": 0.0,
+        "best_iou_same_class": 0.0,
+        "nearest_gt_class": "inclusion"
+      },
+      {
+        "image": "rolled-in_scale_58.jpg",
+        "class_id": 4,
+        "class_name": "rolled-in_scale",
+        "confidence": 0.3225076496601105,
+        "box_xyxy": [
+          83.45,
+          49.8,
+          118.3,
+          113.16
+        ],
+        "kind": "poor_localisation",
+        "best_iou_any_gt": 0.3021,
+        "best_iou_same_class": 0.3021,
+        "nearest_gt_class": "rolled-in_scale"
+      },
+      {
+        "image": "crazing_150.jpg",
+        "class_id": 0,
+        "class_name": "crazing",
+        "confidence": 0.32065215706825256,
+        "box_xyxy": [
+          94.64,
+          0.03,
+          194.61,
+          72.02
+        ],
+        "kind": "background",
+        "best_iou_any_gt": 0.0,
+        "best_iou_same_class": 0.0,
+        "nearest_gt_class": "crazing"
+      },
+      {
+        "image": "crazing_27.jpg",
+        "class_id": 0,
+        "class_name": "crazing",
+        "confidence": 0.3202487826347351,
+        "box_xyxy": [
+          11.48,
+          139.74,
+          108.02,
+          197.51
+        ],
+        "kind": "poor_localisation",
+        "best_iou_any_gt": 0.3598,
+        "best_iou_same_class": 0.3598,
+        "nearest_gt_class": "crazing"
+      },
+      {
+        "image": "pitted_surface_201.jpg",
+        "class_id": 5,
+        "class_name": "scratches",
+        "confidence": 0.31902357935905457,
+        "box_xyxy": [
+          0.0,
+          0.3,
+          36.54,
+          199.57
+        ],
+        "kind": "background",
+        "best_iou_any_gt": 0.0,
+        "best_iou_same_class": 0.0,
+        "nearest_gt_class": "pitted_surface"
+      },
+      {
+        "image": "rolled-in_scale_258.jpg",
+        "class_id": 4,
+        "class_name": "rolled-in_scale",
+        "confidence": 0.3187185823917389,
+        "box_xyxy": [
+          50.76,
+          0.0,
+          155.89,
+          123.41
+        ],
+        "kind": "poor_localisation",
+        "best_iou_any_gt": 0.2279,
+        "best_iou_same_class": 0.2279,
+        "nearest_gt_class": "rolled-in_scale"
+      },
+      {
+        "image": "patches_13.jpg",
+        "class_id": 2,
+        "class_name": "patches",
+        "confidence": 0.3157217502593994,
+        "box_xyxy": [
+          82.61,
+          0.0,
+          119.83,
+          28.31
+        ],
+        "kind": "background",
+        "best_iou_any_gt": 0.0,
+        "best_iou_same_class": 0.0,
+        "nearest_gt_class": "patches"
+      },
+      {
+        "image": "rolled-in_scale_44.jpg",
+        "class_id": 4,
+        "class_name": "rolled-in_scale",
+        "confidence": 0.314534991979599,
+        "box_xyxy": [
+          138.34,
+          0.11,
+          188.92,
+          42.56
+        ],
+        "kind": "poor_localisation",
+        "best_iou_any_gt": 0.4702,
+        "best_iou_same_class": 0.4702,
+        "nearest_gt_class": "rolled-in_scale"
+      },
+      {
+        "image": "rolled-in_scale_289.jpg",
+        "class_id": 4,
+        "class_name": "rolled-in_scale",
+        "confidence": 0.31450772285461426,
+        "box_xyxy": [
+          87.97,
+          0.0,
+          193.13,
+          80.36
+        ],
+        "kind": "duplicate",
+        "best_iou_any_gt": 0.8509,
+        "best_iou_same_class": 0.8509,
+        "nearest_gt_class": "rolled-in_scale"
+      },
+      {
+        "image": "scratches_152.jpg",
+        "class_id": 5,
+        "class_name": "scratches",
+        "confidence": 0.3135068118572235,
+        "box_xyxy": [
+          75.31,
+          153.17,
+          91.53,
+          199.97
+        ],
+        "kind": "background",
+        "best_iou_any_gt": 0.0,
+        "best_iou_same_class": 0.0,
+        "nearest_gt_class": "scratches"
+      },
+      {
+        "image": "patches_112.jpg",
+        "class_id": 2,
+        "class_name": "patches",
+        "confidence": 0.31106293201446533,
+        "box_xyxy": [
+          4.95,
+          0.03,
+          34.74,
+          5.83
+        ],
+        "kind": "background",
+        "best_iou_any_gt": 0.0,
+        "best_iou_same_class": 0.0,
+        "nearest_gt_class": "patches"
+      },
+      {
+        "image": "patches_256.jpg",
+        "class_id": 3,
+        "class_name": "pitted_surface",
+        "confidence": 0.3105210065841675,
+        "box_xyxy": [
+          0.0,
+          92.52,
+          109.44,
+          198.4
+        ],
+        "kind": "background",
+        "best_iou_any_gt": 0.0,
+        "best_iou_same_class": 0.0,
+        "nearest_gt_class": "patches"
+      },
+      {
+        "image": "patches_186.jpg",
+        "class_id": 2,
+        "class_name": "patches",
+        "confidence": 0.310237854719162,
+        "box_xyxy": [
+          55.14,
+          133.92,
+          123.25,
+          173.13
+        ],
+        "kind": "poor_localisation",
+        "best_iou_any_gt": 0.4876,
+        "best_iou_same_class": 0.4876,
+        "nearest_gt_class": "patches"
+      },
+      {
+        "image": "rolled-in_scale_95.jpg",
+        "class_id": 4,
+        "class_name": "rolled-in_scale",
+        "confidence": 0.3099106550216675,
+        "box_xyxy": [
+          53.05,
+          108.99,
+          111.47,
+          158.28
+        ],
+        "kind": "poor_localisation",
+        "best_iou_any_gt": 0.4285,
+        "best_iou_same_class": 0.4285,
+        "nearest_gt_class": "rolled-in_scale"
+      },
+      {
+        "image": "scratches_206.jpg",
+        "class_id": 5,
+        "class_name": "scratches",
+        "confidence": 0.3094896376132965,
+        "box_xyxy": [
+          112.56,
+          45.03,
+          128.97,
+          199.61
+        ],
+        "kind": "poor_localisation",
+        "best_iou_any_gt": 0.3607,
+        "best_iou_same_class": 0.3607,
+        "nearest_gt_class": "scratches"
+      },
+      {
+        "image": "rolled-in_scale_276.jpg",
+        "class_id": 4,
+        "class_name": "rolled-in_scale",
+        "confidence": 0.30909499526023865,
+        "box_xyxy": [
+          69.47,
+          0.79,
+          132.57,
+          118.6
+        ],
+        "kind": "poor_localisation",
+        "best_iou_any_gt": 0.3368,
+        "best_iou_same_class": 0.3368,
+        "nearest_gt_class": "rolled-in_scale"
+      },
+      {
+        "image": "scratches_204.jpg",
+        "class_id": 5,
+        "class_name": "scratches",
+        "confidence": 0.30720534920692444,
+        "box_xyxy": [
+          0.0,
+          5.67,
+          8.38,
+          200.0
+        ],
+        "kind": "background",
+        "best_iou_any_gt": 0.0,
+        "best_iou_same_class": 0.0,
+        "nearest_gt_class": "scratches"
+      },
+      {
+        "image": "pitted_surface_46.jpg",
+        "class_id": 3,
+        "class_name": "pitted_surface",
+        "confidence": 0.30419424176216125,
+        "box_xyxy": [
+          60.03,
+          0.0,
+          200.0,
+          80.94
+        ],
+        "kind": "poor_localisation",
+        "best_iou_any_gt": 0.3966,
+        "best_iou_same_class": 0.3966,
+        "nearest_gt_class": "pitted_surface"
+      },
+      {
+        "image": "scratches_152.jpg",
+        "class_id": 5,
+        "class_name": "scratches",
+        "confidence": 0.3030771315097809,
+        "box_xyxy": [
+          56.7,
+          101.29,
+          69.95,
+          200.0
+        ],
+        "kind": "background",
+        "best_iou_any_gt": 0.0,
+        "best_iou_same_class": 0.0,
+        "nearest_gt_class": "scratches"
+      },
+      {
+        "image": "crazing_295.jpg",
+        "class_id": 0,
+        "class_name": "crazing",
+        "confidence": 0.30268096923828125,
+        "box_xyxy": [
+          4.89,
+          18.08,
+          168.2,
+          109.68
+        ],
+        "kind": "duplicate",
+        "best_iou_any_gt": 0.5149,
+        "best_iou_same_class": 0.5149,
+        "nearest_gt_class": "crazing"
+      },
+      {
+        "image": "crazing_236.jpg",
+        "class_id": 0,
+        "class_name": "crazing",
+        "confidence": 0.3002229928970337,
+        "box_xyxy": [
+          112.88,
+          87.62,
+          200.0,
+          167.88
+        ],
+        "kind": "poor_localisation",
+        "best_iou_any_gt": 0.4624,
+        "best_iou_same_class": 0.4624,
+        "nearest_gt_class": "crazing"
+      },
+      {
+        "image": "inclusion_119.jpg",
+        "class_id": 1,
+        "class_name": "inclusion",
+        "confidence": 0.294830858707428,
+        "box_xyxy": [
+          96.77,
+          14.33,
+          125.04,
+          137.84
+        ],
+        "kind": "poor_localisation",
+        "best_iou_any_gt": 0.4372,
+        "best_iou_same_class": 0.4372,
+        "nearest_gt_class": "inclusion"
+      },
+      {
+        "image": "crazing_56.jpg",
+        "class_id": 0,
+        "class_name": "crazing",
+        "confidence": 0.29452162981033325,
+        "box_xyxy": [
+          80.32,
+          0.01,
+          186.73,
+          32.75
+        ],
+        "kind": "poor_localisation",
+        "best_iou_any_gt": 0.1032,
+        "best_iou_same_class": 0.1032,
+        "nearest_gt_class": "crazing"
+      },
+      {
+        "image": "rolled-in_scale_47.jpg",
+        "class_id": 4,
+        "class_name": "rolled-in_scale",
+        "confidence": 0.2936738431453705,
+        "box_xyxy": [
+          59.86,
+          27.38,
+          103.11,
+          94.68
+        ],
+        "kind": "duplicate",
+        "best_iou_any_gt": 0.5936,
+        "best_iou_same_class": 0.5936,
+        "nearest_gt_class": "rolled-in_scale"
+      },
+      {
+        "image": "patches_197.jpg",
+        "class_id": 2,
+        "class_name": "patches",
+        "confidence": 0.29204219579696655,
+        "box_xyxy": [
+          133.54,
+          0.0,
+          168.87,
+          12.19
+        ],
+        "kind": "background",
+        "best_iou_any_gt": 0.0,
+        "best_iou_same_class": 0.0,
+        "nearest_gt_class": "patches"
+      },
+      {
+        "image": "patches_191.jpg",
+        "class_id": 2,
+        "class_name": "patches",
+        "confidence": 0.2911373972892761,
+        "box_xyxy": [
+          82.32,
+          13.6,
+          196.93,
+          200.0
+        ],
+        "kind": "duplicate",
+        "best_iou_any_gt": 0.7642,
+        "best_iou_same_class": 0.7642,
+        "nearest_gt_class": "patches"
+      },
+      {
+        "image": "patches_158.jpg",
+        "class_id": 1,
+        "class_name": "inclusion",
+        "confidence": 0.2906160056591034,
+        "box_xyxy": [
+          122.65,
+          0.06,
+          148.96,
+          45.62
+        ],
+        "kind": "background",
+        "best_iou_any_gt": 0.0684,
+        "best_iou_same_class": 0.0,
+        "nearest_gt_class": "patches"
+      },
+      {
+        "image": "crazing_236.jpg",
+        "class_id": 0,
+        "class_name": "crazing",
+        "confidence": 0.2885695695877075,
+        "box_xyxy": [
+          13.26,
+          134.25,
+          196.83,
+          200.0
+        ],
+        "kind": "poor_localisation",
+        "best_iou_any_gt": 0.3741,
+        "best_iou_same_class": 0.3741,
+        "nearest_gt_class": "crazing"
+      },
+      {
+        "image": "inclusion_168.jpg",
+        "class_id": 1,
+        "class_name": "inclusion",
+        "confidence": 0.287844717502594,
+        "box_xyxy": [
+          0.15,
+          0.52,
+          29.39,
+          159.23
+        ],
+        "kind": "duplicate",
+        "best_iou_any_gt": 0.5186,
+        "best_iou_same_class": 0.5186,
+        "nearest_gt_class": "inclusion"
+      },
+      {
+        "image": "rolled-in_scale_80.jpg",
+        "class_id": 4,
+        "class_name": "rolled-in_scale",
+        "confidence": 0.2872154414653778,
+        "box_xyxy": [
+          116.83,
+          134.15,
+          194.69,
+          199.92
+        ],
+        "kind": "poor_localisation",
+        "best_iou_any_gt": 0.4473,
+        "best_iou_same_class": 0.4473,
+        "nearest_gt_class": "rolled-in_scale"
+      },
+      {
+        "image": "scratches_155.jpg",
+        "class_id": 5,
+        "class_name": "scratches",
+        "confidence": 0.2849930226802826,
+        "box_xyxy": [
+          176.87,
+          1.89,
+          200.0,
+          199.83
+        ],
+        "kind": "background",
+        "best_iou_any_gt": 0.0,
+        "best_iou_same_class": 0.0,
+        "nearest_gt_class": "scratches"
+      },
+      {
+        "image": "pitted_surface_281.jpg",
+        "class_id": 3,
+        "class_name": "pitted_surface",
+        "confidence": 0.2845138609409332,
+        "box_xyxy": [
+          11.11,
+          0.49,
+          93.18,
+          199.43
+        ],
+        "kind": "poor_localisation",
+        "best_iou_any_gt": 0.3025,
+        "best_iou_same_class": 0.2121,
+        "nearest_gt_class": "inclusion"
+      },
+      {
+        "image": "crazing_192.jpg",
+        "class_id": 0,
+        "class_name": "crazing",
+        "confidence": 0.2843494713306427,
+        "box_xyxy": [
+          66.89,
+          0.24,
+          198.81,
+          49.19
+        ],
+        "kind": "poor_localisation",
+        "best_iou_any_gt": 0.4565,
+        "best_iou_same_class": 0.4565,
+        "nearest_gt_class": "crazing"
+      },
+      {
+        "image": "rolled-in_scale_79.jpg",
+        "class_id": 4,
+        "class_name": "rolled-in_scale",
+        "confidence": 0.28420501947402954,
+        "box_xyxy": [
+          85.82,
+          36.86,
+          149.47,
+          98.17
+        ],
+        "kind": "poor_localisation",
+        "best_iou_any_gt": 0.3732,
+        "best_iou_same_class": 0.3732,
+        "nearest_gt_class": "rolled-in_scale"
+      },
+      {
+        "image": "rolled-in_scale_257.jpg",
+        "class_id": 4,
+        "class_name": "rolled-in_scale",
+        "confidence": 0.2841074466705322,
+        "box_xyxy": [
+          99.64,
+          155.76,
+          187.36,
+          200.0
+        ],
+        "kind": "poor_localisation",
+        "best_iou_any_gt": 0.3578,
+        "best_iou_same_class": 0.3578,
+        "nearest_gt_class": "rolled-in_scale"
+      },
+      {
+        "image": "rolled-in_scale_289.jpg",
+        "class_id": 4,
+        "class_name": "rolled-in_scale",
+        "confidence": 0.2830999493598938,
+        "box_xyxy": [
+          137.26,
+          164.78,
+          199.42,
+          200.0
+        ],
+        "kind": "background",
+        "best_iou_any_gt": 0.0469,
+        "best_iou_same_class": 0.0469,
+        "nearest_gt_class": "rolled-in_scale"
+      },
+      {
+        "image": "rolled-in_scale_255.jpg",
+        "class_id": 4,
+        "class_name": "rolled-in_scale",
+        "confidence": 0.282877653837204,
+        "box_xyxy": [
+          163.5,
+          0.07,
+          199.84,
+          40.19
+        ],
+        "kind": "background",
+        "best_iou_any_gt": 0.0,
+        "best_iou_same_class": 0.0,
+        "nearest_gt_class": "rolled-in_scale"
+      },
+      {
+        "image": "crazing_250.jpg",
+        "class_id": 0,
+        "class_name": "crazing",
+        "confidence": 0.28261324763298035,
+        "box_xyxy": [
+          26.54,
+          53.39,
+          196.56,
+          107.04
+        ],
+        "kind": "duplicate",
+        "best_iou_any_gt": 0.5421,
+        "best_iou_same_class": 0.5421,
+        "nearest_gt_class": "crazing"
+      },
+      {
+        "image": "patches_83.jpg",
+        "class_id": 2,
+        "class_name": "patches",
+        "confidence": 0.2822033166885376,
+        "box_xyxy": [
+          75.99,
+          55.92,
+          118.36,
+          128.06
+        ],
+        "kind": "poor_localisation",
+        "best_iou_any_gt": 0.4151,
+        "best_iou_same_class": 0.4151,
+        "nearest_gt_class": "patches"
+      },
+      {
+        "image": "rolled-in_scale_194.jpg",
+        "class_id": 4,
+        "class_name": "rolled-in_scale",
+        "confidence": 0.2818987965583801,
+        "box_xyxy": [
+          92.9,
+          0.0,
+          148.94,
+          76.03
+        ],
+        "kind": "poor_localisation",
+        "best_iou_any_gt": 0.1951,
+        "best_iou_same_class": 0.1951,
+        "nearest_gt_class": "rolled-in_scale"
+      },
+      {
+        "image": "inclusion_25.jpg",
+        "class_id": 1,
+        "class_name": "inclusion",
+        "confidence": 0.2810303568840027,
+        "box_xyxy": [
+          183.75,
+          0.71,
+          200.0,
+          195.53
+        ],
+        "kind": "poor_localisation",
+        "best_iou_any_gt": 0.1653,
+        "best_iou_same_class": 0.1653,
+        "nearest_gt_class": "inclusion"
+      },
+      {
+        "image": "crazing_193.jpg",
+        "class_id": 0,
+        "class_name": "crazing",
+        "confidence": 0.2789502441883087,
+        "box_xyxy": [
+          74.96,
+          24.0,
+          178.96,
+          110.93
+        ],
+        "kind": "poor_localisation",
+        "best_iou_any_gt": 0.3404,
+        "best_iou_same_class": 0.3404,
+        "nearest_gt_class": "crazing"
+      },
+      {
+        "image": "scratches_155.jpg",
+        "class_id": 5,
+        "class_name": "scratches",
+        "confidence": 0.2787226140499115,
+        "box_xyxy": [
+          55.53,
+          0.0,
+          72.95,
+          163.65
+        ],
+        "kind": "duplicate",
+        "best_iou_any_gt": 0.6748,
+        "best_iou_same_class": 0.6748,
+        "nearest_gt_class": "scratches"
+      },
+      {
+        "image": "patches_247.jpg",
+        "class_id": 2,
+        "class_name": "patches",
+        "confidence": 0.27803564071655273,
+        "box_xyxy": [
+          6.52,
+          56.67,
+          50.8,
+          139.8
+        ],
+        "kind": "duplicate",
+        "best_iou_any_gt": 0.5127,
+        "best_iou_same_class": 0.5127,
+        "nearest_gt_class": "patches"
+      },
+      {
+        "image": "inclusion_179.jpg",
+        "class_id": 1,
+        "class_name": "inclusion",
+        "confidence": 0.2775145471096039,
+        "box_xyxy": [
+          135.17,
+          1.12,
+          155.71,
+          51.65
+        ],
+        "kind": "duplicate",
+        "best_iou_any_gt": 0.7262,
+        "best_iou_same_class": 0.7262,
+        "nearest_gt_class": "inclusion"
+      },
+      {
+        "image": "scratches_291.jpg",
+        "class_id": 5,
+        "class_name": "scratches",
+        "confidence": 0.27510613203048706,
+        "box_xyxy": [
+          4.79,
+          100.66,
+          136.55,
+          113.22
+        ],
+        "kind": "background",
+        "best_iou_any_gt": 0.0,
+        "best_iou_same_class": 0.0,
+        "nearest_gt_class": "scratches"
+      },
+      {
+        "image": "inclusion_32.jpg",
+        "class_id": 1,
+        "class_name": "inclusion",
+        "confidence": 0.27421051263809204,
+        "box_xyxy": [
+          180.53,
+          24.59,
+          196.99,
+          59.23
+        ],
+        "kind": "background",
+        "best_iou_any_gt": 0.0,
+        "best_iou_same_class": 0.0,
+        "nearest_gt_class": "inclusion"
+      },
+      {
+        "image": "inclusion_168.jpg",
+        "class_id": 1,
+        "class_name": "inclusion",
+        "confidence": 0.2736460268497467,
+        "box_xyxy": [
+          0.0,
+          35.69,
+          62.71,
+          199.6
+        ],
+        "kind": "duplicate",
+        "best_iou_any_gt": 0.5966,
+        "best_iou_same_class": 0.5966,
+        "nearest_gt_class": "inclusion"
+      },
+      {
+        "image": "rolled-in_scale_148.jpg",
+        "class_id": 4,
+        "class_name": "rolled-in_scale",
+        "confidence": 0.27330487966537476,
+        "box_xyxy": [
+          70.46,
+          109.57,
+          116.47,
+          199.84
+        ],
+        "kind": "background",
+        "best_iou_any_gt": 0.0,
+        "best_iou_same_class": 0.0,
+        "nearest_gt_class": "rolled-in_scale"
+      },
+      {
+        "image": "crazing_139.jpg",
+        "class_id": 0,
+        "class_name": "crazing",
+        "confidence": 0.271970272064209,
+        "box_xyxy": [
+          133.81,
+          126.31,
+          199.66,
+          186.37
+        ],
+        "kind": "background",
+        "best_iou_any_gt": 0.0,
+        "best_iou_same_class": 0.0,
+        "nearest_gt_class": "crazing"
+      },
+      {
+        "image": "crazing_295.jpg",
+        "class_id": 0,
+        "class_name": "crazing",
+        "confidence": 0.2698114812374115,
+        "box_xyxy": [
+          4.8,
+          138.92,
+          146.97,
+          199.57
+        ],
+        "kind": "poor_localisation",
+        "best_iou_any_gt": 0.129,
+        "best_iou_same_class": 0.129,
+        "nearest_gt_class": "crazing"
+      },
+      {
+        "image": "crazing_109.jpg",
+        "class_id": 0,
+        "class_name": "crazing",
+        "confidence": 0.2694558799266815,
+        "box_xyxy": [
+          1.15,
+          140.1,
+          71.5,
+          192.03
+        ],
+        "kind": "background",
+        "best_iou_any_gt": 0.0,
+        "best_iou_same_class": 0.0,
+        "nearest_gt_class": "crazing"
+      },
+      {
+        "image": "scratches_210.jpg",
+        "class_id": 1,
+        "class_name": "inclusion",
+        "confidence": 0.2691454589366913,
+        "box_xyxy": [
+          157.44,
+          112.55,
+          199.79,
+          164.67
+        ],
+        "kind": "poor_localisation",
+        "best_iou_any_gt": 0.3632,
+        "best_iou_same_class": 0.3632,
+        "nearest_gt_class": "inclusion"
+      },
+      {
+        "image": "rolled-in_scale_189.jpg",
+        "class_id": 4,
+        "class_name": "rolled-in_scale",
+        "confidence": 0.26754307746887207,
+        "box_xyxy": [
+          40.09,
+          125.0,
+          81.95,
+          185.79
+        ],
+        "kind": "background",
+        "best_iou_any_gt": 0.0985,
+        "best_iou_same_class": 0.0985,
+        "nearest_gt_class": "rolled-in_scale"
+      },
+      {
+        "image": "rolled-in_scale_44.jpg",
+        "class_id": 4,
+        "class_name": "rolled-in_scale",
+        "confidence": 0.2673507332801819,
+        "box_xyxy": [
+          121.71,
+          143.24,
+          169.33,
+          200.0
+        ],
+        "kind": "duplicate",
+        "best_iou_any_gt": 0.665,
+        "best_iou_same_class": 0.665,
+        "nearest_gt_class": "rolled-in_scale"
+      },
+      {
+        "image": "inclusion_72.jpg",
+        "class_id": 1,
+        "class_name": "inclusion",
+        "confidence": 0.26651811599731445,
+        "box_xyxy": [
+          0.0,
+          74.89,
+          7.61,
+          135.09
+        ],
+        "kind": "background",
+        "best_iou_any_gt": 0.0,
+        "best_iou_same_class": 0.0,
+        "nearest_gt_class": "inclusion"
+      },
+      {
+        "image": "pitted_surface_216.jpg",
+        "class_id": 1,
+        "class_name": "inclusion",
+        "confidence": 0.26592689752578735,
+        "box_xyxy": [
+          10.0,
+          101.03,
+          23.52,
+          200.0
+        ],
+        "kind": "background",
+        "best_iou_any_gt": 0.0,
+        "best_iou_same_class": 0.0,
+        "nearest_gt_class": "pitted_surface"
+      },
+      {
+        "image": "crazing_56.jpg",
+        "class_id": 0,
+        "class_name": "crazing",
+        "confidence": 0.265729159116745,
+        "box_xyxy": [
+          0.0,
+          111.23,
+          140.64,
+          172.95
+        ],
+        "kind": "poor_localisation",
+        "best_iou_any_gt": 0.3165,
+        "best_iou_same_class": 0.3165,
+        "nearest_gt_class": "crazing"
+      },
+      {
+        "image": "crazing_279.jpg",
+        "class_id": 0,
+        "class_name": "crazing",
+        "confidence": 0.2650514543056488,
+        "box_xyxy": [
+          76.45,
+          35.42,
+          199.96,
+          101.52
+        ],
+        "kind": "poor_localisation",
+        "best_iou_any_gt": 0.4483,
+        "best_iou_same_class": 0.4483,
+        "nearest_gt_class": "crazing"
+      },
+      {
+        "image": "patches_155.jpg",
+        "class_id": 2,
+        "class_name": "patches",
+        "confidence": 0.2645694613456726,
+        "box_xyxy": [
+          8.5,
+          0.0,
+          66.6,
+          42.32
+        ],
+        "kind": "poor_localisation",
+        "best_iou_any_gt": 0.2246,
+        "best_iou_same_class": 0.2246,
+        "nearest_gt_class": "patches"
+      },
+      {
+        "image": "crazing_109.jpg",
+        "class_id": 0,
+        "class_name": "crazing",
+        "confidence": 0.26413965225219727,
+        "box_xyxy": [
+          11.36,
+          66.4,
+          168.71,
+          134.12
+        ],
+        "kind": "poor_localisation",
+        "best_iou_any_gt": 0.456,
+        "best_iou_same_class": 0.456,
+        "nearest_gt_class": "crazing"
+      },
+      {
+        "image": "crazing_236.jpg",
+        "class_id": 0,
+        "class_name": "crazing",
+        "confidence": 0.2640291154384613,
+        "box_xyxy": [
+          0.0,
+          0.1,
+          107.85,
+          76.06
+        ],
+        "kind": "poor_localisation",
+        "best_iou_any_gt": 0.4924,
+        "best_iou_same_class": 0.4924,
+        "nearest_gt_class": "crazing"
+      },
+      {
+        "image": "rolled-in_scale_258.jpg",
+        "class_id": 4,
+        "class_name": "rolled-in_scale",
+        "confidence": 0.26374733448028564,
+        "box_xyxy": [
+          13.18,
+          106.49,
+          114.26,
+          200.0
+        ],
+        "kind": "poor_localisation",
+        "best_iou_any_gt": 0.4966,
+        "best_iou_same_class": 0.4966,
+        "nearest_gt_class": "rolled-in_scale"
+      },
+      {
+        "image": "rolled-in_scale_243.jpg",
+        "class_id": 4,
+        "class_name": "rolled-in_scale",
+        "confidence": 0.26355403661727905,
+        "box_xyxy": [
+          65.49,
+          174.14,
+          156.37,
+          199.64
+        ],
+        "kind": "background",
+        "best_iou_any_gt": 0.0875,
+        "best_iou_same_class": 0.0875,
+        "nearest_gt_class": "rolled-in_scale"
+      },
+      {
+        "image": "rolled-in_scale_58.jpg",
+        "class_id": 4,
+        "class_name": "rolled-in_scale",
+        "confidence": 0.2627910375595093,
+        "box_xyxy": [
+          84.1,
+          20.0,
+          120.2,
+          113.49
+        ],
+        "kind": "poor_localisation",
+        "best_iou_any_gt": 0.2744,
+        "best_iou_same_class": 0.2744,
+        "nearest_gt_class": "rolled-in_scale"
+      },
+      {
+        "image": "crazing_190.jpg",
+        "class_id": 0,
+        "class_name": "crazing",
+        "confidence": 0.26278364658355713,
+        "box_xyxy": [
+          38.72,
+          162.03,
+          196.61,
+          199.96
+        ],
+        "kind": "background",
+        "best_iou_any_gt": 0.0,
+        "best_iou_same_class": 0.0,
+        "nearest_gt_class": "crazing"
+      },
+      {
+        "image": "inclusion_170.jpg",
+        "class_id": 1,
+        "class_name": "inclusion",
+        "confidence": 0.2625586688518524,
+        "box_xyxy": [
+          72.5,
+          25.59,
+          96.13,
+          61.09
+        ],
+        "kind": "background",
+        "best_iou_any_gt": 0.0702,
+        "best_iou_same_class": 0.0702,
+        "nearest_gt_class": "inclusion"
+      },
+      {
+        "image": "crazing_27.jpg",
+        "class_id": 0,
+        "class_name": "crazing",
+        "confidence": 0.2607273757457733,
+        "box_xyxy": [
+          12.0,
+          139.99,
+          199.57,
+          199.42
+        ],
+        "kind": "poor_localisation",
+        "best_iou_any_gt": 0.278,
+        "best_iou_same_class": 0.278,
+        "nearest_gt_class": "crazing"
+      },
+      {
+        "image": "crazing_105.jpg",
+        "class_id": 0,
+        "class_name": "crazing",
+        "confidence": 0.26048552989959717,
+        "box_xyxy": [
+          0.65,
+          148.2,
+          50.8,
+          190.19
+        ],
+        "kind": "background",
+        "best_iou_any_gt": 0.0,
+        "best_iou_same_class": 0.0,
+        "nearest_gt_class": "crazing"
+      },
+      {
+        "image": "crazing_16.jpg",
+        "class_id": 0,
+        "class_name": "crazing",
+        "confidence": 0.25964218378067017,
+        "box_xyxy": [
+          104.83,
+          12.15,
+          199.68,
+          67.49
+        ],
+        "kind": "background",
+        "best_iou_any_gt": 0.0,
+        "best_iou_same_class": 0.0,
+        "nearest_gt_class": "crazing"
+      },
+      {
+        "image": "patches_228.jpg",
+        "class_id": 1,
+        "class_name": "inclusion",
+        "confidence": 0.2540212869644165,
+        "box_xyxy": [
+          165.03,
+          140.2,
+          198.81,
+          159.46
+        ],
+        "kind": "background",
+        "best_iou_any_gt": 0.0,
+        "best_iou_same_class": 0.0,
+        "nearest_gt_class": "patches"
+      },
+      {
+        "image": "pitted_surface_98.jpg",
+        "class_id": 3,
+        "class_name": "pitted_surface",
+        "confidence": 0.2534504532814026,
+        "box_xyxy": [
+          139.79,
+          102.5,
+          200.0,
+          200.0
+        ],
+        "kind": "poor_localisation",
+        "best_iou_any_gt": 0.1476,
+        "best_iou_same_class": 0.1476,
+        "nearest_gt_class": "pitted_surface"
+      },
+      {
+        "image": "scratches_141.jpg",
+        "class_id": 1,
+        "class_name": "inclusion",
+        "confidence": 0.2526925802230835,
+        "box_xyxy": [
+          52.28,
+          23.93,
+          66.17,
+          53.0
+        ],
+        "kind": "poor_localisation",
+        "best_iou_any_gt": 0.1175,
+        "best_iou_same_class": 0.1175,
+        "nearest_gt_class": "inclusion"
+      },
+      {
+        "image": "crazing_281.jpg",
+        "class_id": 0,
+        "class_name": "crazing",
+        "confidence": 0.2511148452758789,
+        "box_xyxy": [
+          41.09,
+          118.45,
+          136.61,
+          179.39
+        ],
+        "kind": "poor_localisation",
+        "best_iou_any_gt": 0.4747,
+        "best_iou_same_class": 0.4747,
+        "nearest_gt_class": "crazing"
+      },
+      {
+        "image": "rolled-in_scale_236.jpg",
+        "class_id": 4,
+        "class_name": "rolled-in_scale",
+        "confidence": 0.2510962188243866,
+        "box_xyxy": [
+          28.44,
+          166.78,
+          141.87,
+          199.68
+        ],
+        "kind": "background",
+        "best_iou_any_gt": 0.0,
+        "best_iou_same_class": 0.0,
+        "nearest_gt_class": "rolled-in_scale"
+      },
+      {
+        "image": "patches_155.jpg",
+        "class_id": 1,
+        "class_name": "inclusion",
+        "confidence": 0.2507820427417755,
+        "box_xyxy": [
+          73.99,
+          61.02,
+          113.11,
+          120.56
+        ],
+        "kind": "duplicate",
+        "best_iou_any_gt": 0.5142,
+        "best_iou_same_class": 0.5142,
+        "nearest_gt_class": "inclusion"
+      },
+      {
+        "image": "rolled-in_scale_160.jpg",
+        "class_id": 4,
+        "class_name": "rolled-in_scale",
+        "confidence": 0.25075724720954895,
+        "box_xyxy": [
+          44.18,
+          119.71,
+          84.71,
+          178.05
+        ],
+        "kind": "poor_localisation",
+        "best_iou_any_gt": 0.4481,
+        "best_iou_same_class": 0.4481,
+        "nearest_gt_class": "rolled-in_scale"
+      },
+      {
+        "image": "crazing_34.jpg",
+        "class_id": 0,
+        "class_name": "crazing",
+        "confidence": 0.2506570816040039,
+        "box_xyxy": [
+          23.87,
+          0.13,
+          158.03,
+          33.25
+        ],
+        "kind": "poor_localisation",
+        "best_iou_any_gt": 0.3809,
+        "best_iou_same_class": 0.3809,
+        "nearest_gt_class": "crazing"
+      },
+      {
+        "image": "crazing_149.jpg",
+        "class_id": 0,
+        "class_name": "crazing",
+        "confidence": 0.25033730268478394,
+        "box_xyxy": [
+          57.94,
+          8.85,
+          137.31,
+          97.37
+        ],
+        "kind": "poor_localisation",
+        "best_iou_any_gt": 0.4935,
+        "best_iou_same_class": 0.4935,
+        "nearest_gt_class": "crazing"
+      }
+    ],
+    "false_negatives": [
+      {
+        "image": "crazing_8.jpg",
+        "class_id": 0,
+        "class_name": "crazing",
+        "box_xyxy": [
+          1.0,
+          26.0,
+          179.0,
+          118.0
+        ],
+        "area_px": 16376.0,
+        "area_fraction": 0.4094,
+        "kind": "missed_entirely",
+        "best_iou_same_class": 0.0,
+        "best_iou_any_class": 0.0,
+        "nearest_pred_class": null,
+        "nearest_pred_conf": null,
+        "render": "fn_01__crazing_8__missed-crazing__iou0.000__missed_entirely.jpg"
+      },
+      {
+        "image": "crazing_76.jpg",
+        "class_id": 0,
+        "class_name": "crazing",
+        "box_xyxy": [
+          1.0,
+          107.0,
+          198.0,
+          189.0
+        ],
+        "area_px": 16154.0,
+        "area_fraction": 0.40385,
+        "kind": "missed_entirely",
+        "best_iou_same_class": 0.0,
+        "best_iou_any_class": 0.0,
+        "nearest_pred_class": "crazing",
+        "nearest_pred_conf": 0.3307,
+        "render": "fn_02__crazing_76__missed-crazing__iou0.000__missed_entirely.jpg"
+      },
+      {
+        "image": "crazing_41.jpg",
+        "class_id": 0,
+        "class_name": "crazing",
+        "box_xyxy": [
+          12.0,
+          45.0,
+          111.0,
+          198.0
+        ],
+        "area_px": 15147.0,
+        "area_fraction": 0.37867,
+        "kind": "missed_entirely",
+        "best_iou_same_class": 0.0,
+        "best_iou_any_class": 0.0,
+        "nearest_pred_class": null,
+        "nearest_pred_conf": null,
+        "render": "fn_03__crazing_41__missed-crazing__iou0.000__missed_entirely.jpg"
+      },
+      {
+        "image": "crazing_180.jpg",
+        "class_id": 0,
+        "class_name": "crazing",
+        "box_xyxy": [
+          2.0,
+          96.0,
+          198.0,
+          168.0
+        ],
+        "area_px": 14112.0,
+        "area_fraction": 0.3528,
+        "kind": "missed_entirely",
+        "best_iou_same_class": 0.0,
+        "best_iou_any_class": 0.0,
+        "nearest_pred_class": null,
+        "nearest_pred_conf": null,
+        "render": "fn_04__crazing_180__missed-crazing__iou0.000__missed_entirely.jpg"
+      },
+      {
+        "image": "rolled-in_scale_252.jpg",
+        "class_id": 4,
+        "class_name": "rolled-in_scale",
+        "box_xyxy": [
+          49.0,
+          67.0,
+          155.0,
+          199.0
+        ],
+        "area_px": 13992.0,
+        "area_fraction": 0.3498,
+        "kind": "missed_entirely",
+        "best_iou_same_class": 0.0,
+        "best_iou_any_class": 0.0,
+        "nearest_pred_class": null,
+        "nearest_pred_conf": null,
+        "render": "fn_05__rolled-in_scale_252__missed-rolled-in_scale__iou0.000__missed_entirely.jpg"
+      },
+      {
+        "image": "crazing_8.jpg",
+        "class_id": 0,
+        "class_name": "crazing",
+        "box_xyxy": [
+          1.0,
+          121.0,
+          176.0,
+          200.0
+        ],
+        "area_px": 13825.0,
+        "area_fraction": 0.34563,
+        "kind": "missed_entirely",
+        "best_iou_same_class": 0.0,
+        "best_iou_any_class": 0.0,
+        "nearest_pred_class": null,
+        "nearest_pred_conf": null,
+        "render": "fn_06__crazing_8__missed-crazing__iou0.000__missed_entirely.jpg"
+      },
+      {
+        "image": "crazing_276.jpg",
+        "class_id": 0,
+        "class_name": "crazing",
+        "box_xyxy": [
+          8.0,
+          27.0,
+          172.0,
+          110.0
+        ],
+        "area_px": 13612.0,
+        "area_fraction": 0.3403,
+        "kind": "missed_entirely",
+        "best_iou_same_class": 0.0,
+        "best_iou_any_class": 0.0,
+        "nearest_pred_class": null,
+        "nearest_pred_conf": null,
+        "render": "fn_07__crazing_276__missed-crazing__iou0.000__missed_entirely.jpg"
+      },
+      {
+        "image": "crazing_63.jpg",
+        "class_id": 0,
+        "class_name": "crazing",
+        "box_xyxy": [
+          35.0,
+          17.0,
+          171.0,
+          107.0
+        ],
+        "area_px": 12240.0,
+        "area_fraction": 0.306,
+        "kind": "missed_entirely",
+        "best_iou_same_class": 0.0,
+        "best_iou_any_class": 0.0,
+        "nearest_pred_class": "crazing",
+        "nearest_pred_conf": 0.331,
+        "render": "fn_08__crazing_63__missed-crazing__iou0.000__missed_entirely.jpg"
+      },
+      {
+        "image": "crazing_229.jpg",
+        "class_id": 0,
+        "class_name": "crazing",
+        "box_xyxy": [
+          1.0,
+          58.0,
+          174.0,
+          128.0
+        ],
+        "area_px": 12110.0,
+        "area_fraction": 0.30275,
+        "kind": "missed_entirely",
+        "best_iou_same_class": 0.0,
+        "best_iou_any_class": 0.0,
+        "nearest_pred_class": "crazing",
+        "nearest_pred_conf": 0.366,
+        "render": "fn_09__crazing_229__missed-crazing__iou0.000__missed_entirely.jpg"
+      },
+      {
+        "image": "crazing_279.jpg",
+        "class_id": 0,
+        "class_name": "crazing",
+        "box_xyxy": [
+          13.0,
+          142.0,
+          200.0,
+          199.0
+        ],
+        "area_px": 10659.0,
+        "area_fraction": 0.26648,
+        "kind": "missed_entirely",
+        "best_iou_same_class": 0.0,
+        "best_iou_any_class": 0.0,
+        "nearest_pred_class": "crazing",
+        "nearest_pred_conf": 0.2651,
+        "render": "fn_10__crazing_279__missed-crazing__iou0.000__missed_entirely.jpg"
+      },
+      {
+        "image": "crazing_281.jpg",
+        "class_id": 0,
+        "class_name": "crazing",
+        "box_xyxy": [
+          10.0,
+          26.0,
+          152.0,
+          100.0
+        ],
+        "area_px": 10508.0,
+        "area_fraction": 0.2627,
+        "kind": "missed_entirely",
+        "best_iou_same_class": 0.0,
+        "best_iou_any_class": 0.0,
+        "nearest_pred_class": "crazing",
+        "nearest_pred_conf": 0.4342,
+        "render": "fn_11__crazing_281__missed-crazing__iou0.000__missed_entirely.jpg"
+      },
+      {
+        "image": "crazing_250.jpg",
+        "class_id": 0,
+        "class_name": "crazing",
+        "box_xyxy": [
+          28.0,
+          121.0,
+          200.0,
+          180.0
+        ],
+        "area_px": 10148.0,
+        "area_fraction": 0.2537,
+        "kind": "missed_entirely",
+        "best_iou_same_class": 0.0,
+        "best_iou_any_class": 0.0,
+        "nearest_pred_class": "crazing",
+        "nearest_pred_conf": 0.3723,
+        "render": "fn_12__crazing_250__missed-crazing__iou0.000__missed_entirely.jpg"
+      },
+      {
+        "image": "crazing_274.jpg",
+        "class_id": 0,
+        "class_name": "crazing",
+        "box_xyxy": [
+          12.0,
+          1.0,
+          194.0,
+          56.0
+        ],
+        "area_px": 10010.0,
+        "area_fraction": 0.25025,
+        "kind": "missed_entirely",
+        "best_iou_same_class": 0.0,
+        "best_iou_any_class": 0.0,
+        "nearest_pred_class": "crazing",
+        "nearest_pred_conf": 0.2849,
+        "render": "fn_13__crazing_274__missed-crazing__iou0.000__missed_entirely.jpg"
+      },
+      {
+        "image": "crazing_229.jpg",
+        "class_id": 0,
+        "class_name": "crazing",
+        "box_xyxy": [
+          1.0,
+          6.0,
+          149.0,
+          72.0
+        ],
+        "area_px": 9768.0,
+        "area_fraction": 0.2442,
+        "kind": "missed_entirely",
+        "best_iou_same_class": 0.0,
+        "best_iou_any_class": 0.0,
+        "nearest_pred_class": "crazing",
+        "nearest_pred_conf": 0.366,
+        "render": "fn_14__crazing_229__missed-crazing__iou0.000__missed_entirely.jpg"
+      },
+      {
+        "image": "crazing_41.jpg",
+        "class_id": 0,
+        "class_name": "crazing",
+        "box_xyxy": [
+          10.0,
+          1.0,
+          197.0,
+          52.0
+        ],
+        "area_px": 9537.0,
+        "area_fraction": 0.23842,
+        "kind": "missed_entirely",
+        "best_iou_same_class": 0.0,
+        "best_iou_any_class": 0.0,
+        "nearest_pred_class": null,
+        "nearest_pred_conf": null,
+        "render": "fn_15__crazing_41__missed-crazing__iou0.000__missed_entirely.jpg"
+      },
+      {
+        "image": "crazing_180.jpg",
+        "class_id": 0,
+        "class_name": "crazing",
+        "box_xyxy": [
+          115.0,
+          6.0,
+          199.0,
+          116.0
+        ],
+        "area_px": 9240.0,
+        "area_fraction": 0.231,
+        "kind": "missed_entirely",
+        "best_iou_same_class": 0.0,
+        "best_iou_any_class": 0.0,
+        "nearest_pred_class": null,
+        "nearest_pred_conf": null,
+        "render": "fn_16__crazing_180__missed-crazing__iou0.000__missed_entirely.jpg"
+      },
+      {
+        "image": "crazing_149.jpg",
+        "class_id": 0,
+        "class_name": "crazing",
+        "box_xyxy": [
+          26.0,
+          108.0,
+          154.0,
+          179.0
+        ],
+        "area_px": 9088.0,
+        "area_fraction": 0.2272,
+        "kind": "missed_entirely",
+        "best_iou_same_class": 0.0,
+        "best_iou_any_class": 0.0,
+        "nearest_pred_class": "crazing",
+        "nearest_pred_conf": 0.3773,
+        "render": "fn_17__crazing_149__missed-crazing__iou0.000__missed_entirely.jpg"
+      },
+      {
+        "image": "crazing_190.jpg",
+        "class_id": 0,
+        "class_name": "crazing",
+        "box_xyxy": [
+          1.0,
+          6.0,
+          147.0,
+          65.0
+        ],
+        "area_px": 8614.0,
+        "area_fraction": 0.21535,
+        "kind": "missed_entirely",
+        "best_iou_same_class": 0.0,
+        "best_iou_any_class": 0.0,
+        "nearest_pred_class": "crazing",
+        "nearest_pred_conf": 0.3579,
+        "render": "fn_18__crazing_190__missed-crazing__iou0.000__missed_entirely.jpg"
+      },
+      {
+        "image": "crazing_204.jpg",
+        "class_id": 0,
+        "class_name": "crazing",
+        "box_xyxy": [
+          7.0,
+          132.0,
+          165.0,
+          184.0
+        ],
+        "area_px": 8216.0,
+        "area_fraction": 0.2054,
+        "kind": "missed_entirely",
+        "best_iou_same_class": 0.0,
+        "best_iou_any_class": 0.0,
+        "nearest_pred_class": null,
+        "nearest_pred_conf": null,
+        "render": "fn_19__crazing_204__missed-crazing__iou0.000__missed_entirely.jpg"
+      },
+      {
+        "image": "crazing_276.jpg",
+        "class_id": 0,
+        "class_name": "crazing",
+        "box_xyxy": [
+          50.0,
+          115.0,
+          147.0,
+          199.0
+        ],
+        "area_px": 8148.0,
+        "area_fraction": 0.2037,
+        "kind": "missed_entirely",
+        "best_iou_same_class": 0.0,
+        "best_iou_any_class": 0.0,
+        "nearest_pred_class": null,
+        "nearest_pred_conf": null,
+        "render": "fn_20__crazing_276__missed-crazing__iou0.000__missed_entirely.jpg"
+      },
+      {
+        "image": "crazing_192.jpg",
+        "class_id": 0,
+        "class_name": "crazing",
+        "box_xyxy": [
+          17.0,
+          120.0,
+          129.0,
+          191.0
+        ],
+        "area_px": 7952.0,
+        "area_fraction": 0.1988,
+        "kind": "missed_entirely",
+        "best_iou_same_class": 0.0,
+        "best_iou_any_class": 0.0,
+        "nearest_pred_class": "crazing",
+        "nearest_pred_conf": 0.4346
+      },
+      {
+        "image": "crazing_180.jpg",
+        "class_id": 0,
+        "class_name": "crazing",
+        "box_xyxy": [
+          27.0,
+          148.0,
+          178.0,
+          200.0
+        ],
+        "area_px": 7852.0,
+        "area_fraction": 0.1963,
+        "kind": "missed_entirely",
+        "best_iou_same_class": 0.0,
+        "best_iou_any_class": 0.0,
+        "nearest_pred_class": null,
+        "nearest_pred_conf": null
+      },
+      {
+        "image": "crazing_180.jpg",
+        "class_id": 0,
+        "class_name": "crazing",
+        "box_xyxy": [
+          15.0,
+          51.0,
+          136.0,
+          115.0
+        ],
+        "area_px": 7744.0,
+        "area_fraction": 0.1936,
+        "kind": "missed_entirely",
+        "best_iou_same_class": 0.0,
+        "best_iou_any_class": 0.0,
+        "nearest_pred_class": null,
+        "nearest_pred_conf": null
+      },
+      {
+        "image": "crazing_218.jpg",
+        "class_id": 0,
+        "class_name": "crazing",
+        "box_xyxy": [
+          18.0,
+          58.0,
+          150.0,
+          115.0
+        ],
+        "area_px": 7524.0,
+        "area_fraction": 0.1881,
+        "kind": "missed_entirely",
+        "best_iou_same_class": 0.0,
+        "best_iou_any_class": 0.0,
+        "nearest_pred_class": null,
+        "nearest_pred_conf": null
+      },
+      {
+        "image": "crazing_144.jpg",
+        "class_id": 0,
+        "class_name": "crazing",
+        "box_xyxy": [
+          42.0,
+          24.0,
+          189.0,
+          71.0
+        ],
+        "area_px": 6909.0,
+        "area_fraction": 0.17272,
+        "kind": "missed_entirely",
+        "best_iou_same_class": 0.0,
+        "best_iou_any_class": 0.0,
+        "nearest_pred_class": null,
+        "nearest_pred_conf": null
+      },
+      {
+        "image": "crazing_114.jpg",
+        "class_id": 0,
+        "class_name": "crazing",
+        "box_xyxy": [
+          2.0,
+          16.0,
+          94.0,
+          91.0
+        ],
+        "area_px": 6900.0,
+        "area_fraction": 0.1725,
+        "kind": "missed_entirely",
+        "best_iou_same_class": 0.0,
+        "best_iou_any_class": 0.0,
+        "nearest_pred_class": null,
+        "nearest_pred_conf": null
+      },
+      {
+        "image": "crazing_132.jpg",
+        "class_id": 0,
+        "class_name": "crazing",
+        "box_xyxy": [
+          37.0,
+          89.0,
+          152.0,
+          149.0
+        ],
+        "area_px": 6900.0,
+        "area_fraction": 0.1725,
+        "kind": "missed_entirely",
+        "best_iou_same_class": 0.0,
+        "best_iou_any_class": 0.0,
+        "nearest_pred_class": "crazing",
+        "nearest_pred_conf": 0.4888
+      },
+      {
+        "image": "crazing_34.jpg",
+        "class_id": 0,
+        "class_name": "crazing",
+        "box_xyxy": [
+          2.0,
+          88.0,
+          88.0,
+          168.0
+        ],
+        "area_px": 6880.0,
+        "area_fraction": 0.172,
+        "kind": "missed_entirely",
+        "best_iou_same_class": 0.0,
+        "best_iou_any_class": 0.0,
+        "nearest_pred_class": "patches",
+        "nearest_pred_conf": 0.4212
+      },
+      {
+        "image": "crazing_34.jpg",
+        "class_id": 0,
+        "class_name": "crazing",
+        "box_xyxy": [
+          85.0,
+          143.0,
+          200.0,
+          200.0
+        ],
+        "area_px": 6555.0,
+        "area_fraction": 0.16387,
+        "kind": "missed_entirely",
+        "best_iou_same_class": 0.0,
+        "best_iou_any_class": 0.0,
+        "nearest_pred_class": "patches",
+        "nearest_pred_conf": 0.4212
+      },
+      {
+        "image": "crazing_150.jpg",
+        "class_id": 0,
+        "class_name": "crazing",
+        "box_xyxy": [
+          52.0,
+          148.0,
+          186.0,
+          196.0
+        ],
+        "area_px": 6432.0,
+        "area_fraction": 0.1608,
+        "kind": "missed_entirely",
+        "best_iou_same_class": 0.0,
+        "best_iou_any_class": 0.0,
+        "nearest_pred_class": "crazing",
+        "nearest_pred_conf": 0.3207
+      },
+      {
+        "image": "crazing_114.jpg",
+        "class_id": 0,
+        "class_name": "crazing",
+        "box_xyxy": [
+          41.0,
+          139.0,
+          169.0,
+          188.0
+        ],
+        "area_px": 6272.0,
+        "area_fraction": 0.1568,
+        "kind": "missed_entirely",
+        "best_iou_same_class": 0.0,
+        "best_iou_any_class": 0.0,
+        "nearest_pred_class": null,
+        "nearest_pred_conf": null
+      },
+      {
+        "image": "crazing_114.jpg",
+        "class_id": 0,
+        "class_name": "crazing",
+        "box_xyxy": [
+          5.0,
+          52.0,
+          46.0,
+          198.0
+        ],
+        "area_px": 5986.0,
+        "area_fraction": 0.14965,
+        "kind": "missed_entirely",
+        "best_iou_same_class": 0.0,
+        "best_iou_any_class": 0.0,
+        "nearest_pred_class": null,
+        "nearest_pred_conf": null
+      },
+      {
+        "image": "crazing_274.jpg",
+        "class_id": 0,
+        "class_name": "crazing",
+        "box_xyxy": [
+          32.0,
+          138.0,
+          147.0,
+          185.0
+        ],
+        "area_px": 5405.0,
+        "area_fraction": 0.13512,
+        "kind": "missed_entirely",
+        "best_iou_same_class": 0.0,
+        "best_iou_any_class": 0.0,
+        "nearest_pred_class": "crazing",
+        "nearest_pred_conf": 0.2849
+      },
+      {
+        "image": "crazing_129.jpg",
+        "class_id": 0,
+        "class_name": "crazing",
+        "box_xyxy": [
+          98.0,
+          58.0,
+          169.0,
+          134.0
+        ],
+        "area_px": 5396.0,
+        "area_fraction": 0.1349,
+        "kind": "missed_entirely",
+        "best_iou_same_class": 0.0,
+        "best_iou_any_class": 0.0,
+        "nearest_pred_class": "crazing",
+        "nearest_pred_conf": 0.3533
+      },
+      {
+        "image": "crazing_218.jpg",
+        "class_id": 0,
+        "class_name": "crazing",
+        "box_xyxy": [
+          36.0,
+          143.0,
+          175.0,
+          181.0
+        ],
+        "area_px": 5282.0,
+        "area_fraction": 0.13205,
+        "kind": "missed_entirely",
+        "best_iou_same_class": 0.0,
+        "best_iou_any_class": 0.0,
+        "nearest_pred_class": null,
+        "nearest_pred_conf": null
+      },
+      {
+        "image": "rolled-in_scale_75.jpg",
+        "class_id": 4,
+        "class_name": "rolled-in_scale",
+        "box_xyxy": [
+          37.0,
+          11.0,
+          97.0,
+          97.0
+        ],
+        "area_px": 5160.0,
+        "area_fraction": 0.129,
+        "kind": "missed_entirely",
+        "best_iou_same_class": 0.0,
+        "best_iou_any_class": 0.0,
+        "nearest_pred_class": "rolled-in_scale",
+        "nearest_pred_conf": 0.3337
+      },
+      {
+        "image": "rolled-in_scale_160.jpg",
+        "class_id": 4,
+        "class_name": "rolled-in_scale",
+        "box_xyxy": [
+          100.0,
+          149.0,
+          200.0,
+          200.0
+        ],
+        "area_px": 5100.0,
+        "area_fraction": 0.1275,
+        "kind": "missed_entirely",
+        "best_iou_same_class": 0.0,
+        "best_iou_any_class": 0.0,
+        "nearest_pred_class": "rolled-in_scale",
+        "nearest_pred_conf": 0.7443
+      },
+      {
+        "image": "crazing_144.jpg",
+        "class_id": 0,
+        "class_name": "crazing",
+        "box_xyxy": [
+          50.0,
+          91.0,
+          127.0,
+          157.0
+        ],
+        "area_px": 5082.0,
+        "area_fraction": 0.12705,
+        "kind": "missed_entirely",
+        "best_iou_same_class": 0.0,
+        "best_iou_any_class": 0.0,
+        "nearest_pred_class": null,
+        "nearest_pred_conf": null
+      },
+      {
+        "image": "crazing_109.jpg",
+        "class_id": 0,
+        "class_name": "crazing",
+        "box_xyxy": [
+          77.0,
+          1.0,
+          199.0,
+          42.0
+        ],
+        "area_px": 5002.0,
+        "area_fraction": 0.12505,
+        "kind": "missed_entirely",
+        "best_iou_same_class": 0.0,
+        "best_iou_any_class": 0.0,
+        "nearest_pred_class": "crazing",
+        "nearest_pred_conf": 0.2695
+      },
+      {
+        "image": "crazing_139.jpg",
+        "class_id": 0,
+        "class_name": "crazing",
+        "box_xyxy": [
+          7.0,
+          83.0,
+          97.0,
+          136.0
+        ],
+        "area_px": 4770.0,
+        "area_fraction": 0.11925,
+        "kind": "missed_entirely",
+        "best_iou_same_class": 0.0,
+        "best_iou_any_class": 0.0,
+        "nearest_pred_class": "crazing",
+        "nearest_pred_conf": 0.3602
+      },
+      {
+        "image": "rolled-in_scale_194.jpg",
+        "class_id": 4,
+        "class_name": "rolled-in_scale",
+        "box_xyxy": [
+          27.0,
+          151.0,
+          127.0,
+          198.0
+        ],
+        "area_px": 4700.0,
+        "area_fraction": 0.1175,
+        "kind": "missed_entirely",
+        "best_iou_same_class": 0.0,
+        "best_iou_any_class": 0.0,
+        "nearest_pred_class": "rolled-in_scale",
+        "nearest_pred_conf": 0.5646
+      },
+      {
+        "image": "crazing_190.jpg",
+        "class_id": 0,
+        "class_name": "crazing",
+        "box_xyxy": [
+          54.0,
+          1.0,
+          177.0,
+          37.0
+        ],
+        "area_px": 4428.0,
+        "area_fraction": 0.1107,
+        "kind": "missed_entirely",
+        "best_iou_same_class": 0.0,
+        "best_iou_any_class": 0.0,
+        "nearest_pred_class": "crazing",
+        "nearest_pred_conf": 0.3579
+      },
+      {
+        "image": "rolled-in_scale_31.jpg",
+        "class_id": 4,
+        "class_name": "rolled-in_scale",
+        "box_xyxy": [
+          81.0,
+          128.0,
+          151.0,
+          191.0
+        ],
+        "area_px": 4410.0,
+        "area_fraction": 0.11025,
+        "kind": "missed_entirely",
+        "best_iou_same_class": 0.0,
+        "best_iou_any_class": 0.0,
+        "nearest_pred_class": null,
+        "nearest_pred_conf": null
+      },
+      {
+        "image": "crazing_218.jpg",
+        "class_id": 0,
+        "class_name": "crazing",
+        "box_xyxy": [
+          91.0,
+          16.0,
+          198.0,
+          56.0
+        ],
+        "area_px": 4280.0,
+        "area_fraction": 0.107,
+        "kind": "missed_entirely",
+        "best_iou_same_class": 0.0,
+        "best_iou_any_class": 0.0,
+        "nearest_pred_class": null,
+        "nearest_pred_conf": null
+      },
+      {
+        "image": "pitted_surface_298.jpg",
+        "class_id": 3,
+        "class_name": "pitted_surface",
+        "box_xyxy": [
+          166.0,
+          12.0,
+          197.0,
+          142.0
+        ],
+        "area_px": 4030.0,
+        "area_fraction": 0.10075,
+        "kind": "missed_entirely",
+        "best_iou_same_class": 0.0,
+        "best_iou_any_class": 0.0,
+        "nearest_pred_class": "pitted_surface",
+        "nearest_pred_conf": 0.838
+      },
+      {
+        "image": "crazing_105.jpg",
+        "class_id": 1,
+        "class_name": "inclusion",
+        "box_xyxy": [
+          5.0,
+          91.0,
+          121.0,
+          125.0
+        ],
+        "area_px": 3944.0,
+        "area_fraction": 0.0986,
+        "kind": "missed_entirely",
+        "best_iou_same_class": 0.0,
+        "best_iou_any_class": 0.0,
+        "nearest_pred_class": "crazing",
+        "nearest_pred_conf": 0.298
+      },
+      {
+        "image": "crazing_122.jpg",
+        "class_id": 0,
+        "class_name": "crazing",
+        "box_xyxy": [
+          44.0,
+          73.0,
+          109.0,
+          133.0
+        ],
+        "area_px": 3900.0,
+        "area_fraction": 0.0975,
+        "kind": "missed_entirely",
+        "best_iou_same_class": 0.0,
+        "best_iou_any_class": 0.0,
+        "nearest_pred_class": null,
+        "nearest_pred_conf": null
+      },
+      {
+        "image": "inclusion_196.jpg",
+        "class_id": 1,
+        "class_name": "inclusion",
+        "box_xyxy": [
+          166.0,
+          75.0,
+          198.0,
+          196.0
+        ],
+        "area_px": 3872.0,
+        "area_fraction": 0.0968,
+        "kind": "missed_entirely",
+        "best_iou_same_class": 0.0,
+        "best_iou_any_class": 0.0,
+        "nearest_pred_class": "inclusion",
+        "nearest_pred_conf": 0.7714
+      },
+      {
+        "image": "rolled-in_scale_148.jpg",
+        "class_id": 4,
+        "class_name": "rolled-in_scale",
+        "box_xyxy": [
+          122.0,
+          63.0,
+          178.0,
+          131.0
+        ],
+        "area_px": 3808.0,
+        "area_fraction": 0.0952,
+        "kind": "missed_entirely",
+        "best_iou_same_class": 0.0,
+        "best_iou_any_class": 0.0,
+        "nearest_pred_class": "rolled-in_scale",
+        "nearest_pred_conf": 0.5914
+      },
+      {
+        "image": "rolled-in_scale_252.jpg",
+        "class_id": 4,
+        "class_name": "rolled-in_scale",
+        "box_xyxy": [
+          60.0,
+          2.0,
+          123.0,
+          61.0
+        ],
+        "area_px": 3717.0,
+        "area_fraction": 0.09292,
+        "kind": "missed_entirely",
+        "best_iou_same_class": 0.0,
+        "best_iou_any_class": 0.0,
+        "nearest_pred_class": null,
+        "nearest_pred_conf": null
+      },
+      {
+        "image": "crazing_16.jpg",
+        "class_id": 0,
+        "class_name": "crazing",
+        "box_xyxy": [
+          11.0,
+          102.0,
+          75.0,
+          157.0
+        ],
+        "area_px": 3520.0,
+        "area_fraction": 0.088,
+        "kind": "missed_entirely",
+        "best_iou_same_class": 0.0,
+        "best_iou_any_class": 0.0,
+        "nearest_pred_class": "crazing",
+        "nearest_pred_conf": 0.3098
+      },
+      {
+        "image": "crazing_122.jpg",
+        "class_id": 0,
+        "class_name": "crazing",
+        "box_xyxy": [
+          82.0,
+          136.0,
+          195.0,
+          166.0
+        ],
+        "area_px": 3390.0,
+        "area_fraction": 0.08475,
+        "kind": "missed_entirely",
+        "best_iou_same_class": 0.0,
+        "best_iou_any_class": 0.0,
+        "nearest_pred_class": null,
+        "nearest_pred_conf": null
+      },
+      {
+        "image": "scratches_253.jpg",
+        "class_id": 5,
+        "class_name": "scratches",
+        "box_xyxy": [
+          85.0,
+          101.0,
+          198.0,
+          131.0
+        ],
+        "area_px": 3390.0,
+        "area_fraction": 0.08475,
+        "kind": "missed_entirely",
+        "best_iou_same_class": 0.0,
+        "best_iou_any_class": 0.0,
+        "nearest_pred_class": "scratches",
+        "nearest_pred_conf": 0.7908
+      },
+      {
+        "image": "pitted_surface_148.jpg",
+        "class_id": 3,
+        "class_name": "pitted_surface",
+        "box_xyxy": [
+          138.0,
+          146.0,
+          197.0,
+          199.0
+        ],
+        "area_px": 3127.0,
+        "area_fraction": 0.07817,
+        "kind": "missed_entirely",
+        "best_iou_same_class": 0.0,
+        "best_iou_any_class": 0.0,
+        "nearest_pred_class": "pitted_surface",
+        "nearest_pred_conf": 0.8294
+      },
+      {
+        "image": "inclusion_293.jpg",
+        "class_id": 1,
+        "class_name": "inclusion",
+        "box_xyxy": [
+          35.0,
+          1.0,
+          64.0,
+          94.0
+        ],
+        "area_px": 2697.0,
+        "area_fraction": 0.06742,
+        "kind": "missed_entirely",
+        "best_iou_same_class": 0.0,
+        "best_iou_any_class": 0.0,
+        "nearest_pred_class": "inclusion",
+        "nearest_pred_conf": 0.8302
+      },
+      {
+        "image": "rolled-in_scale_105.jpg",
+        "class_id": 4,
+        "class_name": "rolled-in_scale",
+        "box_xyxy": [
+          27.0,
+          21.0,
+          102.0,
+          56.0
+        ],
+        "area_px": 2625.0,
+        "area_fraction": 0.06563,
+        "kind": "missed_entirely",
+        "best_iou_same_class": 0.0,
+        "best_iou_any_class": 0.0,
+        "nearest_pred_class": "rolled-in_scale",
+        "nearest_pred_conf": 0.819
+      },
+      {
+        "image": "rolled-in_scale_30.jpg",
+        "class_id": 4,
+        "class_name": "rolled-in_scale",
+        "box_xyxy": [
+          52.0,
+          20.0,
+          149.0,
+          47.0
+        ],
+        "area_px": 2619.0,
+        "area_fraction": 0.06548,
+        "kind": "missed_entirely",
+        "best_iou_same_class": 0.0,
+        "best_iou_any_class": 0.0,
+        "nearest_pred_class": "rolled-in_scale",
+        "nearest_pred_conf": 0.6128
+      },
+      {
+        "image": "rolled-in_scale_102.jpg",
+        "class_id": 4,
+        "class_name": "rolled-in_scale",
+        "box_xyxy": [
+          96.0,
+          114.0,
+          169.0,
+          149.0
+        ],
+        "area_px": 2555.0,
+        "area_fraction": 0.06388,
+        "kind": "missed_entirely",
+        "best_iou_same_class": 0.0,
+        "best_iou_any_class": 0.0,
+        "nearest_pred_class": "rolled-in_scale",
+        "nearest_pred_conf": 0.531
+      },
+      {
+        "image": "patches_291.jpg",
+        "class_id": 2,
+        "class_name": "patches",
+        "box_xyxy": [
+          9.0,
+          1.0,
+          49.0,
+          28.0
+        ],
+        "area_px": 1080.0,
+        "area_fraction": 0.027,
+        "kind": "missed_entirely",
+        "best_iou_same_class": 0.0,
+        "best_iou_any_class": 0.0,
+        "nearest_pred_class": "patches",
+        "nearest_pred_conf": 0.8853
+      },
+      {
+        "image": "inclusion_243.jpg",
+        "class_id": 1,
+        "class_name": "inclusion",
+        "box_xyxy": [
+          56.0,
+          41.0,
+          74.0,
+          88.0
+        ],
+        "area_px": 846.0,
+        "area_fraction": 0.02115,
+        "kind": "missed_entirely",
+        "best_iou_same_class": 0.0,
+        "best_iou_any_class": 0.0,
+        "nearest_pred_class": "inclusion",
+        "nearest_pred_conf": 0.7199
+      },
+      {
+        "image": "patches_174.jpg",
+        "class_id": 1,
+        "class_name": "inclusion",
+        "box_xyxy": [
+          102.0,
+          88.0,
+          125.0,
+          111.0
+        ],
+        "area_px": 529.0,
+        "area_fraction": 0.01323,
+        "kind": "missed_entirely",
+        "best_iou_same_class": 0.0,
+        "best_iou_any_class": 0.0,
+        "nearest_pred_class": "patches",
+        "nearest_pred_conf": 0.8141
+      },
+      {
+        "image": "patches_259.jpg",
+        "class_id": 1,
+        "class_name": "inclusion",
+        "box_xyxy": [
+          171.0,
+          8.0,
+          199.0,
+          26.0
+        ],
+        "area_px": 504.0,
+        "area_fraction": 0.0126,
+        "kind": "missed_entirely",
+        "best_iou_same_class": 0.0,
+        "best_iou_any_class": 0.0,
+        "nearest_pred_class": "patches",
+        "nearest_pred_conf": 0.8441
+      },
+      {
+        "image": "scratches_15.jpg",
+        "class_id": 5,
+        "class_name": "scratches",
+        "box_xyxy": [
+          125.0,
+          28.0,
+          136.0,
+          68.0
+        ],
+        "area_px": 440.0,
+        "area_fraction": 0.011,
+        "kind": "missed_entirely",
+        "best_iou_same_class": 0.0,
+        "best_iou_any_class": 0.0,
+        "nearest_pred_class": "scratches",
+        "nearest_pred_conf": 0.7668
+      },
+      {
+        "image": "patches_187.jpg",
+        "class_id": 1,
+        "class_name": "inclusion",
+        "box_xyxy": [
+          175.0,
+          91.0,
+          190.0,
+          113.0
+        ],
+        "area_px": 330.0,
+        "area_fraction": 0.00825,
+        "kind": "missed_entirely",
+        "best_iou_same_class": 0.0,
+        "best_iou_any_class": 0.0,
+        "nearest_pred_class": "patches",
+        "nearest_pred_conf": 0.9194
+      },
+      {
+        "image": "rolled-in_scale_176.jpg",
+        "class_id": 4,
+        "class_name": "rolled-in_scale",
+        "box_xyxy": [
+          119.0,
+          72.0,
+          170.0,
+          159.0
+        ],
+        "area_px": 4437.0,
+        "area_fraction": 0.11092,
+        "kind": "missed_entirely",
+        "best_iou_same_class": 0.0007,
+        "best_iou_any_class": 0.0007,
+        "nearest_pred_class": "rolled-in_scale",
+        "nearest_pred_conf": 0.3926
+      },
+      {
+        "image": "crazing_219.jpg",
+        "class_id": 0,
+        "class_name": "crazing",
+        "box_xyxy": [
+          46.0,
+          9.0,
+          116.0,
+          123.0
+        ],
+        "area_px": 7980.0,
+        "area_fraction": 0.1995,
+        "kind": "missed_entirely",
+        "best_iou_same_class": 0.0041,
+        "best_iou_any_class": 0.0041,
+        "nearest_pred_class": "crazing",
+        "nearest_pred_conf": 0.3456
+      },
+      {
+        "image": "pitted_surface_148.jpg",
+        "class_id": 3,
+        "class_name": "pitted_surface",
+        "box_xyxy": [
+          132.0,
+          1.0,
+          196.0,
+          54.0
+        ],
+        "area_px": 3392.0,
+        "area_fraction": 0.0848,
+        "kind": "missed_entirely",
+        "best_iou_same_class": 0.0048,
+        "best_iou_any_class": 0.0048,
+        "nearest_pred_class": "pitted_surface",
+        "nearest_pred_conf": 0.8294
+      },
+      {
+        "image": "inclusion_221.jpg",
+        "class_id": 1,
+        "class_name": "inclusion",
+        "box_xyxy": [
+          127.0,
+          11.0,
+          143.0,
+          34.0
+        ],
+        "area_px": 368.0,
+        "area_fraction": 0.0092,
+        "kind": "missed_entirely",
+        "best_iou_same_class": 0.0155,
+        "best_iou_any_class": 0.0155,
+        "nearest_pred_class": "inclusion",
+        "nearest_pred_conf": 0.827
+      },
+      {
+        "image": "rolled-in_scale_152.jpg",
+        "class_id": 4,
+        "class_name": "rolled-in_scale",
+        "box_xyxy": [
+          49.0,
+          6.0,
+          131.0,
+          63.0
+        ],
+        "area_px": 4674.0,
+        "area_fraction": 0.11685,
+        "kind": "missed_entirely",
+        "best_iou_same_class": 0.0182,
+        "best_iou_any_class": 0.0182,
+        "nearest_pred_class": "rolled-in_scale",
+        "nearest_pred_conf": 0.6546
+      },
+      {
+        "image": "inclusion_220.jpg",
+        "class_id": 1,
+        "class_name": "inclusion",
+        "box_xyxy": [
+          41.0,
+          5.0,
+          57.0,
+          33.0
+        ],
+        "area_px": 448.0,
+        "area_fraction": 0.0112,
+        "kind": "missed_entirely",
+        "best_iou_same_class": 0.02,
+        "best_iou_any_class": 0.02,
+        "nearest_pred_class": "inclusion",
+        "nearest_pred_conf": 0.7957
+      },
+      {
+        "image": "rolled-in_scale_264.jpg",
+        "class_id": 4,
+        "class_name": "rolled-in_scale",
+        "box_xyxy": [
+          146.0,
+          56.0,
+          197.0,
+          189.0
+        ],
+        "area_px": 6783.0,
+        "area_fraction": 0.16958,
+        "kind": "missed_entirely",
+        "best_iou_same_class": 0.0301,
+        "best_iou_any_class": 0.0301,
+        "nearest_pred_class": "rolled-in_scale",
+        "nearest_pred_conf": 0.5692
+      },
+      {
+        "image": "crazing_274.jpg",
+        "class_id": 0,
+        "class_name": "crazing",
+        "box_xyxy": [
+          130.0,
+          105.0,
+          192.0,
+          156.0
+        ],
+        "area_px": 3162.0,
+        "area_fraction": 0.07905,
+        "kind": "missed_entirely",
+        "best_iou_same_class": 0.0301,
+        "best_iou_any_class": 0.0301,
+        "nearest_pred_class": "crazing",
+        "nearest_pred_conf": 0.2849
+      },
+      {
+        "image": "scratches_210.jpg",
+        "class_id": 1,
+        "class_name": "inclusion",
+        "box_xyxy": [
+          145.0,
+          28.0,
+          200.0,
+          51.0
+        ],
+        "area_px": 1265.0,
+        "area_fraction": 0.03163,
+        "kind": "missed_entirely",
+        "best_iou_same_class": 0.0,
+        "best_iou_any_class": 0.0589,
+        "nearest_pred_class": "scratches",
+        "nearest_pred_conf": 0.3273
+      },
+      {
+        "image": "patches_230.jpg",
+        "class_id": 2,
+        "class_name": "patches",
+        "box_xyxy": [
+          123.0,
+          148.0,
+          159.0,
+          200.0
+        ],
+        "area_px": 1872.0,
+        "area_fraction": 0.0468,
+        "kind": "missed_entirely",
+        "best_iou_same_class": 0.0696,
+        "best_iou_any_class": 0.0696,
+        "nearest_pred_class": "patches",
+        "nearest_pred_conf": 0.8432
+      },
+      {
+        "image": "crazing_236.jpg",
+        "class_id": 0,
+        "class_name": "crazing",
+        "box_xyxy": [
+          1.0,
+          65.0,
+          101.0,
+          136.0
+        ],
+        "area_px": 7100.0,
+        "area_fraction": 0.1775,
+        "kind": "missed_entirely",
+        "best_iou_same_class": 0.078,
+        "best_iou_any_class": 0.078,
+        "nearest_pred_class": "crazing",
+        "nearest_pred_conf": 0.264
+      },
+      {
+        "image": "pitted_surface_176.jpg",
+        "class_id": 3,
+        "class_name": "pitted_surface",
+        "box_xyxy": [
+          119.0,
+          1.0,
+          199.0,
+          42.0
+        ],
+        "area_px": 3280.0,
+        "area_fraction": 0.082,
+        "kind": "missed_entirely",
+        "best_iou_same_class": 0.083,
+        "best_iou_any_class": 0.083,
+        "nearest_pred_class": "pitted_surface",
+        "nearest_pred_conf": 0.8626
+      },
+      {
+        "image": "crazing_290.jpg",
+        "class_id": 0,
+        "class_name": "crazing",
+        "box_xyxy": [
+          124.0,
+          1.0,
+          189.0,
+          44.0
+        ],
+        "area_px": 2795.0,
+        "area_fraction": 0.06988,
+        "kind": "missed_entirely",
+        "best_iou_same_class": 0.0835,
+        "best_iou_any_class": 0.0835,
+        "nearest_pred_class": "crazing",
+        "nearest_pred_conf": 0.3869
+      },
+      {
+        "image": "inclusion_196.jpg",
+        "class_id": 1,
+        "class_name": "inclusion",
+        "box_xyxy": [
+          130.0,
+          8.0,
+          151.0,
+          65.0
+        ],
+        "area_px": 1197.0,
+        "area_fraction": 0.02993,
+        "kind": "missed_entirely",
+        "best_iou_same_class": 0.0865,
+        "best_iou_any_class": 0.0865,
+        "nearest_pred_class": "inclusion",
+        "nearest_pred_conf": 0.748
+      },
+      {
+        "image": "patches_259.jpg",
+        "class_id": 1,
+        "class_name": "inclusion",
+        "box_xyxy": [
+          34.0,
+          47.0,
+          68.0,
+          81.0
+        ],
+        "area_px": 1156.0,
+        "area_fraction": 0.0289,
+        "kind": "missed_entirely",
+        "best_iou_same_class": 0.0,
+        "best_iou_any_class": 0.0873,
+        "nearest_pred_class": "patches",
+        "nearest_pred_conf": 0.7765
+      },
+      {
+        "image": "inclusion_20.jpg",
+        "class_id": 1,
+        "class_name": "inclusion",
+        "box_xyxy": [
+          124.0,
+          157.0,
+          142.0,
+          200.0
+        ],
+        "area_px": 774.0,
+        "area_fraction": 0.01935,
+        "kind": "missed_entirely",
+        "best_iou_same_class": 0.0986,
+        "best_iou_any_class": 0.0986,
+        "nearest_pred_class": "inclusion",
+        "nearest_pred_conf": 0.7472
+      },
+      {
+        "image": "patches_187.jpg",
+        "class_id": 1,
+        "class_name": "inclusion",
+        "box_xyxy": [
+          32.0,
+          109.0,
+          53.0,
+          136.0
+        ],
+        "area_px": 567.0,
+        "area_fraction": 0.01418,
+        "kind": "poor_localisation",
+        "best_iou_same_class": 0.0,
+        "best_iou_any_class": 0.1211,
+        "nearest_pred_class": "patches",
+        "nearest_pred_conf": 0.8132
+      },
+      {
+        "image": "pitted_surface_248.jpg",
+        "class_id": 3,
+        "class_name": "pitted_surface",
+        "box_xyxy": [
+          1.0,
+          75.0,
+          45.0,
+          200.0
+        ],
+        "area_px": 5500.0,
+        "area_fraction": 0.1375,
+        "kind": "poor_localisation",
+        "best_iou_same_class": 0.1219,
+        "best_iou_any_class": 0.1219,
+        "nearest_pred_class": "pitted_surface",
+        "nearest_pred_conf": 0.5742
+      },
+      {
+        "image": "pitted_surface_110.jpg",
+        "class_id": 3,
+        "class_name": "pitted_surface",
+        "box_xyxy": [
+          6.0,
+          1.0,
+          34.0,
+          199.0
+        ],
+        "area_px": 5544.0,
+        "area_fraction": 0.1386,
+        "kind": "poor_localisation",
+        "best_iou_same_class": 0.1324,
+        "best_iou_any_class": 0.1324,
+        "nearest_pred_class": "pitted_surface",
+        "nearest_pred_conf": 0.4402
+      },
+      {
+        "image": "inclusion_264.jpg",
+        "class_id": 1,
+        "class_name": "inclusion",
+        "box_xyxy": [
+          32.0,
+          149.0,
+          56.0,
+          199.0
+        ],
+        "area_px": 1200.0,
+        "area_fraction": 0.03,
+        "kind": "poor_localisation",
+        "best_iou_same_class": 0.1324,
+        "best_iou_any_class": 0.1324,
+        "nearest_pred_class": "inclusion",
+        "nearest_pred_conf": 0.4786
+      },
+      {
+        "image": "inclusion_32.jpg",
+        "class_id": 1,
+        "class_name": "inclusion",
+        "box_xyxy": [
+          43.0,
+          159.0,
+          67.0,
+          199.0
+        ],
+        "area_px": 960.0,
+        "area_fraction": 0.024,
+        "kind": "poor_localisation",
+        "best_iou_same_class": 0.139,
+        "best_iou_any_class": 0.139,
+        "nearest_pred_class": "inclusion",
+        "nearest_pred_conf": 0.7726
+      },
+      {
+        "image": "crazing_129.jpg",
+        "class_id": 0,
+        "class_name": "crazing",
+        "box_xyxy": [
+          1.0,
+          76.0,
+          94.0,
+          123.0
+        ],
+        "area_px": 4371.0,
+        "area_fraction": 0.10927,
+        "kind": "poor_localisation",
+        "best_iou_same_class": 0.1403,
+        "best_iou_any_class": 0.1403,
+        "nearest_pred_class": "crazing",
+        "nearest_pred_conf": 0.3533
+      },
+      {
+        "image": "rolled-in_scale_179.jpg",
+        "class_id": 4,
+        "class_name": "rolled-in_scale",
+        "box_xyxy": [
+          2.0,
+          72.0,
+          81.0,
+          112.0
+        ],
+        "area_px": 3160.0,
+        "area_fraction": 0.079,
+        "kind": "poor_localisation",
+        "best_iou_same_class": 0.1572,
+        "best_iou_any_class": 0.1572,
+        "nearest_pred_class": "rolled-in_scale",
+        "nearest_pred_conf": 0.3421
+      },
+      {
+        "image": "crazing_56.jpg",
+        "class_id": 0,
+        "class_name": "crazing",
+        "box_xyxy": [
+          149.0,
+          7.0,
+          199.0,
+          145.0
+        ],
+        "area_px": 6900.0,
+        "area_fraction": 0.1725,
+        "kind": "poor_localisation",
+        "best_iou_same_class": 0.1684,
+        "best_iou_any_class": 0.1684,
+        "nearest_pred_class": "crazing",
+        "nearest_pred_conf": 0.5141
+      },
+      {
+        "image": "crazing_109.jpg",
+        "class_id": 0,
+        "class_name": "crazing",
+        "box_xyxy": [
+          39.0,
+          38.0,
+          198.0,
+          87.0
+        ],
+        "area_px": 7791.0,
+        "area_fraction": 0.19478,
+        "kind": "poor_localisation",
+        "best_iou_same_class": 0.1694,
+        "best_iou_any_class": 0.1694,
+        "nearest_pred_class": "crazing",
+        "nearest_pred_conf": 0.2641
+      },
+      {
+        "image": "crazing_59.jpg",
+        "class_id": 0,
+        "class_name": "crazing",
+        "box_xyxy": [
+          67.0,
+          72.0,
+          200.0,
+          136.0
+        ],
+        "area_px": 8512.0,
+        "area_fraction": 0.2128,
+        "kind": "poor_localisation",
+        "best_iou_same_class": 0.1806,
+        "best_iou_any_class": 0.1806,
+        "nearest_pred_class": "crazing",
+        "nearest_pred_conf": 0.328
+      },
+      {
+        "image": "rolled-in_scale_181.jpg",
+        "class_id": 4,
+        "class_name": "rolled-in_scale",
+        "box_xyxy": [
+          62.0,
+          57.0,
+          128.0,
+          170.0
+        ],
+        "area_px": 7458.0,
+        "area_fraction": 0.18645,
+        "kind": "poor_localisation",
+        "best_iou_same_class": 0.1816,
+        "best_iou_any_class": 0.1816,
+        "nearest_pred_class": "rolled-in_scale",
+        "nearest_pred_conf": 0.4255
+      },
+      {
+        "image": "pitted_surface_148.jpg",
+        "class_id": 3,
+        "class_name": "pitted_surface",
+        "box_xyxy": [
+          2.0,
+          66.0,
+          57.0,
+          171.0
+        ],
+        "area_px": 5775.0,
+        "area_fraction": 0.14438,
+        "kind": "poor_localisation",
+        "best_iou_same_class": 0.1877,
+        "best_iou_any_class": 0.1877,
+        "nearest_pred_class": "pitted_surface",
+        "nearest_pred_conf": 0.8294
+      },
+      {
+        "image": "crazing_105.jpg",
+        "class_id": 0,
+        "class_name": "crazing",
+        "box_xyxy": [
+          133.0,
+          1.0,
+          197.0,
+          149.0
+        ],
+        "area_px": 9472.0,
+        "area_fraction": 0.2368,
+        "kind": "poor_localisation",
+        "best_iou_same_class": 0.1884,
+        "best_iou_any_class": 0.1884,
+        "nearest_pred_class": "crazing",
+        "nearest_pred_conf": 0.298
+      },
+      {
+        "image": "rolled-in_scale_255.jpg",
+        "class_id": 4,
+        "class_name": "rolled-in_scale",
+        "box_xyxy": [
+          5.0,
+          5.0,
+          69.0,
+          68.0
+        ],
+        "area_px": 4032.0,
+        "area_fraction": 0.1008,
+        "kind": "poor_localisation",
+        "best_iou_same_class": 0.2086,
+        "best_iou_any_class": 0.2086,
+        "nearest_pred_class": "rolled-in_scale",
+        "nearest_pred_conf": 0.3774
+      },
+      {
+        "image": "rolled-in_scale_110.jpg",
+        "class_id": 4,
+        "class_name": "rolled-in_scale",
+        "box_xyxy": [
+          79.0,
+          32.0,
+          130.0,
+          72.0
+        ],
+        "area_px": 2040.0,
+        "area_fraction": 0.051,
+        "kind": "poor_localisation",
+        "best_iou_same_class": 0.2103,
+        "best_iou_any_class": 0.2103,
+        "nearest_pred_class": "rolled-in_scale",
+        "nearest_pred_conf": 0.7675
+      },
+      {
+        "image": "crazing_242.jpg",
+        "class_id": 0,
+        "class_name": "crazing",
+        "box_xyxy": [
+          64.0,
+          76.0,
+          181.0,
+          168.0
+        ],
+        "area_px": 10764.0,
+        "area_fraction": 0.2691,
+        "kind": "poor_localisation",
+        "best_iou_same_class": 0.2136,
+        "best_iou_any_class": 0.2136,
+        "nearest_pred_class": "crazing",
+        "nearest_pred_conf": 0.4078
+      },
+      {
+        "image": "pitted_surface_114.jpg",
+        "class_id": 3,
+        "class_name": "pitted_surface",
+        "box_xyxy": [
+          123.0,
+          1.0,
+          197.0,
+          75.0
+        ],
+        "area_px": 5476.0,
+        "area_fraction": 0.1369,
+        "kind": "poor_localisation",
+        "best_iou_same_class": 0.2164,
+        "best_iou_any_class": 0.2164,
+        "nearest_pred_class": "pitted_surface",
+        "nearest_pred_conf": 0.9012
+      },
+      {
+        "image": "crazing_271.jpg",
+        "class_id": 0,
+        "class_name": "crazing",
+        "box_xyxy": [
+          38.0,
+          19.0,
+          193.0,
+          67.0
+        ],
+        "area_px": 7440.0,
+        "area_fraction": 0.186,
+        "kind": "poor_localisation",
+        "best_iou_same_class": 0.2171,
+        "best_iou_any_class": 0.2171,
+        "nearest_pred_class": "crazing",
+        "nearest_pred_conf": 0.5388
+      },
+      {
+        "image": "inclusion_280.jpg",
+        "class_id": 1,
+        "class_name": "inclusion",
+        "box_xyxy": [
+          48.0,
+          1.0,
+          66.0,
+          71.0
+        ],
+        "area_px": 1260.0,
+        "area_fraction": 0.0315,
+        "kind": "poor_localisation",
+        "best_iou_same_class": 0.2177,
+        "best_iou_any_class": 0.2177,
+        "nearest_pred_class": "inclusion",
+        "nearest_pred_conf": 0.7926
+      },
+      {
+        "image": "inclusion_148.jpg",
+        "class_id": 1,
+        "class_name": "inclusion",
+        "box_xyxy": [
+          20.0,
+          70.0,
+          43.0,
+          133.0
+        ],
+        "area_px": 1449.0,
+        "area_fraction": 0.03623,
+        "kind": "poor_localisation",
+        "best_iou_same_class": 0.2243,
+        "best_iou_any_class": 0.2243,
+        "nearest_pred_class": "inclusion",
+        "nearest_pred_conf": 0.7309
+      },
+      {
+        "image": "pitted_surface_284.jpg",
+        "class_id": 3,
+        "class_name": "pitted_surface",
+        "box_xyxy": [
+          2.0,
+          23.0,
+          57.0,
+          198.0
+        ],
+        "area_px": 9625.0,
+        "area_fraction": 0.24063,
+        "kind": "poor_localisation",
+        "best_iou_same_class": 0.2434,
+        "best_iou_any_class": 0.2434,
+        "nearest_pred_class": "pitted_surface",
+        "nearest_pred_conf": 0.8838
+      },
+      {
+        "image": "crazing_271.jpg",
+        "class_id": 0,
+        "class_name": "crazing",
+        "box_xyxy": [
+          2.0,
+          70.0,
+          70.0,
+          186.0
+        ],
+        "area_px": 7888.0,
+        "area_fraction": 0.1972,
+        "kind": "poor_localisation",
+        "best_iou_same_class": 0.2501,
+        "best_iou_any_class": 0.2501,
+        "nearest_pred_class": "crazing",
+        "nearest_pred_conf": 0.5507
+      },
+      {
+        "image": "crazing_250.jpg",
+        "class_id": 0,
+        "class_name": "crazing",
+        "box_xyxy": [
+          7.0,
+          2.0,
+          168.0,
+          46.0
+        ],
+        "area_px": 7084.0,
+        "area_fraction": 0.1771,
+        "kind": "poor_localisation",
+        "best_iou_same_class": 0.2532,
+        "best_iou_any_class": 0.2532,
+        "nearest_pred_class": "crazing",
+        "nearest_pred_conf": 0.3723
+      },
+      {
+        "image": "crazing_105.jpg",
+        "class_id": 0,
+        "class_name": "crazing",
+        "box_xyxy": [
+          4.0,
+          3.0,
+          113.0,
+          134.0
+        ],
+        "area_px": 14279.0,
+        "area_fraction": 0.35697,
+        "kind": "poor_localisation",
+        "best_iou_same_class": 0.2614,
+        "best_iou_any_class": 0.2614,
+        "nearest_pred_class": "crazing",
+        "nearest_pred_conf": 0.298
+      },
+      {
+        "image": "crazing_298.jpg",
+        "class_id": 0,
+        "class_name": "crazing",
+        "box_xyxy": [
+          3.0,
+          35.0,
+          174.0,
+          101.0
+        ],
+        "area_px": 11286.0,
+        "area_fraction": 0.28215,
+        "kind": "poor_localisation",
+        "best_iou_same_class": 0.2679,
+        "best_iou_any_class": 0.2679,
+        "nearest_pred_class": "crazing",
+        "nearest_pred_conf": 0.4452
+      },
+      {
+        "image": "crazing_295.jpg",
+        "class_id": 0,
+        "class_name": "crazing",
+        "box_xyxy": [
+          6.0,
+          72.0,
+          167.0,
+          157.0
+        ],
+        "area_px": 13685.0,
+        "area_fraction": 0.34213,
+        "kind": "poor_localisation",
+        "best_iou_same_class": 0.2687,
+        "best_iou_any_class": 0.2687,
+        "nearest_pred_class": "crazing",
+        "nearest_pred_conf": 0.3027
+      },
+      {
+        "image": "crazing_236.jpg",
+        "class_id": 0,
+        "class_name": "crazing",
+        "box_xyxy": [
+          107.0,
+          32.0,
+          200.0,
+          126.0
+        ],
+        "area_px": 8742.0,
+        "area_fraction": 0.21855,
+        "kind": "poor_localisation",
+        "best_iou_same_class": 0.2699,
+        "best_iou_any_class": 0.2699,
+        "nearest_pred_class": "crazing",
+        "nearest_pred_conf": 0.3002
+      },
+      {
+        "image": "rolled-in_scale_255.jpg",
+        "class_id": 4,
+        "class_name": "rolled-in_scale",
+        "box_xyxy": [
+          72.0,
+          27.0,
+          113.0,
+          129.0
+        ],
+        "area_px": 4182.0,
+        "area_fraction": 0.10455,
+        "kind": "poor_localisation",
+        "best_iou_same_class": 0.271,
+        "best_iou_any_class": 0.271,
+        "nearest_pred_class": "rolled-in_scale",
+        "nearest_pred_conf": 0.3774
+      },
+      {
+        "image": "rolled-in_scale_255.jpg",
+        "class_id": 4,
+        "class_name": "rolled-in_scale",
+        "box_xyxy": [
+          153.0,
+          50.0,
+          195.0,
+          83.0
+        ],
+        "area_px": 1386.0,
+        "area_fraction": 0.03465,
+        "kind": "poor_localisation",
+        "best_iou_same_class": 0.2734,
+        "best_iou_any_class": 0.2734,
+        "nearest_pred_class": "rolled-in_scale",
+        "nearest_pred_conf": 0.4466
+      },
+      {
+        "image": "rolled-in_scale_102.jpg",
+        "class_id": 4,
+        "class_name": "rolled-in_scale",
+        "box_xyxy": [
+          122.0,
+          21.0,
+          153.0,
+          49.0
+        ],
+        "area_px": 868.0,
+        "area_fraction": 0.0217,
+        "kind": "poor_localisation",
+        "best_iou_same_class": 0.2769,
+        "best_iou_any_class": 0.2769,
+        "nearest_pred_class": "rolled-in_scale",
+        "nearest_pred_conf": 0.3785
+      },
+      {
+        "image": "patches_276.jpg",
+        "class_id": 2,
+        "class_name": "patches",
+        "box_xyxy": [
+          141.0,
+          68.0,
+          176.0,
+          131.0
+        ],
+        "area_px": 2205.0,
+        "area_fraction": 0.05513,
+        "kind": "poor_localisation",
+        "best_iou_same_class": 0.2773,
+        "best_iou_any_class": 0.2773,
+        "nearest_pred_class": "patches",
+        "nearest_pred_conf": 0.849
+      },
+      {
+        "image": "patches_230.jpg",
+        "class_id": 2,
+        "class_name": "patches",
+        "box_xyxy": [
+          1.0,
+          139.0,
+          25.0,
+          200.0
+        ],
+        "area_px": 1464.0,
+        "area_fraction": 0.0366,
+        "kind": "poor_localisation",
+        "best_iou_same_class": 0.3055,
+        "best_iou_any_class": 0.3055,
+        "nearest_pred_class": "patches",
+        "nearest_pred_conf": 0.5928
+      },
+      {
+        "image": "crazing_56.jpg",
+        "class_id": 0,
+        "class_name": "crazing",
+        "box_xyxy": [
+          1.0,
+          84.0,
+          77.0,
+          156.0
+        ],
+        "area_px": 5472.0,
+        "area_fraction": 0.1368,
+        "kind": "poor_localisation",
+        "best_iou_same_class": 0.3165,
+        "best_iou_any_class": 0.3165,
+        "nearest_pred_class": "crazing",
+        "nearest_pred_conf": 0.2657
+      },
+      {
+        "image": "pitted_surface_114.jpg",
+        "class_id": 3,
+        "class_name": "pitted_surface",
+        "box_xyxy": [
+          78.0,
+          1.0,
+          119.0,
+          197.0
+        ],
+        "area_px": 8036.0,
+        "area_fraction": 0.2009,
+        "kind": "poor_localisation",
+        "best_iou_same_class": 0.3176,
+        "best_iou_any_class": 0.3176,
+        "nearest_pred_class": "pitted_surface",
+        "nearest_pred_conf": 0.9012
+      },
+      {
+        "image": "rolled-in_scale_115.jpg",
+        "class_id": 4,
+        "class_name": "rolled-in_scale",
+        "box_xyxy": [
+          77.0,
+          2.0,
+          134.0,
+          63.0
+        ],
+        "area_px": 3477.0,
+        "area_fraction": 0.08693,
+        "kind": "poor_localisation",
+        "best_iou_same_class": 0.3204,
+        "best_iou_any_class": 0.3204,
+        "nearest_pred_class": "rolled-in_scale",
+        "nearest_pred_conf": 0.8081
+      },
+      {
+        "image": "pitted_surface_220.jpg",
+        "class_id": 3,
+        "class_name": "pitted_surface",
+        "box_xyxy": [
+          135.0,
+          1.0,
+          198.0,
+          198.0
+        ],
+        "area_px": 12411.0,
+        "area_fraction": 0.31028,
+        "kind": "poor_localisation",
+        "best_iou_same_class": 0.323,
+        "best_iou_any_class": 0.323,
+        "nearest_pred_class": "pitted_surface",
+        "nearest_pred_conf": 0.8834
+      },
+      {
+        "image": "rolled-in_scale_189.jpg",
+        "class_id": 4,
+        "class_name": "rolled-in_scale",
+        "box_xyxy": [
+          49.0,
+          37.0,
+          105.0,
+          149.0
+        ],
+        "area_px": 6272.0,
+        "area_fraction": 0.1568,
+        "kind": "poor_localisation",
+        "best_iou_same_class": 0.3285,
+        "best_iou_any_class": 0.3285,
+        "nearest_pred_class": "rolled-in_scale",
+        "nearest_pred_conf": 0.328
+      },
+      {
+        "image": "inclusion_190.jpg",
+        "class_id": 1,
+        "class_name": "inclusion",
+        "box_xyxy": [
+          26.0,
+          41.0,
+          59.0,
+          198.0
+        ],
+        "area_px": 5181.0,
+        "area_fraction": 0.12953,
+        "kind": "poor_localisation",
+        "best_iou_same_class": 0.3403,
+        "best_iou_any_class": 0.3403,
+        "nearest_pred_class": "inclusion",
+        "nearest_pred_conf": 0.9138
+      },
+      {
+        "image": "crazing_193.jpg",
+        "class_id": 0,
+        "class_name": "crazing",
+        "box_xyxy": [
+          15.0,
+          34.0,
+          156.0,
+          144.0
+        ],
+        "area_px": 15510.0,
+        "area_fraction": 0.38775,
+        "kind": "poor_localisation",
+        "best_iou_same_class": 0.3404,
+        "best_iou_any_class": 0.3404,
+        "nearest_pred_class": "crazing",
+        "nearest_pred_conf": 0.279
+      },
+      {
+        "image": "scratches_271.jpg",
+        "class_id": 5,
+        "class_name": "scratches",
+        "box_xyxy": [
+          1.0,
+          87.0,
+          198.0,
+          116.0
+        ],
+        "area_px": 5713.0,
+        "area_fraction": 0.14283,
+        "kind": "poor_localisation",
+        "best_iou_same_class": 0.3433,
+        "best_iou_any_class": 0.3433,
+        "nearest_pred_class": "scratches",
+        "nearest_pred_conf": 0.3706
+      },
+      {
+        "image": "rolled-in_scale_243.jpg",
+        "class_id": 4,
+        "class_name": "rolled-in_scale",
+        "box_xyxy": [
+          58.0,
+          26.0,
+          129.0,
+          192.0
+        ],
+        "area_px": 11786.0,
+        "area_fraction": 0.29465,
+        "kind": "poor_localisation",
+        "best_iou_same_class": 0.3488,
+        "best_iou_any_class": 0.3488,
+        "nearest_pred_class": "rolled-in_scale",
+        "nearest_pred_conf": 0.5656
+      },
+      {
+        "image": "scratches_210.jpg",
+        "class_id": 1,
+        "class_name": "inclusion",
+        "box_xyxy": [
+          163.0,
+          116.0,
+          200.0,
+          137.0
+        ],
+        "area_px": 777.0,
+        "area_fraction": 0.01943,
+        "kind": "poor_localisation",
+        "best_iou_same_class": 0.3493,
+        "best_iou_any_class": 0.3493,
+        "nearest_pred_class": "inclusion",
+        "nearest_pred_conf": 0.2691
+      },
+      {
+        "image": "patches_298.jpg",
+        "class_id": 2,
+        "class_name": "patches",
+        "box_xyxy": [
+          41.0,
+          90.0,
+          83.0,
+          143.0
+        ],
+        "area_px": 2226.0,
+        "area_fraction": 0.05565,
+        "kind": "poor_localisation",
+        "best_iou_same_class": 0.3516,
+        "best_iou_any_class": 0.3516,
+        "nearest_pred_class": "patches",
+        "nearest_pred_conf": 0.8613
+      },
+      {
+        "image": "inclusion_31.jpg",
+        "class_id": 1,
+        "class_name": "inclusion",
+        "box_xyxy": [
+          141.0,
+          1.0,
+          181.0,
+          87.0
+        ],
+        "area_px": 3440.0,
+        "area_fraction": 0.086,
+        "kind": "poor_localisation",
+        "best_iou_same_class": 0.3519,
+        "best_iou_any_class": 0.3519,
+        "nearest_pred_class": "inclusion",
+        "nearest_pred_conf": 0.7672
+      },
+      {
+        "image": "rolled-in_scale_257.jpg",
+        "class_id": 4,
+        "class_name": "rolled-in_scale",
+        "box_xyxy": [
+          100.0,
+          107.0,
+          156.0,
+          198.0
+        ],
+        "area_px": 5096.0,
+        "area_fraction": 0.1274,
+        "kind": "poor_localisation",
+        "best_iou_same_class": 0.3578,
+        "best_iou_any_class": 0.3578,
+        "nearest_pred_class": "rolled-in_scale",
+        "nearest_pred_conf": 0.2841
+      },
+      {
+        "image": "crazing_27.jpg",
+        "class_id": 0,
+        "class_name": "crazing",
+        "box_xyxy": [
+          6.0,
+          74.0,
+          116.0,
+          190.0
+        ],
+        "area_px": 12760.0,
+        "area_fraction": 0.319,
+        "kind": "poor_localisation",
+        "best_iou_same_class": 0.3598,
+        "best_iou_any_class": 0.3598,
+        "nearest_pred_class": "crazing",
+        "nearest_pred_conf": 0.3202
+      },
+      {
+        "image": "scratches_271.jpg",
+        "class_id": 5,
+        "class_name": "scratches",
+        "box_xyxy": [
+          1.0,
+          82.0,
+          111.0,
+          94.0
+        ],
+        "area_px": 1320.0,
+        "area_fraction": 0.033,
+        "kind": "poor_localisation",
+        "best_iou_same_class": 0.3604,
+        "best_iou_any_class": 0.3604,
+        "nearest_pred_class": "scratches",
+        "nearest_pred_conf": 0.3706
+      },
+      {
+        "image": "scratches_210.jpg",
+        "class_id": 1,
+        "class_name": "inclusion",
+        "box_xyxy": [
+          137.0,
+          141.0,
+          200.0,
+          164.0
+        ],
+        "area_px": 1449.0,
+        "area_fraction": 0.03623,
+        "kind": "poor_localisation",
+        "best_iou_same_class": 0.3632,
+        "best_iou_any_class": 0.3632,
+        "nearest_pred_class": "inclusion",
+        "nearest_pred_conf": 0.2691
+      },
+      {
+        "image": "inclusion_168.jpg",
+        "class_id": 1,
+        "class_name": "inclusion",
+        "box_xyxy": [
+          10.0,
+          9.0,
+          40.0,
+          47.0
+        ],
+        "area_px": 1140.0,
+        "area_fraction": 0.0285,
+        "kind": "poor_localisation",
+        "best_iou_same_class": 0.3633,
+        "best_iou_any_class": 0.3633,
+        "nearest_pred_class": "inclusion",
+        "nearest_pred_conf": 0.7828
+      },
+      {
+        "image": "scratches_186.jpg",
+        "class_id": 5,
+        "class_name": "scratches",
+        "box_xyxy": [
+          142.0,
+          86.0,
+          186.0,
+          143.0
+        ],
+        "area_px": 2508.0,
+        "area_fraction": 0.0627,
+        "kind": "poor_localisation",
+        "best_iou_same_class": 0.3638,
+        "best_iou_any_class": 0.3638,
+        "nearest_pred_class": "scratches",
+        "nearest_pred_conf": 0.5262
+      },
+      {
+        "image": "patches_230.jpg",
+        "class_id": 2,
+        "class_name": "patches",
+        "box_xyxy": [
+          1.0,
+          24.0,
+          25.0,
+          97.0
+        ],
+        "area_px": 1752.0,
+        "area_fraction": 0.0438,
+        "kind": "poor_localisation",
+        "best_iou_same_class": 0.3641,
+        "best_iou_any_class": 0.3641,
+        "nearest_pred_class": "patches",
+        "nearest_pred_conf": 0.5928
+      },
+      {
+        "image": "pitted_surface_176.jpg",
+        "class_id": 3,
+        "class_name": "pitted_surface",
+        "box_xyxy": [
+          88.0,
+          64.0,
+          199.0,
+          194.0
+        ],
+        "area_px": 14430.0,
+        "area_fraction": 0.36075,
+        "kind": "poor_localisation",
+        "best_iou_same_class": 0.365,
+        "best_iou_any_class": 0.365,
+        "nearest_pred_class": "pitted_surface",
+        "nearest_pred_conf": 0.8626
+      },
+      {
+        "image": "inclusion_32.jpg",
+        "class_id": 1,
+        "class_name": "inclusion",
+        "box_xyxy": [
+          88.0,
+          1.0,
+          119.0,
+          139.0
+        ],
+        "area_px": 4278.0,
+        "area_fraction": 0.10695,
+        "kind": "poor_localisation",
+        "best_iou_same_class": 0.3727,
+        "best_iou_any_class": 0.3727,
+        "nearest_pred_class": "inclusion",
+        "nearest_pred_conf": 0.565
+      },
+      {
+        "image": "rolled-in_scale_79.jpg",
+        "class_id": 4,
+        "class_name": "rolled-in_scale",
+        "box_xyxy": [
+          30.0,
+          27.0,
+          138.0,
+          96.0
+        ],
+        "area_px": 7452.0,
+        "area_fraction": 0.1863,
+        "kind": "poor_localisation",
+        "best_iou_same_class": 0.3732,
+        "best_iou_any_class": 0.3732,
+        "nearest_pred_class": "rolled-in_scale",
+        "nearest_pred_conf": 0.2842
+      },
+      {
+        "image": "rolled-in_scale_75.jpg",
+        "class_id": 4,
+        "class_name": "rolled-in_scale",
+        "box_xyxy": [
+          44.0,
+          86.0,
+          172.0,
+          159.0
+        ],
+        "area_px": 9344.0,
+        "area_fraction": 0.2336,
+        "kind": "poor_localisation",
+        "best_iou_same_class": 0.3806,
+        "best_iou_any_class": 0.3806,
+        "nearest_pred_class": "rolled-in_scale",
+        "nearest_pred_conf": 0.3337
+      },
+      {
+        "image": "crazing_34.jpg",
+        "class_id": 0,
+        "class_name": "crazing",
+        "box_xyxy": [
+          27.0,
+          1.0,
+          158.0,
+          84.0
+        ],
+        "area_px": 10873.0,
+        "area_fraction": 0.27182,
+        "kind": "poor_localisation",
+        "best_iou_same_class": 0.3809,
+        "best_iou_any_class": 0.3809,
+        "nearest_pred_class": "crazing",
+        "nearest_pred_conf": 0.2507
+      },
+      {
+        "image": "crazing_247.jpg",
+        "class_id": 0,
+        "class_name": "crazing",
+        "box_xyxy": [
+          1.0,
+          48.0,
+          148.0,
+          134.0
+        ],
+        "area_px": 12642.0,
+        "area_fraction": 0.31605,
+        "kind": "poor_localisation",
+        "best_iou_same_class": 0.3878,
+        "best_iou_any_class": 0.3878,
+        "nearest_pred_class": "crazing",
+        "nearest_pred_conf": 0.4233
+      },
+      {
+        "image": "rolled-in_scale_290.jpg",
+        "class_id": 4,
+        "class_name": "rolled-in_scale",
+        "box_xyxy": [
+          23.0,
+          113.0,
+          120.0,
+          198.0
+        ],
+        "area_px": 8245.0,
+        "area_fraction": 0.20613,
+        "kind": "poor_localisation",
+        "best_iou_same_class": 0.3891,
+        "best_iou_any_class": 0.3891,
+        "nearest_pred_class": "rolled-in_scale",
+        "nearest_pred_conf": 0.5673
+      },
+      {
+        "image": "pitted_surface_46.jpg",
+        "class_id": 3,
+        "class_name": "pitted_surface",
+        "box_xyxy": [
+          69.0,
+          1.0,
+          200.0,
+          196.0
+        ],
+        "area_px": 25545.0,
+        "area_fraction": 0.63862,
+        "kind": "poor_localisation",
+        "best_iou_same_class": 0.3966,
+        "best_iou_any_class": 0.3966,
+        "nearest_pred_class": "pitted_surface",
+        "nearest_pred_conf": 0.3042
+      },
+      {
+        "image": "rolled-in_scale_255.jpg",
+        "class_id": 4,
+        "class_name": "rolled-in_scale",
+        "box_xyxy": [
+          1.0,
+          42.0,
+          69.0,
+          197.0
+        ],
+        "area_px": 10540.0,
+        "area_fraction": 0.2635,
+        "kind": "poor_localisation",
+        "best_iou_same_class": 0.4082,
+        "best_iou_any_class": 0.4082,
+        "nearest_pred_class": "rolled-in_scale",
+        "nearest_pred_conf": 0.3774
+      },
+      {
+        "image": "inclusion_190.jpg",
+        "class_id": 1,
+        "class_name": "inclusion",
+        "box_xyxy": [
+          59.0,
+          12.0,
+          103.0,
+          198.0
+        ],
+        "area_px": 8184.0,
+        "area_fraction": 0.2046,
+        "kind": "poor_localisation",
+        "best_iou_same_class": 0.4111,
+        "best_iou_any_class": 0.4111,
+        "nearest_pred_class": "inclusion",
+        "nearest_pred_conf": 0.9138
+      },
+      {
+        "image": "rolled-in_scale_102.jpg",
+        "class_id": 4,
+        "class_name": "rolled-in_scale",
+        "box_xyxy": [
+          66.0,
+          65.0,
+          132.0,
+          98.0
+        ],
+        "area_px": 2178.0,
+        "area_fraction": 0.05445,
+        "kind": "poor_localisation",
+        "best_iou_same_class": 0.4155,
+        "best_iou_any_class": 0.4155,
+        "nearest_pred_class": "rolled-in_scale",
+        "nearest_pred_conf": 0.3721
+      },
+      {
+        "image": "crazing_179.jpg",
+        "class_id": 0,
+        "class_name": "crazing",
+        "box_xyxy": [
+          1.0,
+          72.0,
+          80.0,
+          151.0
+        ],
+        "area_px": 6241.0,
+        "area_fraction": 0.15602,
+        "kind": "poor_localisation",
+        "best_iou_same_class": 0.4274,
+        "best_iou_any_class": 0.4274,
+        "nearest_pred_class": "crazing",
+        "nearest_pred_conf": 0.3626
+      },
+      {
+        "image": "patches_21.jpg",
+        "class_id": 2,
+        "class_name": "patches",
+        "box_xyxy": [
+          32.0,
+          1.0,
+          109.0,
+          180.0
+        ],
+        "area_px": 13783.0,
+        "area_fraction": 0.34458,
+        "kind": "poor_localisation",
+        "best_iou_same_class": 0.4281,
+        "best_iou_any_class": 0.4281,
+        "nearest_pred_class": "patches",
+        "nearest_pred_conf": 0.7987
+      },
+      {
+        "image": "rolled-in_scale_194.jpg",
+        "class_id": 4,
+        "class_name": "rolled-in_scale",
+        "box_xyxy": [
+          7.0,
+          35.0,
+          138.0,
+          89.0
+        ],
+        "area_px": 7074.0,
+        "area_fraction": 0.17685,
+        "kind": "poor_localisation",
+        "best_iou_same_class": 0.4307,
+        "best_iou_any_class": 0.4307,
+        "nearest_pred_class": "rolled-in_scale",
+        "nearest_pred_conf": 0.5646
+      },
+      {
+        "image": "pitted_surface_176.jpg",
+        "class_id": 3,
+        "class_name": "pitted_surface",
+        "box_xyxy": [
+          19.0,
+          24.0,
+          127.0,
+          183.0
+        ],
+        "area_px": 17172.0,
+        "area_fraction": 0.4293,
+        "kind": "poor_localisation",
+        "best_iou_same_class": 0.4344,
+        "best_iou_any_class": 0.4344,
+        "nearest_pred_class": "pitted_surface",
+        "nearest_pred_conf": 0.8626
+      },
+      {
+        "image": "patches_259.jpg",
+        "class_id": 2,
+        "class_name": "patches",
+        "box_xyxy": [
+          1.0,
+          124.0,
+          62.0,
+          187.0
+        ],
+        "area_px": 3843.0,
+        "area_fraction": 0.09607,
+        "kind": "poor_localisation",
+        "best_iou_same_class": 0.4361,
+        "best_iou_any_class": 0.4361,
+        "nearest_pred_class": "patches",
+        "nearest_pred_conf": 0.7765
+      },
+      {
+        "image": "crazing_271.jpg",
+        "class_id": 0,
+        "class_name": "crazing",
+        "box_xyxy": [
+          96.0,
+          42.0,
+          190.0,
+          134.0
+        ],
+        "area_px": 8648.0,
+        "area_fraction": 0.2162,
+        "kind": "poor_localisation",
+        "best_iou_same_class": 0.443,
+        "best_iou_any_class": 0.443,
+        "nearest_pred_class": "crazing",
+        "nearest_pred_conf": 0.5388
+      },
+      {
+        "image": "crazing_279.jpg",
+        "class_id": 0,
+        "class_name": "crazing",
+        "box_xyxy": [
+          41.0,
+          24.0,
+          176.0,
+          121.0
+        ],
+        "area_px": 13095.0,
+        "area_fraction": 0.32738,
+        "kind": "poor_localisation",
+        "best_iou_same_class": 0.4483,
+        "best_iou_any_class": 0.4483,
+        "nearest_pred_class": "crazing",
+        "nearest_pred_conf": 0.2651
+      },
+      {
+        "image": "inclusion_31.jpg",
+        "class_id": 1,
+        "class_name": "inclusion",
+        "box_xyxy": [
+          131.0,
+          86.0,
+          175.0,
+          192.0
+        ],
+        "area_px": 4664.0,
+        "area_fraction": 0.1166,
+        "kind": "poor_localisation",
+        "best_iou_same_class": 0.4494,
+        "best_iou_any_class": 0.4494,
+        "nearest_pred_class": "inclusion",
+        "nearest_pred_conf": 0.7672
+      },
+      {
+        "image": "pitted_surface_151.jpg",
+        "class_id": 3,
+        "class_name": "pitted_surface",
+        "box_xyxy": [
+          1.0,
+          2.0,
+          88.0,
+          197.0
+        ],
+        "area_px": 16965.0,
+        "area_fraction": 0.42412,
+        "kind": "poor_localisation",
+        "best_iou_same_class": 0.4515,
+        "best_iou_any_class": 0.4515,
+        "nearest_pred_class": "pitted_surface",
+        "nearest_pred_conf": 0.8066
+      },
+      {
+        "image": "pitted_surface_220.jpg",
+        "class_id": 3,
+        "class_name": "pitted_surface",
+        "box_xyxy": [
+          55.0,
+          1.0,
+          144.0,
+          200.0
+        ],
+        "area_px": 17711.0,
+        "area_fraction": 0.44277,
+        "kind": "poor_localisation",
+        "best_iou_same_class": 0.4534,
+        "best_iou_any_class": 0.4534,
+        "nearest_pred_class": "pitted_surface",
+        "nearest_pred_conf": 0.8834
+      },
+      {
+        "image": "crazing_247.jpg",
+        "class_id": 0,
+        "class_name": "crazing",
+        "box_xyxy": [
+          1.0,
+          134.0,
+          88.0,
+          190.0
+        ],
+        "area_px": 4872.0,
+        "area_fraction": 0.1218,
+        "kind": "poor_localisation",
+        "best_iou_same_class": 0.4541,
+        "best_iou_any_class": 0.4541,
+        "nearest_pred_class": "crazing",
+        "nearest_pred_conf": 0.5701
+      },
+      {
+        "image": "crazing_109.jpg",
+        "class_id": 0,
+        "class_name": "crazing",
+        "box_xyxy": [
+          32.0,
+          88.0,
+          145.0,
+          131.0
+        ],
+        "area_px": 4859.0,
+        "area_fraction": 0.12147,
+        "kind": "poor_localisation",
+        "best_iou_same_class": 0.456,
+        "best_iou_any_class": 0.456,
+        "nearest_pred_class": "crazing",
+        "nearest_pred_conf": 0.2641
+      },
+      {
+        "image": "crazing_192.jpg",
+        "class_id": 0,
+        "class_name": "crazing",
+        "box_xyxy": [
+          54.0,
+          18.0,
+          199.0,
+          64.0
+        ],
+        "area_px": 6670.0,
+        "area_fraction": 0.16675,
+        "kind": "poor_localisation",
+        "best_iou_same_class": 0.4565,
+        "best_iou_any_class": 0.4565,
+        "nearest_pred_class": "crazing",
+        "nearest_pred_conf": 0.2843
+      },
+      {
+        "image": "crazing_236.jpg",
+        "class_id": 0,
+        "class_name": "crazing",
+        "box_xyxy": [
+          76.0,
+          111.0,
+          200.0,
+          181.0
+        ],
+        "area_px": 8680.0,
+        "area_fraction": 0.217,
+        "kind": "poor_localisation",
+        "best_iou_same_class": 0.4624,
+        "best_iou_any_class": 0.4624,
+        "nearest_pred_class": "crazing",
+        "nearest_pred_conf": 0.3002
+      },
+      {
+        "image": "rolled-in_scale_115.jpg",
+        "class_id": 4,
+        "class_name": "rolled-in_scale",
+        "box_xyxy": [
+          71.0,
+          136.0,
+          126.0,
+          199.0
+        ],
+        "area_px": 3465.0,
+        "area_fraction": 0.08662,
+        "kind": "poor_localisation",
+        "best_iou_same_class": 0.4677,
+        "best_iou_any_class": 0.4677,
+        "nearest_pred_class": "rolled-in_scale",
+        "nearest_pred_conf": 0.4334
+      },
+      {
+        "image": "rolled-in_scale_140.jpg",
+        "class_id": 4,
+        "class_name": "rolled-in_scale",
+        "box_xyxy": [
+          57.0,
+          88.0,
+          143.0,
+          200.0
+        ],
+        "area_px": 9632.0,
+        "area_fraction": 0.2408,
+        "kind": "poor_localisation",
+        "best_iou_same_class": 0.4719,
+        "best_iou_any_class": 0.4719,
+        "nearest_pred_class": "rolled-in_scale",
+        "nearest_pred_conf": 0.6519
+      },
+      {
+        "image": "scratches_271.jpg",
+        "class_id": 5,
+        "class_name": "scratches",
+        "box_xyxy": [
+          88.0,
+          114.0,
+          200.0,
+          128.0
+        ],
+        "area_px": 1568.0,
+        "area_fraction": 0.0392,
+        "kind": "poor_localisation",
+        "best_iou_same_class": 0.4763,
+        "best_iou_any_class": 0.4763,
+        "nearest_pred_class": "scratches",
+        "nearest_pred_conf": 0.3437
+      },
+      {
+        "image": "crazing_70.jpg",
+        "class_id": 0,
+        "class_name": "crazing",
+        "box_xyxy": [
+          33.0,
+          93.0,
+          108.0,
+          200.0
+        ],
+        "area_px": 8025.0,
+        "area_fraction": 0.20062,
+        "kind": "poor_localisation",
+        "best_iou_same_class": 0.481,
+        "best_iou_any_class": 0.481,
+        "nearest_pred_class": "crazing",
+        "nearest_pred_conf": 0.4628
+      },
+      {
+        "image": "patches_186.jpg",
+        "class_id": 2,
+        "class_name": "patches",
+        "box_xyxy": [
+          57.0,
+          140.0,
+          119.0,
+          198.0
+        ],
+        "area_px": 3596.0,
+        "area_fraction": 0.0899,
+        "kind": "poor_localisation",
+        "best_iou_same_class": 0.4876,
+        "best_iou_any_class": 0.4876,
+        "nearest_pred_class": "patches",
+        "nearest_pred_conf": 0.3102
+      },
+      {
+        "image": "patches_197.jpg",
+        "class_id": 2,
+        "class_name": "patches",
+        "box_xyxy": [
+          1.0,
+          66.0,
+          54.0,
+          193.0
+        ],
+        "area_px": 6731.0,
+        "area_fraction": 0.16828,
+        "kind": "poor_localisation",
+        "best_iou_same_class": 0.4928,
+        "best_iou_any_class": 0.4928,
+        "nearest_pred_class": "patches",
+        "nearest_pred_conf": 0.8844
+      },
+      {
+        "image": "rolled-in_scale_258.jpg",
+        "class_id": 4,
+        "class_name": "rolled-in_scale",
+        "box_xyxy": [
+          8.0,
+          59.0,
+          143.0,
+          200.0
+        ],
+        "area_px": 19035.0,
+        "area_fraction": 0.47587,
+        "kind": "poor_localisation",
+        "best_iou_same_class": 0.4966,
+        "best_iou_any_class": 0.4966,
+        "nearest_pred_class": "rolled-in_scale",
+        "nearest_pred_conf": 0.2637
+      },
+      {
+        "image": "crazing_190.jpg",
+        "class_id": 0,
+        "class_name": "crazing",
+        "box_xyxy": [
+          1.0,
+          45.0,
+          127.0,
+          147.0
+        ],
+        "area_px": 12852.0,
+        "area_fraction": 0.3213,
+        "kind": "poor_localisation",
+        "best_iou_same_class": 0.4967,
+        "best_iou_any_class": 0.4967,
+        "nearest_pred_class": "crazing",
+        "nearest_pred_conf": 0.3579
+      },
+      {
+        "image": "pitted_surface_281.jpg",
+        "class_id": 1,
+        "class_name": "inclusion",
+        "box_xyxy": [
+          10.0,
+          12.0,
+          38.0,
+          198.0
+        ],
+        "area_px": 5208.0,
+        "area_fraction": 0.1302,
+        "kind": "wrong_class",
+        "best_iou_same_class": 0.0,
+        "best_iou_any_class": 0.5361,
+        "nearest_pred_class": "pitted_surface",
+        "nearest_pred_conf": 0.3493
+      }
+    ],
+    "precision_at_operating_point": 0.6637931034482759,
+    "recall_at_operating_point": 0.7368421052631579
+  }
+}

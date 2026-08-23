@@ -1,0 +1,160 @@
+{
+  "meta": {
+    "weights": "D:\\Projects\\Python Projects\\EdgeLens\\runs\\neu_det\\yolov8n\\weights\\best.pt",
+    "data": "D:\\Projects\\Python Projects\\EdgeLens\\data\\neu_det\\data.yaml",
+    "split": "test",
+    "images": 270,
+    "imgsz": 640,
+    "batch": 16,
+    "topk": 20,
+    "thresholds": {
+      "val_conf": 0.001,
+      "nms_iou": 0.7,
+      "max_det": 300,
+      "error_conf": 0.25,
+      "match_iou": 0.5
+    },
+    "ultralytics": "8.4.126",
+    "evaluated_utc": "2026-08-23T13:26:58+00:00"
+  },
+  "metrics": {
+    "map50": 0.7560098808300362,
+    "map50_95": 0.42342356185569335,
+    "mean_precision": 0.7490712318995905,
+    "mean_recall": 0.6928048808612869,
+    "fitness": 0.42342356185569335,
+    "speed_ms_per_image": {
+      "preprocess": 4.493394074126155,
+      "inference": 3.98492407402955,
+      "loss": 0.0007259258483019139,
+      "postprocess": 1.5333751851694952
+    },
+    "per_class": [
+      {
+        "class_id": 0,
+        "class_name": "crazing",
+        "precision": 0.7119736419071873,
+        "recall": 0.2332534281788234,
+        "ap50": 0.4575150118417941,
+        "ap50_95": 0.20601718844138728
+      },
+      {
+        "class_id": 1,
+        "class_name": "inclusion",
+        "precision": 0.7485578010727308,
+        "recall": 0.7777777777777778,
+        "ap50": 0.8065522469677175,
+        "ap50_95": 0.4365964645641959
+      },
+      {
+        "class_id": 2,
+        "class_name": "patches",
+        "precision": 0.796091582461491,
+        "recall": 0.9236641221374046,
+        "ap50": 0.9171614052609887,
+        "ap50_95": 0.5695230453991094
+      },
+      {
+        "class_id": 3,
+        "class_name": "pitted_surface",
+        "precision": 0.8333631510490194,
+        "recall": 0.746031746031746,
+        "ap50": 0.7864231555892554,
+        "ap50_95": 0.5160515068221346
+      },
+      {
+        "class_id": 4,
+        "class_name": "rolled-in_scale",
+        "precision": 0.5990578711480559,
+        "recall": 0.5604395604395604,
+        "ap50": 0.6382661036880962,
+        "ap50_95": 0.27195327774434847
+      },
+      {
+        "class_id": 5,
+        "class_name": "scratches",
+        "precision": 0.8053833437590585,
+        "recall": 0.9156626506024096,
+        "ap50": 0.9301413616323656,
+        "ap50_95": 0.5403998881629846
+      }
+    ]
+  },
+  "confusion_matrix": {
+    "labels": [
+      "crazing",
+      "inclusion",
+      "patches",
+      "pitted_surface",
+      "rolled-in_scale",
+      "scratches",
+      "background"
+    ],
+    "matrix": [
+      [
+        106.0,
+        1.0,
+        4.0,
+        2.0,
+        0.0,
+        1.0,
+        7969.0
+      ],
+      [
+        0.0,
+        143.0,
+        4.0,
+        2.0,
+        2.0,
+        3.0,
+        3297.0
+      ],
+      [
+        0.0,
+        0.0,
+        118.0,
+        2.0,
+        0.0,
+        0.0,
+        2662.0
+      ],
+      [
+        0.0,
+        3.0,
+        1.0,
+        56.0,
+        0.0,
+        0.0,
+        1903.0
+      ],
+      [
+        0.0,
+        4.0,
+        3.0,
+        1.0,
+        89.0,
+        0.0,
+        4734.0
+      ],
+      [
+        0.0,
+        1.0,
+        0.0,
+        0.0,
+        0.0,
+        79.0,
+        858.0
+      ],
+      [
+        0.0,
+        1.0,
+        1.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ]
+    ],
+    "orientation": "matrix[predicted][ground_truth]"
+  }
+}

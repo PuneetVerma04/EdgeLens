@@ -1,0 +1,8 @@
+predicted \ ground_truth,crazing,inclusion,patches,pitted_surface,rolled-in_scale,scratches,background
+crazing,106,1,3,0,0,0,5089
+inclusion,0,142,2,0,0,5,1729
+patches,0,0,120,0,0,1,1484
+pitted_surface,0,2,2,63,0,0,1130
+rolled-in_scale,0,0,1,0,91,0,3127
+scratches,0,1,1,0,0,75,480
+background,0,7,2,0,0,2,0
