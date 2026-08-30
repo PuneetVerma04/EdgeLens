@@ -125,7 +125,14 @@ dmypy.json
 # pytype static type analyzer
 .pytype/
 
-.github
+# .github stayed ignored, which also hid CI workflows -- GitHub only runs a workflow that
+# is committed, so tests.yml could never fire. Everything under .github is still ignored
+# except workflow YAML. Git cannot re-include a file whose parent directory is excluded,
+# hence excluding the directory *contents* rather than the directory itself.
+.github/*
+!.github/workflows/
+.github/workflows/*
+!.github/workflows/*.yml
 # ---------------------------------------------------------------------------
 # Training runs (training/train_yolo.py, training/eval_yolo.py)
 #
@@ -154,3 +161,10 @@ runs/neu_det/*/eval_test/*
 # Pretrained checkpoints auto-downloaded by ultralytics into the repo root
 /*.pt
 /*.onnx
+
+# Exported inference artefacts (tools/export_models.py)
+# Keep metadata in benchmarks/results_aggregate.md; drop graphs (~47 MB)
+artifacts/**/*.onnx
+artifacts/**/*.engine
+artifacts/**/*.tflite
+artifacts/**/*.pt
