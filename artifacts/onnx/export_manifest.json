@@ -1,0 +1,309 @@
+{
+  "imgsz": 640,
+  "calibration": {
+    "split": "train",
+    "requested_images": 512,
+    "available_train_images": 1260,
+    "fraction": 0.40634920634920635
+  },
+  "parity_settings": {
+    "images": 20,
+    "conf": 0.25,
+    "iou": 0.7,
+    "max_det": 300,
+    "match_iou": 0.5
+  },
+  "artefacts": [
+    {
+      "name": "yolov8n",
+      "variant": "fp32",
+      "file": "yolov8n_fp32.onnx",
+      "bytes": 12269259,
+      "mb": 11.7009,
+      "export_seconds": 1.78,
+      "parity": {
+        "label": "yolov8n fp32 vs pytorch",
+        "images": 20,
+        "reference_detections": 25,
+        "matched": 25,
+        "matched_fraction": 1.0,
+        "extra_in_candidate": 0,
+        "borderline_threshold_flips": 0,
+        "mean_iou_of_matches": 1.0,
+        "min_iou_of_matches": 0.999998,
+        "max_conf_delta": 1e-06,
+        "class_mismatches": [],
+        "gate": {
+          "kind": "strict",
+          "min_matched_fraction": 1.0,
+          "min_mean_iou": 0.99,
+          "max_conf_delta": 0.02,
+          "max_extra_detections": 0,
+          "borderline_band": 0.02,
+          "max_map50_drop": 0.0005,
+          "max_map5095_drop": 0.0005
+        },
+        "examples": [],
+        "passed": true,
+        "failures": []
+      },
+      "metrics": {
+        "reference": {
+          "map50": 0.7560881809905823,
+          "map50_95": 0.42327024452867906
+        },
+        "candidate": {
+          "map50": 0.7560881809905823,
+          "map50_95": 0.42327024949352565
+        },
+        "map50_drop": 0.0,
+        "map50_95_drop": -0.0,
+        "passed": true,
+        "failures": []
+      }
+    },
+    {
+      "name": "yolov8n",
+      "variant": "int8",
+      "file": "yolov8n_int8.onnx",
+      "bytes": 3389567,
+      "mb": 3.2325,
+      "export_seconds": 40.02,
+      "parity": {
+        "label": "yolov8n int8 vs pytorch",
+        "images": 20,
+        "reference_detections": 25,
+        "matched": 21,
+        "matched_fraction": 0.84,
+        "extra_in_candidate": 3,
+        "borderline_threshold_flips": 2,
+        "mean_iou_of_matches": 0.943761,
+        "min_iou_of_matches": 0.779846,
+        "max_conf_delta": 0.162126,
+        "class_mismatches": [],
+        "gate": {
+          "kind": "lossy",
+          "min_matched_fraction": 0.3,
+          "min_mean_iou": 0.85,
+          "max_conf_delta": 0.5,
+          "max_extra_detections": 25,
+          "borderline_band": 0.02,
+          "max_map50_drop": 0.02,
+          "max_map5095_drop": 0.02
+        },
+        "examples": [
+          {
+            "image": "crazing_135.jpg",
+            "issue": "missing_in_candidate",
+            "class": 0,
+            "conf": 0.3238,
+            "best_iou_any": 0.6162
+          },
+          {
+            "image": "crazing_139.jpg",
+            "issue": "extra_in_candidate",
+            "class": 0,
+            "conf": 0.2762
+          },
+          {
+            "image": "crazing_149.jpg",
+            "issue": "extra_in_candidate",
+            "class": 0,
+            "conf": 0.3658
+          },
+          {
+            "image": "crazing_180.jpg",
+            "issue": "extra_in_candidate",
+            "class": 0,
+            "conf": 0.2762
+          },
+          {
+            "image": "crazing_193.jpg",
+            "issue": "missing_in_candidate",
+            "class": 0,
+            "conf": 0.279,
+            "best_iou_any": 0.0
+          }
+        ],
+        "passed": true,
+        "failures": []
+      },
+      "metrics": {
+        "reference": {
+          "map50": 0.7560881809905823,
+          "map50_95": 0.42327024452867906
+        },
+        "candidate": {
+          "map50": 0.7555141337732462,
+          "map50_95": 0.43011160464440545
+        },
+        "map50_drop": 0.000574,
+        "map50_95_drop": -0.006841,
+        "passed": true,
+        "failures": []
+      }
+    },
+    {
+      "name": "yolo26n",
+      "variant": "fp32",
+      "file": "yolo26n_fp32.onnx",
+      "bytes": 9809346,
+      "mb": 9.3549,
+      "export_seconds": 2.14,
+      "parity": {
+        "label": "yolo26n fp32 vs pytorch",
+        "images": 20,
+        "reference_detections": 22,
+        "matched": 22,
+        "matched_fraction": 1.0,
+        "extra_in_candidate": 0,
+        "borderline_threshold_flips": 0,
+        "mean_iou_of_matches": 1.0,
+        "min_iou_of_matches": 0.999999,
+        "max_conf_delta": 1e-06,
+        "class_mismatches": [],
+        "gate": {
+          "kind": "strict",
+          "min_matched_fraction": 1.0,
+          "min_mean_iou": 0.99,
+          "max_conf_delta": 0.02,
+          "max_extra_detections": 0,
+          "borderline_band": 0.02,
+          "max_map50_drop": 0.0005,
+          "max_map5095_drop": 0.0005
+        },
+        "examples": [],
+        "passed": true,
+        "failures": []
+      },
+      "metrics": {
+        "reference": {
+          "map50": 0.7332262068106804,
+          "map50_95": 0.4183884215917401
+        },
+        "candidate": {
+          "map50": 0.7332273656760001,
+          "map50_95": 0.4183892603256098
+        },
+        "map50_drop": -1e-06,
+        "map50_95_drop": -1e-06,
+        "passed": true,
+        "failures": []
+      }
+    },
+    {
+      "name": "yolo26n",
+      "variant": "int8",
+      "file": "yolo26n_int8.onnx",
+      "bytes": 2938750,
+      "mb": 2.8026,
+      "export_seconds": 37.2,
+      "parity": {
+        "label": "yolo26n int8 vs pytorch",
+        "images": 20,
+        "reference_detections": 22,
+        "matched": 10,
+        "matched_fraction": 0.4545,
+        "extra_in_candidate": 7,
+        "borderline_threshold_flips": 1,
+        "mean_iou_of_matches": 0.927927,
+        "min_iou_of_matches": 0.633689,
+        "max_conf_delta": 0.146375,
+        "class_mismatches": [],
+        "gate": {
+          "kind": "lossy",
+          "min_matched_fraction": 0.3,
+          "min_mean_iou": 0.85,
+          "max_conf_delta": 0.5,
+          "max_extra_detections": 25,
+          "borderline_band": 0.02,
+          "max_map50_drop": 0.02,
+          "max_map5095_drop": 0.02
+        },
+        "examples": [
+          {
+            "image": "crazing_109.jpg",
+            "issue": "extra_in_candidate",
+            "class": 0,
+            "conf": 0.3588
+          },
+          {
+            "image": "crazing_114.jpg",
+            "issue": "missing_in_candidate",
+            "class": 0,
+            "conf": 0.2742,
+            "best_iou_any": 0.0
+          },
+          {
+            "image": "crazing_114.jpg",
+            "issue": "extra_in_candidate",
+            "class": 0,
+            "conf": 0.295
+          },
+          {
+            "image": "crazing_122.jpg",
+            "issue": "missing_in_candidate",
+            "class": 0,
+            "conf": 0.3007,
+            "best_iou_any": 0.0
+          },
+          {
+            "image": "crazing_123.jpg",
+            "issue": "missing_in_candidate",
+            "class": 0,
+            "conf": 0.3294,
+            "best_iou_any": 0.0
+          },
+          {
+            "image": "crazing_123.jpg",
+            "issue": "missing_in_candidate",
+            "class": 0,
+            "conf": 0.2704,
+            "best_iou_any": 0.0
+          },
+          {
+            "image": "crazing_129.jpg",
+            "issue": "missing_in_candidate",
+            "class": 0,
+            "conf": 0.431,
+            "best_iou_any": 0.413
+          },
+          {
+            "image": "crazing_129.jpg",
+            "issue": "extra_in_candidate",
+            "class": 0,
+            "conf": 0.3588
+          },
+          {
+            "image": "crazing_139.jpg",
+            "issue": "extra_in_candidate",
+            "class": 0,
+            "conf": 0.295
+          },
+          {
+            "image": "crazing_144.jpg",
+            "issue": "extra_in_candidate",
+            "class": 0,
+            "conf": 0.295
+          }
+        ],
+        "passed": true,
+        "failures": []
+      },
+      "metrics": {
+        "reference": {
+          "map50": 0.7332262068106804,
+          "map50_95": 0.4183884215917401
+        },
+        "candidate": {
+          "map50": 0.722467184431317,
+          "map50_95": 0.4066823903017084
+        },
+        "map50_drop": 0.010759,
+        "map50_95_drop": 0.011706,
+        "passed": true,
+        "failures": []
+      }
+    }
+  ]
+}
