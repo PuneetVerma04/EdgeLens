@@ -6,31 +6,50 @@ Training now lives in this repo, under [`training/`](training/). The former [Def
 
 ## What problem this solves
 
-Casting-defect inspection: given a photo of a cast part, classify it as OK or Defective. This repo
-is the **serving** side — a FastAPI microservice that loads a trained ResNet50 checkpoint and
-exposes it over HTTP, plus a Streamlit UI to exercise it and a MongoDB log of past predictions.
+Steel surface-defect inspection: given a photo of a rolled-steel surface, **locate and classify
+defects** into six NEU-DET classes (crazing, inclusion, patches, pitted_surface, rolled-in_scale,
+scratches). The repo covers the whole path — dataset preparation, controlled training, evaluation,
+ONNX export with verification, and a CPU edge benchmark — plus a FastAPI service and Streamlit UI
+for serving.
+
+> **Migration in progress.** The detection pipeline is trained, evaluated, exported and
+> benchmarked. The **serving layer has not been switched over yet**: `/predict` still runs the
+> earlier binary casting classifier (ResNet50, OK/Defective). That rewrite is tracked in
+> `NEU_DET_YOLO_Plan.md` and touches `backend/app/core/model.py` and
+> `backend/app/utils/postprocess.py`. Until it lands, the mAP figures on this page describe the
+> **detector**, not the running API. See [Limitations](#limitations-read-before-relying-on-this).
 
 ## What it is technically
 
-- **Backend** (`backend/`) — FastAPI service. Loads a PyTorch ResNet50 checkpoint once at startup,
-  exposes `/predict`, `/history`, and a retraining-simulation endpoint (see Limitations). Inference
-  results are logged to MongoDB asynchronously via `BackgroundTasks`, non-blocking.
+**Detection pipeline (current work)**
+
+- **`training/`** — `prepare_neu_det.py` converts PASCAL VOC to YOLO with a seeded, stratified
+  70/15/15 split; `train_yolo.py` pins every hyperparameter so two runs differ only by the model
+  weights; `eval_yolo.py` produces mAP, per-class AP, a confusion matrix and annotated worst-case
+  false positives/negatives.
+- **`tools/export_models.py`** — ONNX FP32 and INT8 export. INT8 calibrates on the **training**
+  split only, and every artefact is verified against the PyTorch model before it is trusted.
+- **`benchmarks/`** — CPU latency, memory, size and mAP per artefact, one subprocess per variant.
+  See [the benchmark report](benchmarks/results_aggregate.md).
+- **Models**: `yolov8n` and `yolo26n` (Ultralytics 8.4.126), 640×640 input, six classes.
+
+**Serving layer (still the legacy classifier)**
+
+- **Backend** (`backend/`) — FastAPI service. Loads a PyTorch checkpoint once at startup, exposes
+  `/predict`, `/history`, and a retraining-simulation endpoint (see Limitations). Inference results
+  are logged to MongoDB asynchronously via `BackgroundTasks`, non-blocking.
 - **Frontend** (`frontend/`) — a single-file Streamlit app: upload an image, see the prediction,
   confidence, and inference time, plus a history dashboard.
-- **Model**: ResNet50 (torchvision) with the final FC layer replaced for 2-class output (OK /
-  Defective). 224×224 RGB input, ImageNet normalization, CPU/GPU auto-detection.
+- **Model currently served**: ResNet50 (torchvision) with the final FC layer replaced for 2-class
+  output (OK / Defective). 224×224 RGB input, ImageNet normalization, CPU/GPU auto-detection.
+  **This is the pre-migration model**, not the NEU-DET detector.
 
 ## Results / metrics
 
-> **These are training-side results. They are not what the API currently serves.**
-> `backend/` still loads the legacy 2-class casting ResNet50 (`backend/app/core/model.py` builds
-> `resnet50` with a 2-output head; `postprocess.py` maps to `OK` / `Defective`). The NEU-DET
-> detector below is trained and evaluated but **not yet wired into `/predict`** — that rewrite is
-> outstanding. Do not read the mAP figures here as the accuracy of the running service.
+> **Detector results, not API results** — see the migration note at the top. `/predict` still
+> serves the 2-class casting ResNet50.
 
-The live pipeline is **6-class surface-defect detection on NEU-DET**, not the earlier binary
-casting classifier. Two nano detectors were trained to compare a 2023 architecture against a 2026
-edge-optimised one.
+Two nano detectors were trained to compare a 2023 architecture against a 2026 edge-optimised one.
 
 **Everything below is the held-out `test` split** (270 images / 627 boxes), never used for training
 or model selection. Both models were trained with **identical** hyperparameters — 100 epochs,
@@ -140,8 +159,51 @@ negatives alongside them. The per-run write-up is in [`training/RESULTS.md`](tra
 **Reference point:** published YOLOv8n baselines on NEU-DET land around 73–78% mAP@0.5. Both
 models sit inside that band (75.6% and 73.3%), so neither result is anomalous.
 
-**Not benchmarked yet:** ONNX export, INT8 quantisation, CPU latency, and the imgsz sweep are
-planned but unmeasured — no numbers for them are claimed here.
+## Edge benchmark (CPU)
+
+Full report, including protocol, per-stage timing, memory, run-to-run spread and a GPU appendix:
+**[`benchmarks/results_aggregate.md`](benchmarks/results_aggregate.md)**. Raw data in
+`benchmarks/results_cpu{1,2,3}.json`.
+
+Median of **three independent runs** on an idle AMD Ryzen 7 7840HS (8 physical cores, 8 threads
+per variant), batch 1, 20 warmup + 200 timed runs each. Latency is the full `predict()` call —
+preprocess, inference and postprocess.
+
+| Variant | p50 (ms) | spread | Size (MB) | mAP@0.5 | mAP@0.5:0.95 |
+|---|---:|---:|---:|---:|---:|
+| `yolo26n` ONNX FP32 | **21.88** | 0.5% | 9.35 | 0.7332 | 0.4184 |
+| `yolov8n` ONNX FP32 | 27.83 | 0.6% | 11.70 | **0.7561** | **0.4233** |
+| `yolov8n` PyTorch | 34.46 | 1.9% | 5.97 | 0.7561 | 0.4233 |
+| `yolo26n` PyTorch | 35.60 | 4.6% | 5.15 | 0.7332 | 0.4184 |
+| `yolov8n` ONNX INT8 | 50.54 | 0.6% | **3.23** | 0.7555 | 0.4301 |
+| `yolo26n` ONNX INT8 | 50.75 | 1.0% | **2.80** | 0.7225 | 0.4067 |
+
+Three findings worth the space:
+
+- **INT8 is 1.8–2.3× *slower*, not faster.** It delivers the expected 3.3–3.6× size reduction, but
+  inspecting the graph ONNX Runtime actually executes shows only **7 of 64** (yolov8n) and **12 of
+  102** (yolo26n) convolutions became integer kernels. The rest dequantize to float, run as float
+  `Conv`, and requantize — full FP32 compute plus several hundred conversion nodes. Ship INT8 only
+  when storage or memory is the binding constraint, not latency.
+- **Input resolution is the biggest CPU lever, and it is steeply non-linear.** For yolo26n ONNX
+  FP32: 256 → 5.20 ms at 0.6115 mAP@0.5, 320 → 6.70 ms at 0.6986, 640 → 21.88 ms at 0.7332. The
+  step 256→320 buys **8.71 pp for 1.50 ms**; 320→640 buys only **3.46 pp for 15.18 ms** — about
+  **25× worse value per millisecond** (5.81 vs 0.23 pp/ms).
+- **That lever disappears on GPU.** On an RTX 4050 the same sweep spans 1.10× instead of 2.61×,
+  and the inference stage is *inversely* ordered (8.71 → 8.22 → 8.10 ms as pixels grow 6.25×) —
+  it is measuring fixed per-call overhead, not compute. On GPU, run at 640 and take the accuracy.
+
+Reproduce:
+
+```bash
+python tools/export_models.py                                   # exports + verifies parity
+python benchmarks/run_benchmark.py --device cpu --tag cpu1       # repeat as cpu2, cpu3
+python benchmarks/aggregate_runs.py --glob "benchmarks/results_cpu[123].json"
+```
+
+> The mAP here (batch 1) differs from the training-side table above (batch 16) in the fourth
+> decimal — e.g. yolov8n 0.756088 vs 0.756010. Same weights, same split; the difference is batch
+> composition inside the validator, not a discrepancy.
 
 ## Limitations (read before relying on this)
 
@@ -151,14 +213,39 @@ planned but unmeasured — no numbers for them are claimed here.
   this repo.
 - **No input sanitization beyond size and content-type checks.** The "Security" section below used
   to claim broader sanitization; only file size and content-type are validated.
+- **The API does not serve the NEU-DET detector.** `/predict` still runs the binary casting
+  ResNet50 and returns `{label, confidence, inference_time}` — no boxes. Everything under
+  `training/`, `tools/` and `benchmarks/` operates on the detector directly, not through the API.
+  Wiring the two together is outstanding work.
+- **Detector accuracy is modest.** Both models miss roughly 30% of defect boxes at the deployment
+  threshold. `crazing` in particular sits near 0.46 AP@0.5.
+- **Benchmarked on one machine.** All latency figures come from a single x86 laptop. Rankings and
+  mechanisms should transfer to a Pi or Jetson; absolute milliseconds will not. The harness runs
+  unmodified on Linux/ARM if you need real numbers for a target device.
 
-## Model weights
+## Model weights and artefacts
 
-**The trained weights (`defect_detection_resnet_casting_data.pth`, ~94 MB) are not in this repo.**
-They're gitignored (`backend/app/*.pth`) and must be obtained separately before the backend can
-start — without them, `load_model()` raises `FileNotFoundError` at startup.
+No binary model files are committed. What each thing is, and how to get it:
 
-Model weights available at ([Model Weights](https://github.com/PuneetVerma04/EdgeLens/releases/tag/v0.1.0-weights)) and it at `backend/app/defect_detection_resnet_casting_data.pth`.
+| Artefact | Size | Needed for | How to obtain |
+|---|---:|---|---|
+| `backend/app/defect_detection_resnet_casting_data.pth` | ~94 MB | Starting the backend | [Release v0.1.0-weights](https://github.com/PuneetVerma04/EdgeLens/releases/tag/v0.1.0-weights) |
+| `runs/neu_det/<model>/weights/best.pt` | ~5–6 MB each | Export, benchmark, eval | Retrain, or fetch from a release |
+| `artifacts/onnx/*.onnx` | ~47 MB total | The CPU benchmark | `python tools/export_models.py` |
+| `data/neu_det/` | ~25 MB | Training and evaluation | `python training/prepare_neu_det.py` |
+
+Without the `.pth`, `load_model()` raises `FileNotFoundError` at startup. The gitignore keeps the
+*metadata* that backs every published number — run configs, `results.csv`, eval outputs, export
+manifests — so the figures on this page stay checkable from a clean clone even though the weights
+themselves do not.
+
+**Rebuilding the dataset:** use `--from-manifest` to reproduce the exact split the committed
+checkpoints were trained on. Re-deriving from `--seed` alone will *not* reproduce it — the split
+code changed, and a fresh seed-42 split moves 229 of 270 test images:
+
+```bash
+python training/prepare_neu_det.py --from-manifest data/neu_det/split_manifest.json
+```
 
 ## Quick start
 
@@ -186,7 +273,7 @@ pip install -r requirements.txt
 streamlit run streamlit_app.py
 ```
 
-Requires the model weights in place first — see [Model weights](#model-weights) above.
+Requires the model weights in place first — see [Model weights](#model-weights-and-artefacts) above.
 
 ## Features
 
@@ -301,11 +388,25 @@ EdgeLens/
 │   ├── RESULTS.md           # per-run metrics write-up
 │   ├── requirements.txt
 │   └── legacy/              # ARCHIVED casting classifier — known-bad metrics, see its README
-├── runs/neu_det/            # training + eval outputs, weights, configs (not a clean-clone dep)
+├── tools/
+│   └── export_models.py     # ONNX FP32/INT8 export + PyTorch parity verification
+├── benchmarks/
+│   ├── run_benchmark.py     # latency / memory / size / mAP, one subprocess per variant
+│   ├── gpu_context.py       # CPU-vs-GPU appendix measurement
+│   ├── aggregate_runs.py    # medians + spread across runs -> the report
+│   ├── write_results.py     # shared markdown renderer
+│   └── results_aggregate.md # THE benchmark report
+├── common/
+│   └── metrics.py           # iou_matrix + percentile, shared by eval/export/benchmark
+├── tests/                   # pytest: preprocessing, predict API, config
+├── artifacts/onnx/          # exported graphs — gitignored, rebuild with export_models.py
+├── runs/neu_det/            # run configs + eval metadata committed; weights gitignored
 ├── data/neu_det/            # generated dataset — gitignored, rebuild with prepare_neu_det.py
 ├── scripts/
 │   └── validate_model.py
 ├── test_samples/
+├── docs/
+├── .github/workflows/       # CI: pytest on push and PR
 ├── docker-compose.yml
 ├── .env.example
 └── README.md
@@ -313,8 +414,17 @@ EdgeLens/
 
 ## Dependencies
 
-**Backend**: FastAPI, PyTorch, Motor (async MongoDB driver), Uvicorn.
-**Frontend**: Streamlit, Requests, Pandas, Pillow.
+**Backend** (`backend/requirements.txt`): FastAPI, PyTorch, Motor (async MongoDB driver), Uvicorn.
+**Frontend** (`frontend/requirements.txt`): Streamlit, Requests, Pandas, Pillow.
+**Training / export / benchmark** (`training/requirements.txt`): Ultralytics **pinned to 8.4.126**,
+NumPy, Pillow, PyYAML, matplotlib. ONNX work additionally needs `onnx`, `onnxruntime`, `onnxslim`.
+
+Ultralytics is pinned exactly because its defaults are not stable across releases and several are
+adaptive — an unpinned version silently changes the experiment. Install torch **and torchvision
+together** from the CUDA index before this file; installing torchvision from PyPI will downgrade a
+working CUDA torch to a CPU build without any error, and training then runs ~20× slower.
+`train_yolo.py` refuses to start a CPU run when a GPU is present, so this fails loudly rather than
+costing you an afternoon.
 
 ## Docker notes
 
