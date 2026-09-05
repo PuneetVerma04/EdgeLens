@@ -1,0 +1,434 @@
+{
+  "source_runs": [
+    "results_cpu1.json",
+    "results_cpu2.json",
+    "results_cpu3.json"
+  ],
+  "host": {
+    "cpu": "AMD Ryzen 7 7840HS w/ Radeon 780M Graphics",
+    "physical_cores": 8,
+    "logical_cores": 16,
+    "threads_used": 8,
+    "ram_gib": 15.29,
+    "platform": "Windows-11-10.0.26200-SP0",
+    "python": "3.12.9",
+    "torch": "2.13.0+cu130",
+    "onnxruntime": "1.29.0",
+    "onnxruntime_providers": [
+      "AzureExecutionProvider",
+      "CPUExecutionProvider"
+    ],
+    "ultralytics": "8.4.126",
+    "device": "cpu",
+    "gpu": "NVIDIA GeForce RTX 4050 Laptop GPU",
+    "gpu_memory_gib": 6.0
+  },
+  "protocol": {
+    "runs": 200,
+    "warmup": 20,
+    "threads": 8,
+    "batch": 1,
+    "conf": 0.25,
+    "iou": 0.7,
+    "max_det": 300,
+    "latency_image_pool": 20,
+    "split": "test",
+    "isolation": "one subprocess per variant",
+    "device": "cpu",
+    "percentile_method": "nearest-rank (no interpolation)"
+  },
+  "variants": [
+    {
+      "id": "yolov8n-pytorch-640",
+      "model": "yolov8n",
+      "backend": "PyTorch",
+      "precision": "FP32",
+      "imgsz": 640,
+      "size_mb": 5.9685,
+      "size_bytes": 6258410,
+      "runs": 3,
+      "p50": {
+        "median": 34.4605,
+        "min": 33.821,
+        "max": 34.4786,
+        "spread_pct": 1.9082717894400898,
+        "values": [
+          34.4786,
+          34.4605,
+          33.821
+        ]
+      },
+      "p95": {
+        "median": 37.0436,
+        "min": 36.3803,
+        "max": 37.8091,
+        "spread_pct": 3.857076526039593,
+        "values": [
+          37.0436,
+          37.8091,
+          36.3803
+        ]
+      },
+      "inference": {
+        "median": 31.3509,
+        "min": 30.9015,
+        "max": 31.5578
+      },
+      "peak_mib": {
+        "median": 714.57,
+        "min": 714.51,
+        "max": 718.06
+      },
+      "accuracy_stable": true,
+      "map50": 0.756088,
+      "map50_95": 0.42327,
+      "map50_observed": [
+        0.756088
+      ],
+      "sweep": false
+    },
+    {
+      "id": "yolo26n-pytorch-640",
+      "model": "yolo26n",
+      "backend": "PyTorch",
+      "precision": "FP32",
+      "imgsz": 640,
+      "size_mb": 5.1475,
+      "size_bytes": 5397573,
+      "runs": 3,
+      "p50": {
+        "median": 35.5954,
+        "min": 35.111,
+        "max": 36.7519,
+        "spread_pct": 4.609865319676144,
+        "values": [
+          36.7519,
+          35.111,
+          35.5954
+        ]
+      },
+      "p95": {
+        "median": 39.1374,
+        "min": 38.5882,
+        "max": 40.8462,
+        "spread_pct": 5.769417488131564,
+        "values": [
+          40.8462,
+          38.5882,
+          39.1374
+        ]
+      },
+      "inference": {
+        "median": 33.0127,
+        "min": 32.7534,
+        "max": 33.9647
+      },
+      "peak_mib": {
+        "median": 723.94,
+        "min": 723.67,
+        "max": 724.22
+      },
+      "accuracy_stable": true,
+      "map50": 0.733226,
+      "map50_95": 0.418388,
+      "map50_observed": [
+        0.733226
+      ],
+      "sweep": false
+    },
+    {
+      "id": "yolov8n-onnx-fp32-640",
+      "model": "yolov8n",
+      "backend": "ONNX Runtime",
+      "precision": "FP32",
+      "imgsz": 640,
+      "size_mb": 11.7009,
+      "size_bytes": 12269259,
+      "runs": 3,
+      "p50": {
+        "median": 27.8268,
+        "min": 27.7348,
+        "max": 27.9037,
+        "spread_pct": 0.6069688214239536,
+        "values": [
+          27.8268,
+          27.9037,
+          27.7348
+        ]
+      },
+      "p95": {
+        "median": 28.6592,
+        "min": 28.5786,
+        "max": 28.7805,
+        "spread_pct": 0.704485819562299,
+        "values": [
+          28.7805,
+          28.6592,
+          28.5786
+        ]
+      },
+      "inference": {
+        "median": 24.3811,
+        "min": 24.2916,
+        "max": 24.522
+      },
+      "peak_mib": {
+        "median": 824.5,
+        "min": 823.48,
+        "max": 824.66
+      },
+      "accuracy_stable": true,
+      "map50": 0.756088,
+      "map50_95": 0.42327,
+      "map50_observed": [
+        0.756088
+      ],
+      "sweep": false
+    },
+    {
+      "id": "yolov8n-onnx-int8-640",
+      "model": "yolov8n",
+      "backend": "ONNX Runtime",
+      "precision": "INT8",
+      "imgsz": 640,
+      "size_mb": 3.2325,
+      "size_bytes": 3389567,
+      "runs": 3,
+      "p50": {
+        "median": 50.5401,
+        "min": 50.3354,
+        "max": 50.6316,
+        "spread_pct": 0.5860692796413123,
+        "values": [
+          50.6316,
+          50.5401,
+          50.3354
+        ]
+      },
+      "p95": {
+        "median": 51.8559,
+        "min": 51.4446,
+        "max": 52.1495,
+        "spread_pct": 1.3593438740818347,
+        "values": [
+          52.1495,
+          51.4446,
+          51.8559
+        ]
+      },
+      "inference": {
+        "median": 47.2034,
+        "min": 47.2022,
+        "max": 47.3924
+      },
+      "peak_mib": {
+        "median": 833.27,
+        "min": 832.44,
+        "max": 833.71
+      },
+      "accuracy_stable": true,
+      "map50": 0.755514,
+      "map50_95": 0.430112,
+      "map50_observed": [
+        0.755514
+      ],
+      "sweep": false
+    },
+    {
+      "id": "yolo26n-onnx-fp32-640",
+      "model": "yolo26n",
+      "backend": "ONNX Runtime",
+      "precision": "FP32",
+      "imgsz": 640,
+      "size_mb": 9.3549,
+      "size_bytes": 9809346,
+      "runs": 3,
+      "p50": {
+        "median": 21.8809,
+        "min": 21.8343,
+        "max": 21.9418,
+        "spread_pct": 0.49129606186217983,
+        "values": [
+          21.9418,
+          21.8343,
+          21.8809
+        ]
+      },
+      "p95": {
+        "median": 22.4501,
+        "min": 22.3403,
+        "max": 22.5428,
+        "spread_pct": 0.9020004365236706,
+        "values": [
+          22.4501,
+          22.3403,
+          22.5428
+        ]
+      },
+      "inference": {
+        "median": 18.5588,
+        "min": 18.4794,
+        "max": 18.5686
+      },
+      "peak_mib": {
+        "median": 871.41,
+        "min": 871.3,
+        "max": 871.73
+      },
+      "accuracy_stable": true,
+      "map50": 0.733227,
+      "map50_95": 0.418389,
+      "map50_observed": [
+        0.733227
+      ],
+      "sweep": false
+    },
+    {
+      "id": "yolo26n-onnx-int8-640",
+      "model": "yolo26n",
+      "backend": "ONNX Runtime",
+      "precision": "INT8",
+      "imgsz": 640,
+      "size_mb": 2.8026,
+      "size_bytes": 2938750,
+      "runs": 3,
+      "p50": {
+        "median": 50.7486,
+        "min": 50.6747,
+        "max": 51.1611,
+        "spread_pct": 0.9584500853225432,
+        "values": [
+          51.1611,
+          50.7486,
+          50.6747
+        ]
+      },
+      "p95": {
+        "median": 52.1751,
+        "min": 52.1712,
+        "max": 53.0967,
+        "spread_pct": 1.7738346452618194,
+        "values": [
+          53.0967,
+          52.1751,
+          52.1712
+        ]
+      },
+      "inference": {
+        "median": 47.4523,
+        "min": 47.4106,
+        "max": 47.902
+      },
+      "peak_mib": {
+        "median": 885.36,
+        "min": 885.22,
+        "max": 885.5
+      },
+      "accuracy_stable": true,
+      "map50": 0.722467,
+      "map50_95": 0.406682,
+      "map50_observed": [
+        0.722467
+      ],
+      "sweep": false
+    },
+    {
+      "id": "yolo26n-onnx-fp32-256",
+      "model": "yolo26n",
+      "backend": "ONNX Runtime",
+      "precision": "FP32",
+      "imgsz": 256,
+      "size_mb": 9.2202,
+      "size_bytes": 9668088,
+      "runs": 3,
+      "p50": {
+        "median": 5.2037,
+        "min": 5.1959,
+        "max": 5.253,
+        "spread_pct": 1.0972961546591875,
+        "values": [
+          5.2037,
+          5.253,
+          5.1959
+        ]
+      },
+      "p95": {
+        "median": 5.588,
+        "min": 5.4349,
+        "max": 5.6016,
+        "spread_pct": 2.98317823908376,
+        "values": [
+          5.588,
+          5.6016,
+          5.4349
+        ]
+      },
+      "inference": {
+        "median": 4.3458,
+        "min": 4.3365,
+        "max": 4.3816
+      },
+      "peak_mib": {
+        "median": 729.31,
+        "min": 728.94,
+        "max": 730.71
+      },
+      "accuracy_stable": true,
+      "map50": 0.611507,
+      "map50_95": 0.312884,
+      "map50_observed": [
+        0.611507
+      ],
+      "sweep": true
+    },
+    {
+      "id": "yolo26n-onnx-fp32-320",
+      "model": "yolo26n",
+      "backend": "ONNX Runtime",
+      "precision": "FP32",
+      "imgsz": 320,
+      "size_mb": 9.2346,
+      "size_bytes": 9683212,
+      "runs": 3,
+      "p50": {
+        "median": 6.6993,
+        "min": 6.6698,
+        "max": 6.7687,
+        "spread_pct": 1.4762736405296009,
+        "values": [
+          6.6993,
+          6.6698,
+          6.7687
+        ]
+      },
+      "p95": {
+        "median": 7.1195,
+        "min": 6.9358,
+        "max": 7.3773,
+        "spread_pct": 6.20127817964744,
+        "values": [
+          6.9358,
+          7.3773,
+          7.1195
+        ]
+      },
+      "inference": {
+        "median": 5.7113,
+        "min": 5.6851,
+        "max": 5.7572
+      },
+      "peak_mib": {
+        "median": 745.29,
+        "min": 744.77,
+        "max": 745.72
+      },
+      "accuracy_stable": true,
+      "map50": 0.698588,
+      "map50_95": 0.388822,
+      "map50_observed": [
+        0.698588
+      ],
+      "sweep": true
+    }
+  ]
+}

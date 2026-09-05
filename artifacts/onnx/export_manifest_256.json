@@ -1,0 +1,66 @@
+{
+  "imgsz": 256,
+  "calibration": {
+    "split": "train",
+    "requested_images": 512,
+    "available_train_images": 1260,
+    "fraction": 0.40634920634920635
+  },
+  "parity_settings": {
+    "images": 20,
+    "conf": 0.25,
+    "iou": 0.7,
+    "max_det": 300,
+    "match_iou": 0.5
+  },
+  "artefacts": [
+    {
+      "name": "yolo26n",
+      "variant": "fp32",
+      "file": "yolo26n_256_fp32.onnx",
+      "bytes": 9668088,
+      "mb": 9.2202,
+      "export_seconds": 1.4,
+      "parity": {
+        "label": "yolo26n fp32 vs pytorch",
+        "images": 20,
+        "reference_detections": 3,
+        "matched": 3,
+        "matched_fraction": 1.0,
+        "extra_in_candidate": 0,
+        "borderline_threshold_flips": 0,
+        "mean_iou_of_matches": 1.0,
+        "min_iou_of_matches": 1.0,
+        "max_conf_delta": 1e-06,
+        "class_mismatches": [],
+        "gate": {
+          "kind": "strict",
+          "min_matched_fraction": 1.0,
+          "min_mean_iou": 0.99,
+          "max_conf_delta": 0.02,
+          "max_extra_detections": 0,
+          "borderline_band": 0.02,
+          "max_map50_drop": 0.0005,
+          "max_map5095_drop": 0.0005
+        },
+        "examples": [],
+        "passed": true,
+        "failures": []
+      },
+      "metrics": {
+        "reference": {
+          "map50": 0.6115065422833699,
+          "map50_95": 0.31288347197299765
+        },
+        "candidate": {
+          "map50": 0.6115069161067659,
+          "map50_95": 0.3128836347135359
+        },
+        "map50_drop": -0.0,
+        "map50_95_drop": -0.0,
+        "passed": true,
+        "failures": []
+      }
+    }
+  ]
+}

@@ -1,0 +1,480 @@
+{
+  "host": {
+    "cpu": "AMD Ryzen 7 7840HS w/ Radeon 780M Graphics",
+    "physical_cores": 8,
+    "logical_cores": 16,
+    "threads_used": 8,
+    "ram_gib": 15.29,
+    "platform": "Windows-11-10.0.26200-SP0",
+    "python": "3.12.9",
+    "torch": "2.13.0+cu130",
+    "onnxruntime": "1.29.0",
+    "onnxruntime_providers": [
+      "AzureExecutionProvider",
+      "CPUExecutionProvider"
+    ],
+    "ultralytics": "8.4.126",
+    "device": "cpu",
+    "gpu": "NVIDIA GeForce RTX 4050 Laptop GPU",
+    "gpu_memory_gib": 6.0
+  },
+  "protocol": {
+    "runs": 200,
+    "warmup": 20,
+    "threads": 8,
+    "batch": 1,
+    "conf": 0.25,
+    "iou": 0.7,
+    "max_det": 300,
+    "latency_image_pool": 20,
+    "split": "test",
+    "isolation": "one subprocess per variant",
+    "device": "cpu",
+    "percentile_method": "nearest-rank (no interpolation)"
+  },
+  "generated_utc": "2026-08-30T10:09:21Z",
+  "results": [
+    {
+      "id": "yolov8n-pytorch-640",
+      "model": "yolov8n",
+      "backend": "PyTorch",
+      "precision": "FP32",
+      "imgsz": 640,
+      "path": "D:\\Projects\\Python Projects\\EdgeLens\\runs\\neu_det\\yolov8n\\weights\\best.pt",
+      "file": "best.pt",
+      "size_bytes": 6258410,
+      "size_mb": 5.9685,
+      "load_seconds": 0.022,
+      "memory_mib": {
+        "baseline_rss": 502.44,
+        "after_model_load": 533.39,
+        "model_load_delta": 30.95,
+        "peak_after_latency": 698.82,
+        "peak_process": 714.57
+      },
+      "gpu_memory_mib": null,
+      "device": "cpu",
+      "latency": {
+        "runs": 200,
+        "warmup": 20,
+        "image_pool": 20,
+        "p50_ms": 33.821,
+        "p90_ms": 35.8258,
+        "p95_ms": 36.3803,
+        "p99_ms": 37.8792,
+        "min_ms": 26.9446,
+        "max_ms": 39.2135,
+        "mean_ms": 33.6926,
+        "stdev_ms": 1.8998,
+        "throughput_fps_at_p50": 29.567,
+        "stage_mean_ms": {
+          "preprocess": 2.0647,
+          "inference": 30.9015,
+          "postprocess": 0.4574
+        },
+        "mean_detections_per_image": 1.25
+      },
+      "accuracy": {
+        "map50": 0.756088,
+        "map50_95": 0.42327,
+        "mean_precision": 0.749268,
+        "mean_recall": 0.692759,
+        "per_class_ap50": {
+          "crazing": 0.457612,
+          "inclusion": 0.806651,
+          "patches": 0.917166,
+          "pitted_surface": 0.786373,
+          "rolled-in_scale": 0.638389,
+          "scratches": 0.930337
+        }
+      }
+    },
+    {
+      "id": "yolo26n-pytorch-640",
+      "model": "yolo26n",
+      "backend": "PyTorch",
+      "precision": "FP32",
+      "imgsz": 640,
+      "path": "D:\\Projects\\Python Projects\\EdgeLens\\runs\\neu_det\\yolo26n\\weights\\best.pt",
+      "file": "best.pt",
+      "size_bytes": 5397573,
+      "size_mb": 5.1475,
+      "load_seconds": 0.081,
+      "memory_mib": {
+        "baseline_rss": 502.74,
+        "after_model_load": 532.22,
+        "model_load_delta": 29.48,
+        "peak_after_latency": 634.77,
+        "peak_process": 724.22
+      },
+      "gpu_memory_mib": null,
+      "device": "cpu",
+      "latency": {
+        "runs": 200,
+        "warmup": 20,
+        "image_pool": 20,
+        "p50_ms": 35.5954,
+        "p90_ms": 38.1064,
+        "p95_ms": 39.1374,
+        "p99_ms": 40.8859,
+        "min_ms": 29.736,
+        "max_ms": 43.4212,
+        "mean_ms": 35.7316,
+        "stdev_ms": 2.0381,
+        "throughput_fps_at_p50": 28.094,
+        "stage_mean_ms": {
+          "preprocess": 2.0186,
+          "inference": 33.0127,
+          "postprocess": 0.1903
+        },
+        "mean_detections_per_image": 1.1
+      },
+      "accuracy": {
+        "map50": 0.733226,
+        "map50_95": 0.418388,
+        "mean_precision": 0.700505,
+        "mean_recall": 0.703425,
+        "per_class_ap50": {
+          "crazing": 0.462532,
+          "inclusion": 0.809538,
+          "patches": 0.897724,
+          "pitted_surface": 0.73892,
+          "rolled-in_scale": 0.588068,
+          "scratches": 0.902576
+        }
+      }
+    },
+    {
+      "id": "yolov8n-onnx-fp32-640",
+      "model": "yolov8n",
+      "backend": "ONNX Runtime",
+      "precision": "FP32",
+      "imgsz": 640,
+      "path": "D:\\Projects\\Python Projects\\EdgeLens\\artifacts\\onnx\\yolov8n_fp32.onnx",
+      "file": "yolov8n_fp32.onnx",
+      "size_bytes": 12269259,
+      "size_mb": 11.7009,
+      "load_seconds": 0.0,
+      "memory_mib": {
+        "baseline_rss": 502.67,
+        "after_model_load": 513.76,
+        "model_load_delta": 11.09,
+        "peak_after_latency": 731.04,
+        "peak_process": 824.5
+      },
+      "gpu_memory_mib": null,
+      "device": "cpu",
+      "latency": {
+        "runs": 200,
+        "warmup": 20,
+        "image_pool": 20,
+        "p50_ms": 27.7348,
+        "p90_ms": 28.2198,
+        "p95_ms": 28.5786,
+        "p99_ms": 28.9713,
+        "min_ms": 27.0526,
+        "max_ms": 30.4779,
+        "mean_ms": 27.8138,
+        "stdev_ms": 0.3887,
+        "throughput_fps_at_p50": 36.056,
+        "stage_mean_ms": {
+          "preprocess": 2.645,
+          "inference": 24.2916,
+          "postprocess": 0.6347
+        },
+        "mean_detections_per_image": 1.25
+      },
+      "accuracy": {
+        "map50": 0.756088,
+        "map50_95": 0.42327,
+        "mean_precision": 0.749267,
+        "mean_recall": 0.692759,
+        "per_class_ap50": {
+          "crazing": 0.457612,
+          "inclusion": 0.806651,
+          "patches": 0.917166,
+          "pitted_surface": 0.786373,
+          "rolled-in_scale": 0.638389,
+          "scratches": 0.930337
+        }
+      }
+    },
+    {
+      "id": "yolov8n-onnx-int8-640",
+      "model": "yolov8n",
+      "backend": "ONNX Runtime",
+      "precision": "INT8",
+      "imgsz": 640,
+      "path": "D:\\Projects\\Python Projects\\EdgeLens\\artifacts\\onnx\\yolov8n_int8.onnx",
+      "file": "yolov8n_int8.onnx",
+      "size_bytes": 3389567,
+      "size_mb": 3.2325,
+      "load_seconds": 0.0,
+      "memory_mib": {
+        "baseline_rss": 502.46,
+        "after_model_load": 512.87,
+        "model_load_delta": 10.41,
+        "peak_after_latency": 736.12,
+        "peak_process": 833.27
+      },
+      "gpu_memory_mib": null,
+      "device": "cpu",
+      "latency": {
+        "runs": 200,
+        "warmup": 20,
+        "image_pool": 20,
+        "p50_ms": 50.3354,
+        "p90_ms": 51.2408,
+        "p95_ms": 51.8559,
+        "p99_ms": 53.3618,
+        "min_ms": 48.985,
+        "max_ms": 73.5294,
+        "mean_ms": 50.6113,
+        "stdev_ms": 1.7389,
+        "throughput_fps_at_p50": 19.867,
+        "stage_mean_ms": {
+          "preprocess": 2.5285,
+          "inference": 47.2034,
+          "postprocess": 0.6318
+        },
+        "mean_detections_per_image": 1.2
+      },
+      "accuracy": {
+        "map50": 0.755514,
+        "map50_95": 0.430112,
+        "mean_precision": 0.757417,
+        "mean_recall": 0.68309,
+        "per_class_ap50": {
+          "crazing": 0.42622,
+          "inclusion": 0.81029,
+          "patches": 0.934668,
+          "pitted_surface": 0.789298,
+          "rolled-in_scale": 0.643302,
+          "scratches": 0.929307
+        }
+      }
+    },
+    {
+      "id": "yolo26n-onnx-fp32-640",
+      "model": "yolo26n",
+      "backend": "ONNX Runtime",
+      "precision": "FP32",
+      "imgsz": 640,
+      "path": "D:\\Projects\\Python Projects\\EdgeLens\\artifacts\\onnx\\yolo26n_fp32.onnx",
+      "file": "yolo26n_fp32.onnx",
+      "size_bytes": 9809346,
+      "size_mb": 9.3549,
+      "load_seconds": 0.0,
+      "memory_mib": {
+        "baseline_rss": 502.83,
+        "after_model_load": 513.32,
+        "model_load_delta": 10.49,
+        "peak_after_latency": 678.4,
+        "peak_process": 871.3
+      },
+      "gpu_memory_mib": null,
+      "device": "cpu",
+      "latency": {
+        "runs": 200,
+        "warmup": 20,
+        "image_pool": 20,
+        "p50_ms": 21.8809,
+        "p90_ms": 22.3516,
+        "p95_ms": 22.5428,
+        "p99_ms": 22.9651,
+        "min_ms": 21.4286,
+        "max_ms": 23.2142,
+        "mean_ms": 21.9275,
+        "stdev_ms": 0.3085,
+        "throughput_fps_at_p50": 45.702,
+        "stage_mean_ms": {
+          "preprocess": 2.6349,
+          "inference": 18.5686,
+          "postprocess": 0.2845
+        },
+        "mean_detections_per_image": 1.1
+      },
+      "accuracy": {
+        "map50": 0.733227,
+        "map50_95": 0.418389,
+        "mean_precision": 0.700506,
+        "mean_recall": 0.703425,
+        "per_class_ap50": {
+          "crazing": 0.462532,
+          "inclusion": 0.809545,
+          "patches": 0.897724,
+          "pitted_surface": 0.73892,
+          "rolled-in_scale": 0.588068,
+          "scratches": 0.902576
+        }
+      }
+    },
+    {
+      "id": "yolo26n-onnx-int8-640",
+      "model": "yolo26n",
+      "backend": "ONNX Runtime",
+      "precision": "INT8",
+      "imgsz": 640,
+      "path": "D:\\Projects\\Python Projects\\EdgeLens\\artifacts\\onnx\\yolo26n_int8.onnx",
+      "file": "yolo26n_int8.onnx",
+      "size_bytes": 2938750,
+      "size_mb": 2.8026,
+      "load_seconds": 0.0,
+      "memory_mib": {
+        "baseline_rss": 502.67,
+        "after_model_load": 513.1,
+        "model_load_delta": 10.43,
+        "peak_after_latency": 683.31,
+        "peak_process": 885.5
+      },
+      "gpu_memory_mib": null,
+      "device": "cpu",
+      "latency": {
+        "runs": 200,
+        "warmup": 20,
+        "image_pool": 20,
+        "p50_ms": 50.6747,
+        "p90_ms": 51.5404,
+        "p95_ms": 52.1712,
+        "p99_ms": 52.7923,
+        "min_ms": 48.8755,
+        "max_ms": 52.9412,
+        "mean_ms": 50.7948,
+        "stdev_ms": 0.6219,
+        "throughput_fps_at_p50": 19.734,
+        "stage_mean_ms": {
+          "preprocess": 2.6639,
+          "inference": 47.4106,
+          "postprocess": 0.2826
+        },
+        "mean_detections_per_image": 0.85
+      },
+      "accuracy": {
+        "map50": 0.722467,
+        "map50_95": 0.406682,
+        "mean_precision": 0.644011,
+        "mean_recall": 0.719463,
+        "per_class_ap50": {
+          "crazing": 0.449339,
+          "inclusion": 0.788318,
+          "patches": 0.89388,
+          "pitted_surface": 0.728511,
+          "rolled-in_scale": 0.59083,
+          "scratches": 0.883925
+        }
+      }
+    },
+    {
+      "id": "yolo26n-onnx-fp32-256",
+      "model": "yolo26n",
+      "backend": "ONNX Runtime",
+      "precision": "FP32",
+      "imgsz": 256,
+      "path": "D:\\Projects\\Python Projects\\EdgeLens\\artifacts\\onnx\\yolo26n_256_fp32.onnx",
+      "sweep": true,
+      "file": "yolo26n_256_fp32.onnx",
+      "size_bytes": 9668088,
+      "size_mb": 9.2202,
+      "load_seconds": 0.0,
+      "memory_mib": {
+        "baseline_rss": 502.53,
+        "after_model_load": 513.3,
+        "model_load_delta": 10.77,
+        "peak_after_latency": 606.42,
+        "peak_process": 728.94
+      },
+      "gpu_memory_mib": null,
+      "device": "cpu",
+      "latency": {
+        "runs": 200,
+        "warmup": 20,
+        "image_pool": 20,
+        "p50_ms": 5.1959,
+        "p90_ms": 5.3673,
+        "p95_ms": 5.4349,
+        "p99_ms": 5.6321,
+        "min_ms": 5.0617,
+        "max_ms": 6.2422,
+        "mean_ms": 5.2256,
+        "stdev_ms": 0.1259,
+        "throughput_fps_at_p50": 192.459,
+        "stage_mean_ms": {
+          "preprocess": 0.3964,
+          "inference": 4.3365,
+          "postprocess": 0.2596
+        },
+        "mean_detections_per_image": 0.15
+      },
+      "accuracy": {
+        "map50": 0.611507,
+        "map50_95": 0.312884,
+        "mean_precision": 0.615544,
+        "mean_recall": 0.56832,
+        "per_class_ap50": {
+          "crazing": 0.310709,
+          "inclusion": 0.626517,
+          "patches": 0.895004,
+          "pitted_surface": 0.61642,
+          "rolled-in_scale": 0.467117,
+          "scratches": 0.753274
+        }
+      }
+    },
+    {
+      "id": "yolo26n-onnx-fp32-320",
+      "model": "yolo26n",
+      "backend": "ONNX Runtime",
+      "precision": "FP32",
+      "imgsz": 320,
+      "path": "D:\\Projects\\Python Projects\\EdgeLens\\artifacts\\onnx\\yolo26n_320_fp32.onnx",
+      "sweep": true,
+      "file": "yolo26n_320_fp32.onnx",
+      "size_bytes": 9683212,
+      "size_mb": 9.2346,
+      "load_seconds": 0.0,
+      "memory_mib": {
+        "baseline_rss": 502.54,
+        "after_model_load": 513.6,
+        "model_load_delta": 11.06,
+        "peak_after_latency": 615.15,
+        "peak_process": 744.77
+      },
+      "gpu_memory_mib": null,
+      "device": "cpu",
+      "latency": {
+        "runs": 200,
+        "warmup": 20,
+        "image_pool": 20,
+        "p50_ms": 6.7687,
+        "p90_ms": 7.0113,
+        "p95_ms": 7.1195,
+        "p99_ms": 7.5977,
+        "min_ms": 6.5087,
+        "max_ms": 9.3367,
+        "mean_ms": 6.8269,
+        "stdev_ms": 0.2503,
+        "throughput_fps_at_p50": 147.739,
+        "stage_mean_ms": {
+          "preprocess": 0.5458,
+          "inference": 5.7572,
+          "postprocess": 0.2783
+        },
+        "mean_detections_per_image": 0.4
+      },
+      "accuracy": {
+        "map50": 0.698588,
+        "map50_95": 0.388822,
+        "mean_precision": 0.727524,
+        "mean_recall": 0.639752,
+        "per_class_ap50": {
+          "crazing": 0.361988,
+          "inclusion": 0.743543,
+          "patches": 0.92558,
+          "pitted_surface": 0.824751,
+          "rolled-in_scale": 0.516837,
+          "scratches": 0.818827
+        }
+      }
+    }
+  ]
+}

@@ -1,0 +1,184 @@
+{
+  "generated_utc": "2026-08-30T10:31:08Z",
+  "gpu": "NVIDIA GeForce RTX 4050 Laptop GPU",
+  "gpu_memory_gib": 6.0,
+  "torch": "2.13.0+cu130",
+  "backend": "PyTorch (both devices)",
+  "protocol": {
+    "runs": 200,
+    "warmup": 20,
+    "batch": 1,
+    "repeat": 3,
+    "conf": 0.25,
+    "iou": 0.7,
+    "max_det": 300,
+    "image_pool": 20,
+    "note": "3 interleaved rounds per device in one process, medians reported; torch.cuda.synchronize() before stopping the clock"
+  },
+  "head_to_head": [
+    {
+      "model": "yolov8n",
+      "imgsz": 640,
+      "cpu": {
+        "p50_ms": 33.3369,
+        "p95_ms": 36.4585,
+        "mean_ms": 33.2145,
+        "inference_ms": 30.3339,
+        "rounds": 3,
+        "p50_values": [
+          33.2675,
+          33.5621,
+          33.3369
+        ],
+        "p50_spread_pct": 0.88
+      },
+      "gpu": {
+        "p50_ms": 8.0703,
+        "p95_ms": 8.5743,
+        "mean_ms": 8.0245,
+        "inference_ms": 5.3664,
+        "rounds": 3,
+        "p50_values": [
+          8.0703,
+          8.1433,
+          8.0019
+        ],
+        "p50_spread_pct": 1.75
+      },
+      "speedup_p50": 4.1222,
+      "speedup_p50_range": [
+        4.1214,
+        4.1661
+      ],
+      "speedup_inference": 5.6526
+    },
+    {
+      "model": "yolo26n",
+      "imgsz": 640,
+      "cpu": {
+        "p50_ms": 35.0312,
+        "p95_ms": 38.7743,
+        "mean_ms": 35.3108,
+        "inference_ms": 32.6837,
+        "rounds": 3,
+        "p50_values": [
+          35.0312,
+          34.7193,
+          36.2514
+        ],
+        "p50_spread_pct": 4.37
+      },
+      "gpu": {
+        "p50_ms": 10.2941,
+        "p95_ms": 10.996,
+        "mean_ms": 10.3516,
+        "inference_ms": 8.1745,
+        "rounds": 3,
+        "p50_values": [
+          10.2941,
+          10.1604,
+          11.0352
+        ],
+        "p50_spread_pct": 8.5
+      },
+      "speedup_p50": 3.403,
+      "speedup_p50_range": [
+        3.2851,
+        3.4171
+      ],
+      "speedup_inference": 3.9983
+    }
+  ],
+  "sweep": [
+    {
+      "model": "yolo26n",
+      "imgsz": 256,
+      "cpu": {
+        "p50_ms": 13.3843,
+        "p95_ms": 15.1112,
+        "mean_ms": 13.4341,
+        "inference_ms": 12.653,
+        "rounds": 3,
+        "p50_values": [
+          13.4581,
+          12.9456,
+          13.3843
+        ],
+        "p50_spread_pct": 3.83
+      },
+      "gpu": {
+        "p50_ms": 9.5022,
+        "p95_ms": 10.1832,
+        "mean_ms": 9.6122,
+        "inference_ms": 8.7129,
+        "rounds": 3,
+        "p50_values": [
+          9.4823,
+          9.5022,
+          9.5755
+        ],
+        "p50_spread_pct": 0.98
+      }
+    },
+    {
+      "model": "yolo26n",
+      "imgsz": 320,
+      "cpu": {
+        "p50_ms": 15.5392,
+        "p95_ms": 18.1229,
+        "mean_ms": 15.9087,
+        "inference_ms": 15.08,
+        "rounds": 3,
+        "p50_values": [
+          17.1359,
+          15.3738,
+          15.5392
+        ],
+        "p50_spread_pct": 11.34
+      },
+      "gpu": {
+        "p50_ms": 9.0122,
+        "p95_ms": 9.6334,
+        "mean_ms": 9.0623,
+        "inference_ms": 8.2205,
+        "rounds": 3,
+        "p50_values": [
+          9.4521,
+          9.0122,
+          8.7334
+        ],
+        "p50_spread_pct": 7.97
+      }
+    },
+    {
+      "model": "yolo26n",
+      "imgsz": 640,
+      "cpu": {
+        "p50_ms": 34.8976,
+        "p95_ms": 37.8743,
+        "mean_ms": 35.0897,
+        "inference_ms": 32.3512,
+        "rounds": 3,
+        "p50_values": [
+          35.1602,
+          34.8976,
+          34.8592
+        ],
+        "p50_spread_pct": 0.86
+      },
+      "gpu": {
+        "p50_ms": 10.4182,
+        "p95_ms": 11.2869,
+        "mean_ms": 10.5313,
+        "inference_ms": 8.0966,
+        "rounds": 3,
+        "p50_values": [
+          10.4522,
+          10.3774,
+          10.4182
+        ],
+        "p50_spread_pct": 0.72
+      }
+    }
+  ]
+}
