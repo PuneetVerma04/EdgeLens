@@ -318,11 +318,14 @@ def _physical_nvidia_gpus():
             return names
         finally:
             pynvml.nvmlShutdown()
-    except Exception:
-        pass
+    except Exception as exc:
+        # Falls through to the nvidia-smi probe below. Reported rather than silent so a
+        # broken pynvml is distinguishable from a machine with no NVIDIA driver at all.
+        print(f"note: pynvml GPU probe unavailable ({type(exc).__name__}: {exc}); "
+              f"falling back to nvidia-smi")
     try:
         out = subprocess.run(["nvidia-smi", "--query-gpu=name", "--format=csv,noheader"],
-                             capture_output=True, text=True, timeout=15)
+                             capture_output=True, text=True, timeout=15, check=False)
         if out.returncode == 0:
             return [line.strip() for line in out.stdout.splitlines() if line.strip()]
     except (OSError, subprocess.SubprocessError):
@@ -355,7 +358,10 @@ def environment_info() -> dict:
         memory = psutil.virtual_memory()
         info["host_ram_gib"] = round(memory.total / 1024 ** 3, 2)
         info["host_ram_available_gib"] = round(memory.available / 1024 ** 3, 2)
-    except Exception:
+    except Exception as exc:
+        # Only costs the low-memory pre-flight warning, so it must not abort a run.
+        print(f"note: could not read host memory ({type(exc).__name__}: {exc}); "
+              f"the dataloader-worker memory check will be skipped")
         info["host_ram_gib"] = info["host_ram_available_gib"] = None
     # Ultralytics silently adds an extra augmentation pipeline when albumentations is
     # importable. Two machines with different extras installed therefore train differently
@@ -503,7 +509,8 @@ def _git_state(repo_root: Path) -> dict:
     def run(*args):
         try:
             out = subprocess.run(
-                args, cwd=str(repo_root), capture_output=True, text=True, timeout=15
+                args, cwd=str(repo_root), capture_output=True, text=True, timeout=15,
+                check=False,   # a non-git directory is expected, not an error
             )
             return out.stdout.strip() if out.returncode == 0 else None
         except (OSError, subprocess.SubprocessError):

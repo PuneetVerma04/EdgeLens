@@ -54,6 +54,11 @@ except ImportError:  # pragma: no cover - dependency guard
 # a sloppy localisation. Used only to label FPs in the report, never in the metrics.
 BACKGROUND_IOU = 0.1
 
+# Repository root on sys.path so the shared helpers resolve when this script is run
+# directly from any working directory.
+sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
+from common.metrics import iou_matrix
+
 # BGR-free RGB palette, one colour per class id, plus roles.
 CLASS_COLORS = [
     (232, 106, 51), (60, 160, 220), (120, 200, 100),
@@ -234,19 +239,6 @@ def write_confusion_matrix(results, class_names, out_dir: Path):
 # --------------------------------------------------------------------------------------
 # STEP 4 - Error analysis at one operating point
 # --------------------------------------------------------------------------------------
-
-def iou_matrix(a: np.ndarray, b: np.ndarray) -> np.ndarray:
-    """Pairwise IoU between two sets of xyxy boxes. Returns shape (len(a), len(b))."""
-    if len(a) == 0 or len(b) == 0:
-        return np.zeros((len(a), len(b)), dtype=np.float32)
-    lt = np.maximum(a[:, None, :2], b[None, :, :2])
-    rb = np.minimum(a[:, None, 2:], b[None, :, 2:])
-    wh = np.clip(rb - lt, 0, None)
-    inter = wh[..., 0] * wh[..., 1]
-    area_a = np.clip(a[:, 2] - a[:, 0], 0, None) * np.clip(a[:, 3] - a[:, 1], 0, None)
-    area_b = np.clip(b[:, 2] - b[:, 0], 0, None) * np.clip(b[:, 3] - b[:, 1], 0, None)
-    union = area_a[:, None] + area_b[None, :] - inter
-    return np.where(union > 0, inter / np.maximum(union, 1e-12), 0.0).astype(np.float32)
 
 def load_ground_truth(label_path: Path, width: int, height: int):
     """Read a YOLO label file into (xyxy pixel boxes, class ids)."""
@@ -651,8 +643,8 @@ def main(argv=None):
     out_dir = args.out or (args.weights.parent.parent / ("eval_" + args.split))
     out_dir.mkdir(parents=True, exist_ok=True)
 
-    from ultralytics import YOLO
     import ultralytics
+    from ultralytics import YOLO
 
     print("=" * 78)
     print("EVALUATING %s" % args.weights)
