@@ -1,0 +1,336 @@
+{
+  "model": "yolo26n_int8.onnx",
+  "imgsz": 640,
+  "conf": 0.25,
+  "class_names": [
+    "crazing",
+    "inclusion",
+    "patches",
+    "pitted_surface",
+    "rolled-in_scale",
+    "scratches"
+  ],
+  "note": "Boxes are xyxy in ORIGINAL image pixels, produced by onnxruntime on CPU via web-demo/verify_parity.py. The browser compares against this.",
+  "images": {
+    "cast_def_0_127.jpeg": {
+      "width": 512,
+      "height": 512,
+      "letterbox": {
+        "r": 1.25,
+        "new_w": 640,
+        "new_h": 640,
+        "left": 0,
+        "top": 0,
+        "right": 0,
+        "bottom": 0
+      },
+      "detections": [
+        {
+          "class_id": 2,
+          "confidence": 0.641221,
+          "box": [
+            157.639,
+            123.263,
+            372.648,
+            370.45
+          ]
+        }
+      ]
+    },
+    "cast_def_0_240.jpeg": {
+      "width": 512,
+      "height": 512,
+      "letterbox": {
+        "r": 1.25,
+        "new_w": 640,
+        "new_h": 640,
+        "left": 0,
+        "top": 0,
+        "right": 0,
+        "bottom": 0
+      },
+      "detections": [
+        {
+          "class_id": 5,
+          "confidence": 0.761575,
+          "box": [
+            130.583,
+            396.072,
+            390.935,
+            445.802
+          ]
+        },
+        {
+          "class_id": 2,
+          "confidence": 0.704954,
+          "box": [
+            138.624,
+            139.352,
+            377.036,
+            355.824
+          ]
+        }
+      ]
+    },
+    "cast_ok_0_119.jpeg": {
+      "width": 512,
+      "height": 512,
+      "letterbox": {
+        "r": 1.25,
+        "new_w": 640,
+        "new_h": 640,
+        "left": 0,
+        "top": 0,
+        "right": 0,
+        "bottom": 0
+      },
+      "detections": [
+        {
+          "class_id": 2,
+          "confidence": 0.572078,
+          "box": [
+            148.863,
+            151.053,
+            372.648,
+            355.824
+          ]
+        }
+      ]
+    },
+    "patches_155.jpg": {
+      "width": 200,
+      "height": 200,
+      "letterbox": {
+        "r": 3.2,
+        "new_w": 640,
+        "new_h": 640,
+        "left": 0,
+        "top": 0,
+        "right": 0,
+        "bottom": 0
+      },
+      "detections": [
+        {
+          "class_id": 2,
+          "confidence": 0.910737,
+          "box": [
+            129.005,
+            0.435,
+            199.852,
+            98.135
+          ]
+        },
+        {
+          "class_id": 2,
+          "confidence": 0.884151,
+          "box": [
+            0.719,
+            0.0,
+            63.567,
+            155.844
+          ]
+        },
+        {
+          "class_id": 1,
+          "confidence": 0.850941,
+          "box": [
+            73.005,
+            45.577,
+            127.283,
+            115.281
+          ]
+        },
+        {
+          "class_id": 2,
+          "confidence": 0.761575,
+          "box": [
+            131.003,
+            136.433,
+            175.569,
+            199.281
+          ]
+        },
+        {
+          "class_id": 2,
+          "confidence": 0.43394,
+          "box": [
+            64.123,
+            0.0,
+            113.339,
+            20.802
+          ]
+        },
+        {
+          "class_id": 1,
+          "confidence": 0.310585,
+          "box": [
+            154.198,
+            109.764,
+            182.132,
+            142.132
+          ]
+        },
+        {
+          "class_id": 2,
+          "confidence": 0.256702,
+          "box": [
+            65.331,
+            0.085,
+            109.669,
+            22.255
+          ]
+        }
+      ]
+    },
+    "pitted_surface_237.jpg": {
+      "width": 200,
+      "height": 200,
+      "letterbox": {
+        "r": 3.2,
+        "new_w": 640,
+        "new_h": 640,
+        "left": 0,
+        "top": 0,
+        "right": 0,
+        "bottom": 0
+      },
+      "detections": [
+        {
+          "class_id": 2,
+          "confidence": 0.9345,
+          "box": [
+            9.764,
+            0.208,
+            47.009,
+            28.141
+          ]
+        },
+        {
+          "class_id": 3,
+          "confidence": 0.641221,
+          "box": [
+            161.575,
+            2.726,
+            198.712,
+            197.555
+          ]
+        },
+        {
+          "class_id": 2,
+          "confidence": 0.629854,
+          "box": [
+            25.529,
+            114.0,
+            54.792,
+            150.358
+          ]
+        },
+        {
+          "class_id": 3,
+          "confidence": 0.5,
+          "box": [
+            55.296,
+            4.727,
+            175.279,
+            194.986
+          ]
+        }
+      ]
+    },
+    "scratches_141.jpg": {
+      "width": 200,
+      "height": 200,
+      "letterbox": {
+        "r": 3.2,
+        "new_w": 640,
+        "new_h": 640,
+        "left": 0,
+        "top": 0,
+        "right": 0,
+        "bottom": 0
+      },
+      "detections": [
+        {
+          "class_id": 5,
+          "confidence": 0.910737,
+          "box": [
+            133.86,
+            1.296,
+            173.854,
+            199.554
+          ]
+        },
+        {
+          "class_id": 1,
+          "confidence": 0.761575,
+          "box": [
+            19.574,
+            63.86,
+            47.57,
+            111.853
+          ]
+        },
+        {
+          "class_id": 1,
+          "confidence": 0.572078,
+          "box": [
+            64.716,
+            44.147,
+            84.142,
+            116.708
+          ]
+        },
+        {
+          "class_id": 1,
+          "confidence": 0.5,
+          "box": [
+            24.642,
+            64.0,
+            49.028,
+            109.226
+          ]
+        },
+        {
+          "class_id": 1,
+          "confidence": 0.43394,
+          "box": [
+            37.745,
+            0.331,
+            51.047,
+            49.103
+          ]
+        },
+        {
+          "class_id": 1,
+          "confidence": 0.370146,
+          "box": [
+            98.189,
+            12.991,
+            110.16,
+            50.679
+          ]
+        },
+        {
+          "class_id": 1,
+          "confidence": 0.358779,
+          "box": [
+            54.144,
+            8.431,
+            76.998,
+            54.71
+          ]
+        },
+        {
+          "class_id": 1,
+          "confidence": 0.256702,
+          "box": [
+            63.51,
+            106.859,
+            71.934,
+            126.368
+          ]
+        }
+      ]
+    }
+  }
+}
