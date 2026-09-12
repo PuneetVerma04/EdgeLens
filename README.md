@@ -1,6 +1,12 @@
 # EdgeLens - Industrial Defect Detection System
 
 [![tests](https://github.com/PuneetVerma04/EdgeLens/actions/workflows/tests.yml/badge.svg)](https://github.com/PuneetVerma04/EdgeLens/actions/workflows/tests.yml)
+[![live demo](https://img.shields.io/badge/live%20demo-run%20it%20in%20your%20browser-5ad2c8)](https://puneetverma04.github.io/EdgeLens/web-demo/)
+
+**▶ [Try the detector in your browser](https://puneetverma04.github.io/EdgeLens/web-demo/)** — the
+INT8 YOLO26-nano runs entirely client-side with onnxruntime-web. No upload, no server; drop an
+image and get boxes in ~300–600 ms. See [`web-demo/`](web-demo/) for how it works and how its
+output was verified against the Python pipeline.
 
 Training now lives in this repo, under [`training/`](training/). The former [DefectDetectionEdgeLens](https://github.com/PuneetVerma04/DefectDetectionEdgeLens) repo is **archived** — its contents were moved to [`training/legacy/`](training/legacy/) as project history and are not the current pipeline.
 
